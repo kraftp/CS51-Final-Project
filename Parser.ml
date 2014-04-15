@@ -8,3 +8,4 @@ open Nfa
 (*IMPLEMENT A PARSER HERE*)
  
  
+ 
