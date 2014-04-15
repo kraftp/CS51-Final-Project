@@ -6,6 +6,7 @@ open Core.Std
 open Nfa
 open Parser*)
  
+ 
 (*IMPLEMENT I/O HERE HERE*)
  
  
