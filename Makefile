@@ -1,7 +1,10 @@
-all: modules ps4
-	corebuild parser.native
-	corebuild emulator.native
-	corebuild nfa.native
+SOURCES = \
+Parser.ml \
+Emulator.ml \
+Nfa.ml 
+
+all: $(SOURCES)
+	corebuild -quiet Regex.native
 
 clean:
-	rm -rf _build *.native
+	rm -rf _build *.native *.out
