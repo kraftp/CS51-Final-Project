@@ -2,8 +2,6 @@
 (*** PETER KRAFT LILLY SHEN KIMBERLEY YU KAT ZHOU***)
  
 open Core.Std
-open Nfa
-open Parser
  
 (*IMPLEMENT AN NFA EMULATOR HERE*)
  

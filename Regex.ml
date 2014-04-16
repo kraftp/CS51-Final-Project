@@ -2,9 +2,9 @@
 (*** PETER KRAFT LILLY SHEN KIMBERLEY YU KAT ZHOU***)
  
 open Core.Std
-(*open Emulator
+open Emulator
 open Nfa
-open Parser*)
+open Parser
  
  
 (*IMPLEMENT I/O HERE HERE*)
