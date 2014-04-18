@@ -7,6 +7,6 @@ open Nfa
 open Parser
  
  
-(*IMPLEMENT I/O HERE HERE*)
+(*IMPLEMENT I/O HERE*)
  
- 
+ Printf.printf "Eventually\n"
