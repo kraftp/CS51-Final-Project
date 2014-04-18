@@ -4,5 +4,3 @@
 open Core.Std
  
 (*BUILD AND NFA HERE*)
- 
- 
