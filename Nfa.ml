@@ -13,7 +13,7 @@ sig
     
     type nfa
     
-    val tonfa : Parse.pt -> nfa
+    val to_nfa : Parse.pt -> nfa
     
     
 end
@@ -39,7 +39,6 @@ struct
         | Star (_, ptr2) -> if !ptr2 = Empty then [ptr2] else lptr !ptr2 
     
     
-        
-    let tonfa (parse : Parse.pt) : nfa = Empty    
+    let to_nfa (parse : Parse.pt) : nfa = Empty    
 
 end
