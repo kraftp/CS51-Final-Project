@@ -4,18 +4,32 @@
 open Core.Std
  
 (*IMPLEMENT A PARSER HERE*)
+
+module Tree =
+struct
+    type tree = (*parse tree*)
+         Empty 
+        |Single of char
+        |Paren  of tree (*Parenthesis*)
+        |Cat    of tree * tree (*Concatenation*)
+        |Or     of tree * tree 
+        |Star   of tree (*Kleene Star/Closure*)
+        
+end
+
+
  
 module type PARSER =
 sig
     exception NotRecognized
     exception TODO
     
-    type pt
+    type pt = Tree.tree
     
-    val parse : string -> pt
-    
+    val parse : string -> pt   
     
 end
+
 
 
 module Parse : PARSER =
@@ -24,15 +38,8 @@ struct
     exception NotRecognized
     exception TODO
 
-    type pt = (*parse tree*)
-         Empty 
-        |Single of char
-        |Paren  of pt (*Parenthesis*)
-        |Cat    of pt * pt (*Concatenation*)
-        |Or     of pt * pt 
-        |Star   of pt (*Kleene Star/Closure*)
-        
-        
+    type pt = Tree.tree
+              
     let parse (str : string) : pt = raise TODO    
 
 end
