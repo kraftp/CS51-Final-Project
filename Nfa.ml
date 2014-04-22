@@ -37,8 +37,7 @@ struct
         | Single(_, ptr) -> if !ptr = Empty then [ptr] else lptr !ptr 
         | Or(ptr1, ptr2) -> (lptr !ptr1)@(lptr !ptr2)
         | Star (_, ptr2) -> if !ptr2 = Empty then [ptr2] else lptr !ptr2 
-    
-    
+     
         
     let tonfa (parse : Parse.pt) : nfa = Empty    
 
