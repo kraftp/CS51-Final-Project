@@ -49,7 +49,17 @@ struct
             if i< 0 then l else exp (i-1) (s.[i] :: l) in
         exp (String.length s - 1)[];;
     
-    (*let rec tokenizer (c : char list) : token list*)
+    let rec tokenizer (clist : char list) : token list =
+        match clist with
+        | [] -> []    
+        | hd::tl -> 
+            match hd with
+            | '(' -> Oper('(')::(tokenizer tl)
+            | ')' -> Oper(')')::(tokenizer tl)
+            | '|' -> Oper('|')::(tokenizer tl)
+            | '*' -> Oper('*')::(tokenizer tl)
+            (*IN THE FUTURE ESCAPE SEQUENCES*)
+            | _   -> Char(hd)::(tokenizer tl)
               
     let parse (str : string) : pt = raise TODO    
 
