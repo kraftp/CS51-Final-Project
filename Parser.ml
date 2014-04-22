@@ -42,7 +42,14 @@ struct
     
     type token = Oper of char | Char of char
     
-    let tokenizer (str : string) : token list
+    (* taken from caml.inria.fr/mantis/view.php?id=5367 
+       to convert strings to list of characters *)
+    let explode s =
+        let rec exp i l = 
+            if i< 0 then l else exp (i-1) (s.[i] :: l) in
+        exp (String.length s - 1)[];;
+    
+    (*let rec tokenizer (c : char list) : token list*)
               
     let parse (str : string) : pt = raise TODO    
 
