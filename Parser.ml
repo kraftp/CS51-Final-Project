@@ -39,6 +39,10 @@ struct
     exception TODO
 
     type pt = Tree.tree
+    
+    type token = Oper of char | Char of char
+    
+    let tokenizer (str : string) : token list
               
     let parse (str : string) : pt = raise TODO    
 
