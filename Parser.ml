@@ -63,6 +63,7 @@ struct
         | hd::tl -> 
             match hd with
             | Oper('|') -> let (listret, treeret) = orfun tl in (listret, Or(nptree, treeret))
+	    | Oper(')') -> (tl, nptree)
             | _ -> (ntlist, nptree)   
    
    
