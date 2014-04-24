@@ -17,8 +17,6 @@ struct
         
 end
 
-
- 
 module type PARSER =
 sig
     exception NotRecognized
@@ -29,8 +27,6 @@ sig
     val parse : string -> pt   
     
 end
-
-
 
 module Parse : PARSER =
 struct
