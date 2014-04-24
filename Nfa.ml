@@ -46,7 +46,6 @@ struct
         match parse with
         | Empty       -> failwith "Trees aren't empty.  They have leaves."
         | Single(c)   -> Single(c, ref Empty)
-        | Paren(re)   -> to_nfa re
         | Cat(re1, re2) -> let ret = (to_nfa re1) in List.iter
                  ~f:(fun x -> x := (to_nfa re2)) (lptr ret); ret 
         | Or(re1, re2)  -> Or(ref (to_nfa re1), ref (to_nfa re2))
