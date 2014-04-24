@@ -93,10 +93,6 @@ struct
          
          
          
-         
-         
-    let rec funfun () : unit =
-        Printf.printf "I'm so meta, even this acronym"     
               
     let parse (str : string) : pt = raise TODO    
 
