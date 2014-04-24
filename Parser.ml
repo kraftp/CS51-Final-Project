@@ -57,28 +57,37 @@ struct
             | _   -> Char(hd)::(tokenizer tl)
          
     let rec orfun (tlist : token list) : token list * pt =
-        let (ntlist, nptree) = starfun tlist in
-        match ntlist with
-        | [] -> ([], nptree)
-                  
-    and starfun (tlist : token list)  : token list * pt = 
         let (ntlist, nptree) = catfun tlist in
         match ntlist with
-        | [] -> ([], nptree) (*COME BACK TO THIS LATER*)
+        | [] -> ([], nptree)
         | hd::tl -> 
             match hd with
-            | Oper(')')|Oper('|')  -> (ntlist, nptree) (*some of this is wrong.  not sure what*)
-            | Oper('*') -> (ntlist, Star(nptree))
-            | _ -> (ntlist, nptree)         
-              
+            | Oper('|') -> let (listret, treeret) = orfun tl in (listret, Or(nptree, treeret))
+            | _ -> (ntlist, nptree)   
+   
+   
+            
     and catfun (tlist : token list)  : token list * pt = (*kat having fun*)
-        let (ntlist, nptree) = pfun tlist in      
+        let (ntlist, nptree) = starfun tlist in      
         match ntlist with
         | [] -> ([], nptree) (*COME BACK TO THIS LATER*)
         | hd::tl -> 
             match hd with
-            | Oper(')')|Oper('|')|Oper('*')  -> (ntlist, nptree) (*some of this is wrong.  not sure what*)
-            | _ -> let (listret, treeret) = pfun ntlist in (listret, Cat(nptree, treeret))
+            |Oper('|')|Oper(')')   -> (ntlist, nptree) (*some of this is wrong.  not sure what*)
+            | _ -> let (listret, treeret) = catfun ntlist in (listret, Cat(nptree, treeret))           
+       
+       
+                              
+    and starfun (tlist : token list)  : token list * pt = 
+        let (ntlist, nptree) = pfun tlist in
+        match ntlist with
+        | [] -> ([], nptree) (*COME BACK TO THIS LATER*)
+        | hd::tl -> 
+            match hd with
+            | Oper('*') -> (tl, Star(nptree))
+            | _ -> (ntlist, nptree)         
+              
+
          
     and pfun (tlist : token list) : token list * pt =
          match tlist with
@@ -87,8 +96,12 @@ struct
              match hd with
              | Char(a) -> (tl, Single(a))
              | Oper('(') -> orfun tl
+             | Oper(')') -> pfun tl
+             | _ -> failwith "uh oh"
             
-    let parse (str : string) : pt = raise TODO    
+    let parse (str : string) : pt = 
+        let input = tokenizer (explode str) in
+        let (_, answer) = orfun input in answer
 end
 
 
