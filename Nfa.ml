@@ -44,7 +44,7 @@ struct
     
     let rec to_nfa (parse : Parse.pt) : nfa = 
         match parse with
-        | Empty       -> failwith "Trees aren't empty.  They have leaves."
+        | Empty       -> Empty
         | Single(c)   -> Single(c, ref Empty)
         | Cat(re1, re2) -> let ret = (to_nfa re1) in List.iter
                  ~f:(fun x -> x := (to_nfa re2)) (lptr ret); ret 
