@@ -56,6 +56,13 @@ struct
             (*IN THE FUTURE ESCAPE SEQUENCES*)
             | _   -> Char(hd)::(tokenizer tl)
          
+    let checker (tlist: token list) : bool =
+        match tlist with
+	| [] -> false
+	| hd::tl -> match hd with
+		    | Char(_) -> true
+		    | Oper(_) -> checker tl
+
     let rec orfun (tlist : token list) : token list * pt =
         let (ntlist, nptree) = catfun tlist in
         match ntlist with
@@ -65,44 +72,38 @@ struct
             | Oper('|') -> let (listret, treeret) = orfun tl in (listret, Or(nptree, treeret))
 	    | Oper(')') -> (tl, nptree)
             | _ -> (ntlist, nptree)   
-   
-   
             
-    and catfun (tlist : token list)  : token list * pt = (*kat having fun*)
+    and catfun (tlist : token list)  : token list * pt = 
         let (ntlist, nptree) = starfun tlist in      
         match ntlist with
-        | [] -> ([], nptree) (*COME BACK TO THIS LATER*)
+        | [] -> ([], nptree)
         | hd::tl -> 
             match hd with
-            |Oper('|')|Oper(')')   -> (ntlist, nptree) (*some of this is wrong.  not sure what*)
-            | _ -> let (listret, treeret) = catfun ntlist in (listret, Cat(nptree, treeret))           
-       
-       
+            |Oper('|')|Oper(')')   -> (ntlist, nptree) 
+            | _ -> let (listret, treeret) = catfun ntlist in (listret, Cat(nptree, treeret))               
                               
     and starfun (tlist : token list)  : token list * pt = 
         let (ntlist, nptree) = pfun tlist in
         match ntlist with
-        | [] -> ([], nptree) (*COME BACK TO THIS LATER*)
+        | [] -> ([], nptree) 
         | hd::tl -> 
             match hd with
             | Oper('*') -> (tl, Star(nptree))
             | _ -> (ntlist, nptree)         
-              
-
          
     and pfun (tlist : token list) : token list * pt =
          match tlist with
-         | [] -> failwith "hope not" (*PROBABLY WRONG*)
+         | [] -> failwith "Invalid Regular Expression (pfun 1)"
          | hd::tl -> 
              match hd with
              | Char(a) -> (tl, Single(a))
              | Oper('(') -> orfun tl
              | Oper(')') -> pfun tl
-             | _ -> failwith "uh oh"
+             | _ -> failwith "Invalid Regular Expression (pfun 2)"
             
     let parse (str : string) : pt = 
         let input = tokenizer (explode str) in
-        let (_, answer) = orfun input in answer
+	if checker then let (_, answer) = orfun input in answer else None
 end
 
 
