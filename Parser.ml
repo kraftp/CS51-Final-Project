@@ -10,7 +10,6 @@ struct
     type tree = (*parse tree*)
          Empty 
         |Single of char
-        |Paren  of tree (*Parenthesis*)
         |Cat    of tree * tree (*Concatenation*)
         |Or     of tree * tree 
         |Star   of tree (*Kleene Star/Closure*)
@@ -60,8 +59,54 @@ struct
             | '*' -> Oper('*')::(tokenizer tl)
             (*IN THE FUTURE ESCAPE SEQUENCES*)
             | _   -> Char(hd)::(tokenizer tl)
+         
+    let rec orfun (tlist : token list) : token list * pt =
+        let (ntlist, nptree) = starfun tlist in
+        match ntlist with
+        | [] -> ([], nptree)
+         
+         
+    and starfun (tlist : token list)  : token list * pt = 
+        let (ntlist, nptree) = catfun tlist in
+        match ntlist with
+        |[] -> ([], nptree) (*COME BACK TO THIS LATER*)
+        |hd::tl -> 
+            match hd with
+            |Oper(')')|Oper('|')  -> (ntlist, nptree) (*some of this is wrong.  not sure what*)
+            |Oper('*') -> (ntlist, Star(nptree))
+            | _ -> (ntlist, nptree)    
+         
+              
+    and catfun (tlist : token list)  : token list * pt = (*kat having fun*)
+        let (ntlist, nptree) = pfun tlist in      
+        match ntlist with
+        |[] -> ([], nptree) (*COME BACK TO THIS LATER*)
+        |hd::tl -> 
+            match hd with
+            |Oper(')')|Oper('|')|Oper('*')  -> (ntlist, nptree) (*some of this is wrong.  not sure what*)
+            | _ -> let (listret, treeret) = pfun ntlist in (listret, Cat(nptree, treeret))
+         
+    and pfun (tlist : token list) : token list * pt =
+         match tlist with
+         | [] -> failwith "hope not" (*PROBABLY WRONG*)
+         | hd::tl -> 
+             match hd with
+             | Char(a) -> (tl, Single(a))
+             | Oper('(') -> orfun tl
+         
+         
+         
+         
+         
+         
+    let rec funfun () : unit =
+        Printf.printf "I'm so meta, even this acronym"     
               
     let parse (str : string) : pt = raise TODO    
+
+
+
+
 
 end
 
