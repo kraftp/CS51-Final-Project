@@ -56,7 +56,7 @@ struct
             (*IN THE FUTURE ESCAPE SEQUENCES*)
             | _   -> Char(hd)::(tokenizer tl)
          
-    let checker (tlist: token list) : bool =
+    let rec checker (tlist: token list) : bool =
         match tlist with
 	| [] -> false
 	| hd::tl -> match hd with
@@ -98,12 +98,11 @@ struct
              match hd with
              | Char(a) -> (tl, Single(a))
              | Oper('(') -> orfun tl
-             | Oper(')') -> pfun tl
              | _ -> failwith "Invalid Regular Expression (pfun 2)"
             
     let parse (str : string) : pt = 
         let input = tokenizer (explode str) in
-	if checker then let (_, answer) = orfun input in answer else None
+	if checker input then let (_, answer) = orfun input in answer else Empty
 end
 
 
