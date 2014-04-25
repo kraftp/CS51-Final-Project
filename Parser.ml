@@ -56,12 +56,54 @@ struct
             (*IN THE FUTURE ESCAPE SEQUENCES*)
             | _   -> Char(hd)::(tokenizer tl)
          
-    let rec checker (tlist: token list) : bool =
+    let rec checkchar (tlist: token list) : bool =
         match tlist with
-	| [] -> false
+	| [] -> Printf.printf "Error: Regex Contains No Characters\n"; false
 	| hd::tl -> match hd with
 		    | Char(_) -> true
-		    | Oper(_) -> checker tl
+		    | Oper(_) -> checkchar tl
+		    
+    let checkparen (tlist : token list) : bool =
+      let rec cpaux (plist : int list) = function
+        |[] -> (match plist with
+            |[] -> true
+            |_  -> Printf.printf "Error:  Mismatched Parentheses\n"; false)
+        |hd::tl -> match hd with
+                | Oper('(') -> cpaux (0::plist) tl
+                | Oper(')') -> (match plist with
+                            | [] -> Printf.printf "Error:  Unbalanced Parentheses\n"; false
+                            | _::tlp -> cpaux tlp tl)
+                | _  -> cpaux plist tl in cpaux [] tlist
+
+    let rec checkdbl (tlist : token list) : bool = 
+      match tlist with
+      |[]|[_] -> true
+      |hd1::hd2::tl -> 
+	 match hd1 with
+        |Oper('(') ->
+           (match hd2 with
+	    |Oper(')')|Oper('|')|Oper('*') ->
+	      Printf.printf "Error:  Regex Contains Invalid Operator after '('\n"; false
+	    | _ -> checkdbl (hd2::tl))
+	|Oper('*') ->
+	   (match hd2 with
+	    |Oper('*') -> 
+	      Printf.printf "Error:  Regex Contains Invalid Operator after '*'\n"; false
+	    | _ -> checkdbl (hd2::tl))
+	|Oper('|') ->
+	    (match hd2 with
+	       |Oper(')')|Oper('|')|Oper('*') ->
+	      Printf.printf "Error:  Regex Contains Invalid Operator after '|'\n"; false
+	     |_ -> checkdbl (hd2::tl))
+	| _ -> checkdbl (hd2::tl)
+
+    let checkfirst (tlist : token list) : bool =
+      match tlist with 
+      |[] -> Printf.printf "Error:  Empty Regex\n"; false
+      |hd::_ -> match hd with
+	    |Oper('*')|Oper(')')|Oper('|') ->
+         	Printf.printf "Error:  Regex Begins with Invalid Operator\n"; false
+	    |_ -> true
 
     let rec orfun (tlist : token list) : token list * pt =
         let (ntlist, nptree) = catfun tlist in
@@ -80,7 +122,7 @@ struct
         | hd::tl -> 
             match hd with
             |Oper('|')|Oper(')')   -> (ntlist, nptree) 
-            | _ -> let (listret, treeret) = catfun ntlist in (listret, Cat(nptree, treeret))               
+            | _ -> let (listret, treeret) = catfun ntlist in (listret, Cat(nptree, treeret))              
                               
     and starfun (tlist : token list)  : token list * pt = 
         let (ntlist, nptree) = pfun tlist in
@@ -102,7 +144,8 @@ struct
             
     let parse (str : string) : pt = 
         let input = tokenizer (explode str) in
-	if checker input then let (_, answer) = orfun input in answer else Empty
+	if checkfirst input && checkchar input && checkdbl input && checkparen input
+	then let (_, answer) = orfun input in answer else Empty
 end
 
 
