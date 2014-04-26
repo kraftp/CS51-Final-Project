@@ -15,7 +15,7 @@ sig
     
     val to_nfa : Parse.pt -> nfa
     
-    
+    val makedot : Parse.pt -> nfa
 end
 
 
@@ -52,6 +52,60 @@ struct
         | Star(re)      -> let ret = (to_nfa re) in List.iter
                  ~f:(fun x -> x := (Star(ref ret, ref Empty))) (lptr ret); ret 
     
+    let rec stardot (graph : nfa) (x : int ref) (st : int) (nstar : nfa) : unit =
+    match graph with
+    |Empty -> failwith "should catch earlier"
+    |Single (a, ptr) -> if phys_equal !ptr nstar then
+                        (Printf.printf "%d -> %d;\n" !x st;
+                        Printf.printf "%d [label=\"%c\"];\n" !x a;
+                        x:=!x+1;)
+                        else 
+                        (Printf.printf "%d -> %d;\n" !x (!x+1);
+                        Printf.printf "%d [label=\"%c\"];\n" !x a;
+                        x:=!x+1; stardot !ptr x st nstar)
+    |Star (ptr1, ptr2) -> let orig = !x in
+                         if phys_equal !ptr2 nstar then
+                         (Printf.printf "%d -> %d;\n" !x st;
+                         Printf.printf "%d [label=\"*\"];\n" !x;
+                         x:=!x+1; stardot !ptr1 x orig graph )
+                        else 
+                        (Printf.printf "%d -> %d;\n" !x (!x+1);
+                        Printf.printf "%d [label=\"*\"];\n" !x;
+                        x:=!x+1; stardot !ptr1 x orig graph;
+                        Printf.printf "%d -> %d;\n" orig (!x);
+                        stardot !ptr2 x st nstar;)   
+    |Or (ptr1, ptr2) ->  let orig = !x in                
+                        (Printf.printf "%d -> %d;\n" !x (!x+1);
+                        Printf.printf "%d [label=\"|\"];\n" !x;
+                        x:=!x+1; stardot !ptr1 x st nstar;
+                        Printf.printf "%d -> %d;\n" orig (!x);
+                        stardot !ptr2 x st nstar;)  
+    
+    
+    let rec dotter (graph : nfa) (x : int ref) : unit = 
+    match graph with
+    |Empty -> Printf.printf "%d [label=\"ACCEPT\"];\n" !x;
+    |Single (a, ptr) -> 
+                        (Printf.printf "%d -> %d;\n" !x (!x+1);
+                        Printf.printf "%d [label=\"%c\"];\n" !x a;
+                        x:=!x+1; dotter !ptr x)
+    |Star (ptr1, ptr2) -> let orig = !x in
+                        (Printf.printf "%d -> %d;\n" !x (!x+1);
+                        Printf.printf "%d [label=\"*\"];\n" !x;
+                        x:=!x+1; stardot !ptr1 x orig graph;
+                        Printf.printf "%d -> %d;\n" orig (!x);
+                        dotter !ptr2 x;)   
+    |Or (ptr1, ptr2) ->  let orig = !x in                
+                        (Printf.printf "%d -> %d;\n" !x (!x+1);
+                        Printf.printf "%d [label=\"|\"];\n" !x;
+                        x:=!x+1; dotter !ptr1 x;
+                        Printf.printf "%d -> %d;\n" orig (!x);
+                        dotter !ptr2 x;) 
+                        
+    let rec makedot (parse : Parse.pt) : nfa =
+    let thenfa = to_nfa parse in
+    (Printf.printf "digraph G\n {\n size=\"20,20\";\n";
+    dotter thenfa (ref 0); Printf.printf "}\n"; thenfa)
     
     
     (*TESTING TESTING TESTING TESTING HI KAT*)

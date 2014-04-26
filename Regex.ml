@@ -9,4 +9,5 @@ open Parser
  
 (*IMPLEMENT I/O HERE*)
  
- Printf.printf "Eventually\n"
+ let bob = Parse.parse "ababab*(a|b)qq*d" in
+ Auto.makedot bob
