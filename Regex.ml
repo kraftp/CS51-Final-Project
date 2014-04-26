@@ -9,5 +9,5 @@ open Parser
  
 (*IMPLEMENT I/O HERE*)
  
- let bob = Parse.parse "ababab*(a|b)qq*d" in
+ let bob = Parse.parse "abt(a|b)qq*d" in
  Auto.makedot bob
