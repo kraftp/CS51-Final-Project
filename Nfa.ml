@@ -46,56 +46,58 @@ struct
         match parse with
         | Empty       -> Empty
         | Single(c)   -> Single(c, ref Empty)
-        | Cat(re1, re2) -> let ret = (to_nfa re1) in List.iter
-                 ~f:(fun x -> x := (to_nfa re2)) (lptr ret); ret 
+        | Cat(re1, re2) -> let ret = (to_nfa re1) in 
+                           let second = (to_nfa re2) in List.iter
+                 ~f:(fun x -> x := second) (lptr ret); ret 
         | Or(re1, re2)  -> Or(ref (to_nfa re1), ref (to_nfa re2))
-        | Star(re)      -> let ret = (to_nfa re) in List.iter
-                 ~f:(fun x -> x := (Star(ref ret, ref Empty))) (lptr ret); ret 
+        | Star(re)      -> let preret = (to_nfa re) in 
+                           let ret = Star(ref preret, ref Empty) in List.iter
+                 ~f:(fun x -> x := ret) (lptr preret); ret 
     
     type nfarec = {num: int; auto : nfa; }
     
     
-    let rec nrchecker (inlist : nfarec list) (input: nfa) : int option =
+    let rec nrchecker (inlist : nfarec list) (input: nfa ref) : int option =
     match inlist with
     |[]-> None
-    |hd::tl -> if phys_equal hd.auto input then Some hd.num else nrchecker tl input
+    |hd::tl -> if phys_equal hd.auto !input then Some hd.num else nrchecker tl input
 
     
     
-    let rec dotter (graph : nfa) (x : int ref) : nfarec list = 
+    (*let rec dotter (graph : nfa) (x : int ref) : nfarec list = 
     let orig = !x in
     match graph with
     |Empty -> Printf.printf "%d [label=\"ACCEPT\"];\n" !x; x:=!x+1; []
     |Single (a, ptr) -> 
                         (Printf.printf "%d -> %d;\n" !x (!x+1);
                         Printf.printf "%d [label=\"%c\"];\n" !x a;
-                        x:=!x+1; {num=orig; auto=graph}::(dotter !ptr x))
+                        x:=!x+1; {num=orig; auto=(ref graph)}::(dotter !ptr x))
     |Star (ptr1, ptr2) ->
                         (Printf.printf "%d -> %d;\n" !x (!x+1);
                         Printf.printf "%d [label=\"*\"];\n" !x;
-                        x:=!x+1; stardot !ptr1 x orig graph;
+                        x:=!x+1; ignore(stardot !ptr1 x orig graph);
                         Printf.printf "%d -> %d;\n" orig (!x);
-                        {num=orig; auto=graph}::(dotter !ptr2 x))   
+                        {num=orig; auto=(ref graph)}::(dotter !ptr2 x))   
     |Or (ptr1, ptr2) ->               
                         (Printf.printf "%d -> %d;\n" !x (!x+1);
                         Printf.printf "%d [label=\"|\"];\n" !x;
                         x:=!x+1; 
                         let ret = dotter !ptr1 x in
                         Printf.printf "%d -> %d;\n" orig (!x);
-                        ignore(ordot !ptr2 x ret); {num=orig; auto=graph}::ret)
+                        ignore(ordot !ptr2 x ret); {num=orig; auto=(ref graph)}::ret)
                         
-    and stardot (graph : nfa) (x : int ref) (st : int) (nstar : nfa) : unit =
+    and stardot (graph : nfa) (x : int ref) (st : int) (nstar : nfa) : nfarec list=
     let orig = !x in
     match graph with
-    |Empty -> Printf.printf "%d [label=\"ACCEPT\"];\n" !x; x:=!x+1; ()
+    |Empty -> Printf.printf "%d [label=\"ACCEPT\"];\n" !x; x:=!x+1; []
     |Single (a, ptr) -> if phys_equal !ptr nstar then
                         (Printf.printf "%d -> %d;\n" !x st;
                         Printf.printf "%d [label=\"%c\"];\n" !x a;
-                        x:=!x+1;)
+                        x:=!x+1; [])
                         else 
                         (Printf.printf "%d -> %d;\n" !x (!x+1);
                         Printf.printf "%d [label=\"%c\"];\n" !x a;
-                        x:=!x+1; stardot !ptr x st nstar)
+                        x:=!x+1; {num=orig; auto=(ref graph)}::stardot !ptr x st nstar)
     |Star (ptr1, ptr2) -> 
                          if phys_equal !ptr2 nstar then
                          (Printf.printf "%d -> %d;\n" !x st;
@@ -104,54 +106,57 @@ struct
                         else 
                         (Printf.printf "%d -> %d;\n" !x (!x+1);
                         Printf.printf "%d [label=\"*\"];\n" !x;
-                        x:=!x+1; stardot !ptr1 x orig graph;
+                        x:=!x+1; ignore(stardot !ptr1 x orig graph);
                         Printf.printf "%d -> %d;\n" orig (!x);
-                        stardot !ptr2 x st nstar;)   
+                        {num=orig; auto=(ref graph)}::stardot !ptr2 x st nstar)   
     |Or (ptr1, ptr2) ->               
                         (Printf.printf "%d -> %d;\n" !x (!x+1);
                         Printf.printf "%d [label=\"|\"];\n" !x;
-                        x:=!x+1; stardot !ptr1 x st nstar;
+                        x:=!x+1;
+                        let ret = stardot !ptr1 x st nstar in
                         Printf.printf "%d -> %d;\n" orig (!x);
-                        stardot !ptr2 x st nstar;)  
+                        ignore(ordot !ptr2 x ret); {num=orig; auto=(ref graph)}::ret)*)
                         
-    and ordot (graph : nfa) (x : int ref) (nfaor : nfarec list) : nfarec list =
+                        
+    let rec dotter (graph : nfa) (x : int ref) (nfaor : nfarec list) : nfarec list =
     let orig = !x in
     match graph with
     |Empty -> Printf.printf "%d [label=\"ACCEPT\"];\n" !x; x:=!x+1; []
-    |Single (a, ptr) -> (match nrchecker nfaor !ptr with
+    |Single (a, ptr) -> (match nrchecker nfaor ptr with
                         |Some num ->
                         (Printf.printf "%d -> %d;\n" !x num;
-                        Printf.printf "%d [label=\"OR%c\"];\n" !x a;
+                        Printf.printf "%d [label=\"%c\"];\n" orig a;
                         x:=!x+1; [])
                         |None ->
-                        (Printf.printf "%d -> %d;\n" !x (!x+1);
-                        Printf.printf "%d [label=\"%c\"];\n" !x a;
-                        x:=!x+1; {num=orig; auto=graph}::(ordot !ptr x nfaor)))
+                        (Printf.printf "%d -> %d;\n" orig (!x+1);
+                        Printf.printf "%d [label=\"%c\"];\n" orig a;
+                        x:=!x+1; {num=orig; auto=graph}::(dotter !ptr x nfaor)))
     |Star (ptr1, ptr2) -> 
-                         (match nrchecker nfaor !ptr2 with
+                         (match nrchecker nfaor ptr2 with
                          |Some num ->
-                         (Printf.printf "%d -> %d;\n" !x num;
-                         Printf.printf "%d [label=\"OR*\"];\n" !x;
-                         x:=!x+1; stardot !ptr1 x orig graph; [] )
+                         (Printf.printf "%d -> %d;\n" orig num;
+                         Printf.printf "%d [label=\"*\"];\n" orig;
+                         Printf.printf "%d -> %d;\n" orig (!x+1);
+                         x:=!x+1; ignore(dotter !ptr1 x [{num=orig; auto=graph}]); [] )
                         |None ->
-                        (Printf.printf "%d -> %d;\n" !x (!x+1);
-                        Printf.printf "%d [label=\"OR*\"];\n" !x;
-                        x:=!x+1; stardot !ptr1 x orig graph;
+                        (Printf.printf "%d -> %d;\n" orig (!x+1);
+                        Printf.printf "%d [label=\"*\"];\n" orig;
+                        x:=!x+1; ignore(dotter !ptr1 x [{num=orig; auto=graph}]);
                         Printf.printf "%d -> %d;\n" orig (!x);
-                        {num=orig; auto=graph}::(ordot !ptr2 x nfaor)))   
+                        {num=orig; auto=graph}::(dotter !ptr2 x nfaor)))   
     |Or (ptr1, ptr2) ->               
-                        (Printf.printf "%d -> %d;\n" !x (!x+1);
-                        Printf.printf "%d [label=\"OR|\"];\n" !x;
+                        (Printf.printf "%d -> %d;\n" orig (!x+1);
+                        Printf.printf "%d [label=\"|\"];\n" orig;
                         x:=!x+1; 
-                        let ret = ordot !ptr1 x nfaor in
+                        let ret = dotter !ptr1 x nfaor in
                         (Printf.printf "%d -> %d;\n" orig (!x);
-                        ignore(ordot !ptr2 x ret); {num=orig; auto=graph}::ret))                      
+                        ignore(dotter !ptr2 x (nfaor@ret)); {num=orig; auto=graph}::ret))                      
                         
                         
     let rec makedot (parse : Parse.pt) : nfa =
     let thenfa = to_nfa parse in
     (Printf.printf "digraph G\n {\n size=\"20,20\";\n";
-    ignore(dotter thenfa (ref 0)); Printf.printf "}\n"; thenfa)
+    ignore(dotter thenfa (ref 0) []); Printf.printf "}\n"; thenfa)
     
     
     (*TESTING TESTING TESTING TESTING HI KAT*)
