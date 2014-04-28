@@ -35,6 +35,14 @@ struct
         | [] -> str
         | hd :: tl -> implode tl (str ^ (String.make 1 hd))
     
+    let get_next node = 
+        match node with 
+        | Empty -> []
+        | Single (chr, next) -> [next]
+        | Or (next1, next2) -> [next1; next2]
+        | Star (nclos, nnext) -> [nclos; nnext]
+    
+    (*
     (* checks if there is matching in a star *)    
     let rec check_star (orig : Auto.nfa ref) (clos : Auto.nfa ref) (str : char list) : bool * char list = 
         match str with
@@ -63,7 +71,7 @@ struct
             
     let eval (str : string) (auto : Auto.nfa) : bool = 
         eval_list (explode str) (auto)
-        
+    *)    
 
 end
  
