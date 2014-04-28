@@ -42,6 +42,21 @@ struct
         | Or (next1, next2) -> [next1; next2]
         | Star (nclos, nnext) -> [nclos; nnext]
     
+    let rec eval_lst (str : char list) (auto : Auto.nfa) : bool = 
+        match str with
+        | [] -> if (auto = Empty) then true else false
+        | hd :: tl -> 
+              match auto with
+              | Empty -> false
+              | Single (chr, next) -> if (hd = chr) then eval_lst tl !next else false
+              | Or (next1, next2) -> eval_lst str next1 || eval_lst str next2
+              | Star (clos, next) -> match (check_star clos clos str) with
+                                     | (false, _) -> false
+                                     | (true, nstr) -> eval_lst nstr !next
+            
+    let eval (str : string) (auto : Auto.nfa) : bool = 
+        eval_lst (explode str) (auto)
+    
     (*
     (* checks if there is matching in a star *)    
     let rec check_star (orig : Auto.nfa ref) (clos : Auto.nfa ref) (str : char list) : bool * char list = 
@@ -70,7 +85,7 @@ struct
                                      | (true, nstr) -> eval_lst nstr !next
             
     let eval (str : string) (auto : Auto.nfa) : bool = 
-        eval_list (explode str) (auto)
+        eval_lst (explode str) (auto)
     *)    
 
 end
