@@ -44,6 +44,7 @@ struct
             | Empty -> failwith "There shouldn't be an empty ref in the closure"
             | Single (chr, next) -> if (hd = chr) then check_star orig next tl 
                                     else if (orig = clos) then (true, str)
+                                    else (false, [])
             | Or (next1, next2) -> check_star orig next1 str || check_star orig next2 str
             | Star (nclos, nnext) -> if (check_star orig nclos str) then check_star orig nnext str
                                      else (false, [])
