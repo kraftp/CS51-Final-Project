@@ -9,4 +9,5 @@ open Parser
  
 (*IMPLEMENT I/O HERE*)
  
- Printf.printf "Eventually\n"
+ let bob = Parse.parse "a*t|((a|b|c|d)*q(a)*d)*" in
+ Auto.makedot bob
