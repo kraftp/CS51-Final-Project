@@ -35,12 +35,12 @@ struct
         | [] -> str
         | hd :: tl -> implode tl (str ^ (String.make 1 hd))
     
-    let get_next node = 
+    let rec get_next (node : Auto.nfa) : nfa list = 
         match node with 
         | Empty -> []
         | Single (chr, next) -> [next]
-        | Or (next1, next2) -> [next1; next2]
-        | Star (nclos, nnext) -> [nclos; nnext]
+        | Or (next1, next2) -> (get_next !next1)@(get_next !next2)
+        | Star (nclos, ncat) -> (get_next !nclos)@(get_next !ncat)
     
     let rec eval_lst (str : char list) (auto : Auto.nfa) : bool = 
         match str with
