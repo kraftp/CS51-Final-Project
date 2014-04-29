@@ -48,7 +48,7 @@ struct
     let rec to_nfa (parse : Parse.pt) : nfa = 
         match parse with
         | Empty       -> Empty
-        | Single(c)   -> Single(c, ref Empty)  
+        | Single(c)   -> Single(c, ref Empty) 
         | Cat(re1, re2) -> let ret = (to_nfa re1) in 
                            let second = (to_nfa re2) in List.iter
                  ~f:(fun x -> x := second) (lptr ret); ret 
