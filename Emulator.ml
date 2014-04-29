@@ -32,11 +32,16 @@ struct
     
     let rec eval_lst (str : char list) (auto : Auto.nfa) : bool = 
         match str with
-        | [] -> if auto = Empty then true else false
+        | [] -> 
+               (match auto with
+              | Empty -> true
+              | Single (_, _) -> false
+              | Or (next1, next2) -> eval_lst str !next1 || eval_lst str !next2
+              | Star (clos, next) -> eval_lst str !next || eval_lst str !clos)
         | hd :: tl -> 
               match auto with
               | Empty -> false
-              | Single (chr, next) -> if (hd = chr) then eval_lst tl !next else false
+              | Single (chr, next) -> hd = chr && eval_lst tl !next
               | Or (next1, next2) -> eval_lst str !next1 || eval_lst str !next2
               | Star (clos, next) -> eval_lst str !next || eval_lst str !clos
             

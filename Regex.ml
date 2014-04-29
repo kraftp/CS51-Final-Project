@@ -8,12 +8,11 @@ open Parser
  
  
 (*IMPLEMENT I/O HERE*)
- 
- (* WTF PETER 
- let cs = Parse.parse "(a*a|b|as|da)|q*sdfs(f|s)" in
+  
+ (*let cs = Parse.parse "a*" in
  (* Auto.makedot cs *)
      let cs2 = Auto.to_nfa cs in 
-  assert((Emulate.eval "b" cs2)&&(Emulate.eval "qqqqsdfsf" cs2)&&(not (Emulate.eval "sa" cs2))) *)
+  assert(Emulate.eval "aaaa" cs2);*)
   
   let command = 
     Command.basic
@@ -31,8 +30,8 @@ open Parser
       else
         let nfa = Auto.to_nfa parse in
         if (Emulate.eval input nfa) then Printf.printf ("Matched! \n")
-        else Printf.printf ("No match ): sry bbz \n")
-    )
+        else Printf.printf "No match : sry bbz \n") 
+    
     
     let () = Command.run command
     
