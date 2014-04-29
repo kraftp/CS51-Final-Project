@@ -30,12 +30,12 @@ struct
             if i< 0 then l else exp (i-1) (s.[i] :: l) in
         exp (String.length s - 1)[];;
         
-    let rec implode slist str = 
+    (*let rec implode slist str = 
         match slist with
         | [] -> str
-        | hd :: tl -> implode tl (str ^ (String.make 1 hd))
+        | hd :: tl -> implode tl (str ^ (String.make 1 hd))*)
     
-    let rec get_next (node : Auto.nfa) : nfa list = 
+    let rec get_next (node : Auto.nfa) : Auto.nfa list = 
         match node with 
         | Empty -> []
         | Single (chr, next) -> [next]

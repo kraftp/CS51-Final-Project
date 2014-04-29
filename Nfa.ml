@@ -5,13 +5,21 @@ open Core.Std
 open Parser
  
 (*BUILD AN NFA HERE*)
+module Nfa = 
+struct 
+    type graph = 
+        Empty
+      | Single of char * graph ref (* char and forward pointer to next node *)
+      | Or of graph ref * graph ref (* forward pointers to 2 or options *)
+      | Star of graph ref * graph ref (* forward pointers into and out of closure *)
+end
  
-  module type AUTOMATON =
+module type AUTOMATON =
 sig
     exception NotRecognized
     exception TODO
     
-    type nfa
+    type nfa = Nfa.graph
     
     val to_nfa : Parse.pt -> nfa
     
@@ -26,13 +34,8 @@ struct
     exception TODO
         
     (* Cat and Paren don't need their own nfa types because they're just combinations of nfas or groupings of nfas below *)
-    type nfa = 
-	    Empty
-      | Single of char * nfa ref (* char and forward pointer to next node *)
-      | Or of nfa ref * nfa ref (* forward pointers to 2 or options *)
-      | Star of nfa ref * nfa ref (* forward pointers into and out of closure *)
-      
-
+    type nfa = Nfa.graph
+	    
     (* lptr constructs a list of all pointers to Empty in the input nfa *)
     let rec lptr (input : nfa) : nfa ref list =
         match input with
@@ -45,7 +48,7 @@ struct
     let rec to_nfa (parse : Parse.pt) : nfa = 
         match parse with
         | Empty       -> Empty
-        | Single(c)   -> Single(c, ref Empty)
+        | Single(c)   -> Single(c, ref Empty)  
         | Cat(re1, re2) -> let ret = (to_nfa re1) in 
                            let second = (to_nfa re2) in List.iter
                  ~f:(fun x -> x := second) (lptr ret); ret 
