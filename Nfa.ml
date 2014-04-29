@@ -71,8 +71,8 @@ struct
     let rec dotter (graph : nfa) (x : int ref) (nfaor : nfarec list) : nfarec list =
     let orig = !x in
     match graph with
-    |Empty -> Printf.printf "%d [label=\"ACCEPT\"];\n" !x; x:=!x+1; []
-    |Single (a, ptr) -> (match nrchecker nfaor ptr with
+    | Empty -> Printf.printf "%d [label=\"ACCEPT\"];\n" !x; x:=!x+1; []
+    | Single (a, ptr) -> (match nrchecker nfaor ptr with
                         |Some num ->
                          (Printf.printf "%d -> %d;\n" !x num;
                          Printf.printf "%d [label=\"%c\"];\n" orig a;
@@ -81,7 +81,7 @@ struct
                          (Printf.printf "%d -> %d;\n" orig (!x+1);
                          Printf.printf "%d [label=\"%c\"];\n" orig a;
                          x:=!x+1; {num=orig; auto=graph}::(dotter !ptr x nfaor)))
-    |Star (ptr1, ptr2) -> 
+    | Star (ptr1, ptr2) -> 
                          (match nrchecker nfaor ptr2 with
                         |Some num ->
                          (Printf.printf "%d -> %d;\n" orig num;
@@ -94,7 +94,7 @@ struct
                          x:=!x+1; ignore(dotter !ptr1 x [{num=orig; auto=graph}]);
                          Printf.printf "%d -> %d;\n" orig (!x);
                          {num=orig; auto=graph}::(dotter !ptr2 x nfaor)))   
-    |Or (ptr1, ptr2) ->               
+    | Or (ptr1, ptr2) ->               
                          (Printf.printf "%d -> %d;\n" orig (!x+1);
                          Printf.printf "%d [label=\"|\"];\n" orig;
                          x:=!x+1; 
