@@ -119,7 +119,7 @@ struct
         let (ntlist, nptree) = starfun tlist in      
         match ntlist with
         | [] -> ([], nptree)
-        | hd::tl -> 
+        | hd::_ -> 
             match hd with
             | Oper('|')| Oper(')')   -> (ntlist, nptree) 
             | _ -> let (listret, treeret) = catfun ntlist in (listret, Cat(nptree, treeret))              

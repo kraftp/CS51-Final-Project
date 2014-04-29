@@ -46,15 +46,16 @@ struct
 
     
     let rec to_nfa (parse : Parse.pt) : nfa = 
+        let (empty : nfa) = Empty in
         match parse with
         | Empty       -> Empty
-        | Single(c)   -> Single(c, ref Empty) 
+        | Single(c)   -> Single(c, ref empty)
         | Cat(re1, re2) -> let ret = (to_nfa re1) in 
                            let second = (to_nfa re2) in List.iter
                  ~f:(fun x -> x := second) (lptr ret); ret 
         | Or(re1, re2)  -> Or(ref (to_nfa re1), ref (to_nfa re2))
         | Star(re)      -> let preret = (to_nfa re) in 
-                           let ret = Star(ref preret, ref Empty) in List.iter
+                           let (ret : nfa) = Star(ref preret, ref empty) in List.iter
                  ~f:(fun x -> x := ret) (lptr preret); ret 
     
     
@@ -102,10 +103,10 @@ struct
                          ignore(dotter !ptr2 x (nfaor@ret)); {num=orig; auto=graph}::ret))                      
                         
                         
-    let rec makedot (parse : Parse.pt) : nfa =
-    let thenfa = to_nfa parse in
-    (Printf.printf "digraph G\n {\n size=\"20,20\";\n";
-    ignore(dotter thenfa (ref 0) []); Printf.printf "}\n"; thenfa)
+    let makedot (parse : Parse.pt) : nfa =
+        let thenfa = to_nfa parse in
+        (Printf.printf "digraph G\n {\n size=\"20,20\";\n";
+        ignore(dotter thenfa (ref 0) []); Printf.printf "}\n"; thenfa)
     
 
 end
