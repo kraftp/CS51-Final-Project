@@ -5,7 +5,7 @@ open Core.Std
 open Parser
  
 (*BUILD AN NFA HERE*)
-module Nfa = 
+module Graph = 
 struct 
     type graph = 
         Empty
@@ -19,7 +19,7 @@ sig
     exception NotRecognized
     exception TODO
     
-    type nfa = Nfa.graph
+    type nfa = Graph.graph
     
     val to_nfa : Parse.pt -> nfa
     
@@ -34,7 +34,7 @@ struct
     exception TODO
         
     (* Cat and Paren don't need their own nfa types because they're just combinations of nfas or groupings of nfas below *)
-    type nfa = Nfa.graph
+    type nfa = Graph.graph
 	    
     (* lptr constructs a list of all pointers to Empty in the input nfa *)
     let rec lptr (input : nfa) : nfa ref list =
