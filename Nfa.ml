@@ -23,7 +23,7 @@ sig
     
     val to_nfa : Parse.pt -> nfa
     
-    val makedot : Parse.pt -> nfa
+    val makedot : Parse.pt -> unit
 end
 
 
@@ -103,10 +103,12 @@ struct
                          ignore(dotter !ptr2 x (nfaor@ret)); {num=orig; auto=graph}::ret))                      
                         
                         
-    let makedot (parse : Parse.pt) : nfa =
+    let makedot (parse : Parse.pt) : unit =
         let thenfa = to_nfa parse in
-        (Printf.printf "digraph G\n {\n size=\"20,20\";\n";
-        ignore(dotter thenfa (ref 0) []); Printf.printf "}\n"; thenfa)
+        match thenfa with
+        | Empty -> Printf.printf "INVALID NFA DOT PRINTING IMPOSSIBLE\n"
+        | _ -> (Printf.printf "digraph G\n {\n size=\"20,20\";\n";
+               ignore(dotter thenfa (ref 0) []); Printf.printf "}\n")
     
 
 end

@@ -46,7 +46,9 @@ struct
               | Star (clos, next) -> eval_lst str !next || eval_lst str !clos
             
     let eval (str : string) (auto : Auto.nfa) : bool = 
-        eval_lst (explode str) (auto)
+        match auto with
+        |Empty -> Printf.printf "INVALID REGULAR EXPRESSION MATCHING IMPOSSIBLE\n"; false
+        | _ -> eval_lst (explode str) (auto)
 
 end
  
