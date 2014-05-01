@@ -41,7 +41,9 @@ struct
         | hd :: tl -> 
               match auto with
               | Empty -> false
-              | Single (chr, next) -> hd = chr && eval_lst tl !next
+              | Single (chr, next) -> (match chr with
+                                     |Wild -> eval_lst tl !next
+                                     |Char (c) -> hd = c && eval_lst tl !next)
               | Or (next1, next2) -> eval_lst str !next1 || eval_lst str !next2
               | Star (clos, next) -> eval_lst str !next || eval_lst str !clos
             

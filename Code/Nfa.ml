@@ -9,7 +9,7 @@ module Graph =
 struct 
     type graph = 
         Empty
-      | Single of char * graph ref (* char and forward pointer to next node *)
+      | Single of Tree.schar * graph ref (* char and forward pointer to next node *)
       | Or of graph ref * graph ref (* forward pointers to 2 or options *)
       | Star of graph ref * graph ref (* forward pointers into and out of closure *)
 end
@@ -78,11 +78,17 @@ struct
     | Single (a, ptr) -> (match nrchecker nfaor ptr with
                         |Some num ->
                          (Printf.printf "%d -> %d;\n" !x num;
-                         Printf.printf "%d [label=\"%c\"];\n" orig a;
+                         (match a with 
+                         |Wild -> Printf.printf "%d [label=\"WILD\"];\n" orig
+                         |Char(c) ->
+                         Printf.printf "%d [label=\"%c\"];\n" orig c);
                          x:=!x+1; [])
                         |None ->
                          (Printf.printf "%d -> %d;\n" orig (!x+1);
-                         Printf.printf "%d [label=\"%c\"];\n" orig a;
+                         (match a with 
+                         |Wild -> Printf.printf "%d [label=\"WILD\"];\n" orig
+                         |Char(c) ->
+                         Printf.printf "%d [label=\"%c\"];\n" orig c);
                          x:=!x+1; {num=orig; auto=graph}::(dotter !ptr x nfaor)))
     | Star (ptr1, ptr2) -> 
                          (match nrchecker nfaor ptr2 with
