@@ -61,8 +61,19 @@ struct
             | '*' -> Oper('*')::(tokenizer tl)
             | '?' -> Oper('?')::(tokenizer tl)
             | '.' -> Char(Wild)::(tokenizer tl)
+            | '?' -> Oper('?')::(tokenizer tl)
             (*IN THE FUTURE ESCAPE SEQUENCES*)
-            | _   -> Char(Char(hd))::(tokenizer tl)
+            | '~' -> (match tl with
+                     | '('::tl2 -> Char(Char('('))::(tokenizer tl2)
+                     | ')'::tl2 -> Char(Char(')'))::(tokenizer tl2)
+                     | '|'::tl2 -> Char(Char('|'))::(tokenizer tl2)
+                     | '*'::tl2 -> Char(Char('*'))::(tokenizer tl2)
+                     | '.'::tl2 -> Char(Char('.'))::(tokenizer tl2)
+                     | '?'::tl2 -> Char(Char('?'))::(tokenizer tl2)
+                     | '~'::tl2 -> Char(Char('~'))::(tokenizer tl2)
+                     | _ -> Printf.printf "Warning: Escape Character ~ Is Unused (Ignored).\n"; 
+                            tokenizer tl)
+            |  _  -> Char(Char(hd))::(tokenizer tl)
          
     let rec checkchar (tlist: token list) : bool =
         match tlist with
