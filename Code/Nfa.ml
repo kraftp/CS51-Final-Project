@@ -12,6 +12,7 @@ struct
       | Single of Tree.schar * graph ref (* char and forward pointer to next node *)
       | Or of graph ref * graph ref (* forward pointers to 2 or options *)
       | Star of graph ref * graph ref (* forward pointers into and out of closure *)
+      | Opt  of graph ref * graph ref (* forward pointers into and out of option  *)
 end
  
 module type AUTOMATON =
@@ -43,7 +44,8 @@ struct
         | Single(_, ptr) -> if !ptr = Empty then [ptr] else lptr !ptr 
         | Or(ptr1, ptr2) -> (lptr !ptr1)@(lptr !ptr2)
         | Star (_, ptr2) -> if !ptr2 = Empty then [ptr2] else lptr !ptr2 
-
+        | Opt  (ptr1 , ptr2) -> if !ptr2 = Empty then ptr2::(lptr !ptr1)
+                                else (lptr !ptr1)@(lptr !ptr2)
     
     let rec to_nfa_aux (parse : Parse.pt) : nfa = 
         let (empty : nfa) = Empty in
@@ -56,6 +58,7 @@ struct
         | Star(re)      -> let preret = (to_nfa_aux re) in 
                            let (ret : nfa) = Star(ref preret, ref empty) in List.iter
                  ~f:(fun x -> x := ret) (lptr preret); ret 
+        | Opt(re)       -> Opt(ref (to_nfa_aux re), ref empty) 
     
     let to_nfa (parse : Parse.pt option) : nfa option =
         match parse with
@@ -103,6 +106,21 @@ struct
                          x:=!x+1; ignore(dotter !ptr1 x [{num=orig; auto=graph}]);
                          Printf.printf "%d -> %d;\n" orig (!x);
                          {num=orig; auto=graph}::(dotter !ptr2 x nfaor)))   
+    | Opt (ptr1, ptr2) -> 
+                         (match nrchecker nfaor ptr2 with
+                         |Some num ->
+                         (Printf.printf "%d -> %d;\n" orig num;
+                         Printf.printf "%d -> %d;\n" orig (!x+1);
+                         Printf.printf "%d [label=\"?\"];\n" orig;
+                         x:=!x+1; 
+                         dotter !ptr1 x nfaor)
+                         |None ->                       
+                         (Printf.printf "%d -> %d;\n" orig (!x+1);
+                         Printf.printf "%d [label=\"?\"];\n" orig;
+                         x:=!x+1; 
+                         let ret = dotter !ptr2 x nfaor in
+                         (Printf.printf "%d -> %d;\n" orig (!x);
+                         ignore(dotter !ptr1 x (nfaor@ret)); {num=orig; auto=graph}::ret)))                             
     | Or (ptr1, ptr2) ->               
                          (Printf.printf "%d -> %d;\n" orig (!x+1);
                          Printf.printf "%d [label=\"|\"];\n" orig;

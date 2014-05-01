@@ -16,6 +16,7 @@ struct
         | Cat    of tree * tree (*Concatenation*)
         | Or     of tree * tree 
         | Star   of tree (*Kleene Star/Closure*)
+        | Opt    of tree (*Option/'?' Operator*)
         
 end
 
@@ -58,6 +59,7 @@ struct
             | ')' -> Oper(')')::(tokenizer tl)
             | '|' -> Oper('|')::(tokenizer tl)
             | '*' -> Oper('*')::(tokenizer tl)
+            | '?' -> Oper('?')::(tokenizer tl)
             | '.' -> Char(Wild)::(tokenizer tl)
             (*IN THE FUTURE ESCAPE SEQUENCES*)
             | _   -> Char(Char(hd))::(tokenizer tl)
@@ -88,17 +90,17 @@ struct
 	    match hd1 with
       | Oper('(') ->
            (match hd2 with
-	          | Oper(')')| Oper('|')| Oper('*') ->
+	          | Oper(')')| Oper('|')| Oper('*')| Oper('?')  ->
 	            Printf.printf "Error:  Regex Contains Invalid Operator after '('\n"; false
 	          | _ -> checkdbl (hd2::tl))
-	    | Oper('*') ->
+	    | Oper('*')| Oper('?')  ->
 	       (match hd2 with
-	        | Oper('*') -> 
-	          Printf.printf "Error:  Regex Contains Invalid Operator after '*'\n"; false
+	        | Oper('*')| Oper('?')  -> 
+	          Printf.printf "Error:  Regex Contains Invalid Operator after '?' or '*'\n"; false
 	        | _ -> checkdbl (hd2::tl))
 	    | Oper('|') ->
 	        (match hd2 with
-	           | Oper(')')| Oper('|')| Oper('*') ->
+	           | Oper(')')| Oper('|')| Oper('*')| Oper('?') ->
 	          Printf.printf "Error:  Regex Contains Invalid Operator after '|'\n"; false
 	         | _ -> checkdbl (hd2::tl))
 	    | _ -> checkdbl (hd2::tl)
@@ -107,7 +109,7 @@ struct
       match tlist with 
       | [] -> Printf.printf "Error:  Empty Regex\n"; false
       | hd::_ -> match hd with
-	    | Oper('*')|Oper(')')|Oper('|') ->
+	    | Oper('*')|Oper(')')|Oper('|')|Oper('?')  ->
          	Printf.printf "Error:  Regex Begins with Invalid Operator\n"; false
 	    | _ -> true
 
@@ -131,13 +133,22 @@ struct
             | _ -> let (listret, treeret) = catfun ntlist in (listret, Cat(nptree, treeret))              
                               
     and starfun (tlist : token list)  : token list * pt = 
-        let (ntlist, nptree) = pfun tlist in
+        let (ntlist, nptree) = qfun tlist in
         match ntlist with
         | [] -> ([], nptree) 
         | hd::tl -> 
             match hd with
             | Oper('*') -> (tl, Star(nptree))
             | _ -> (ntlist, nptree)         
+
+    and qfun (tlist : token list)  : token list * pt = 
+        let (ntlist, nptree) = pfun tlist in
+        match ntlist with
+        | [] -> ([], nptree) 
+        | hd::tl -> 
+            match hd with
+            | Oper('?') -> (tl, Opt(nptree))
+            | _ -> (ntlist, nptree) 
          
     and pfun (tlist : token list) : token list * pt =
          match tlist with
@@ -180,7 +191,10 @@ struct
                         (Printf.printf "%d -> %d;\n" orig (!x+1);
                         Printf.printf "%d [label=\"*\"];\n" orig;
                         x:=!x+1; dotter t1 x)
-                        
+    |Opt  (t1)   ->  
+                        (Printf.printf "%d -> %d;\n" orig (!x+1);
+                        Printf.printf "%d [label=\"?\"];\n" orig;
+                        x:=!x+1; dotter t1 x)                        
                         
     let makedot (str : string) : unit = 
         let input = tokenizer (explode str) in
