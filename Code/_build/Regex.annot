@@ -1,0 +1,626 @@
+"Regex.ml" 12 165 171 "Regex.ml" 12 165 178
+type(
+  Command.t
+)
+ident(
+  def command "Regex.ml" 36 1052 1056 "Regex.ml" 1 0 -1
+)
+"Regex.ml" 13 182 186 "Regex.ml" 13 182 199
+type(
+  summary:string ->
+  ?readme:(unit -> string) ->
+  (bool -> bool -> string -> string -> unit -> unit, unit -> unit)
+  Command.Spec.t ->
+  (bool -> bool -> string -> string -> unit -> unit) -> Command.t
+)
+ident(
+  ext_ref Core.Std.Command.basic
+)
+"Regex.ml" 14 200 214 "Regex.ml" 14 200 269
+type(
+  string
+)
+"Regex.ml" 16 289 295 "Regex.ml" 16 289 300
+type(
+  (bool -> bool -> string -> string -> unit -> unit,
+   bool -> bool -> string -> string -> unit -> unit)
+  t
+)
+ident(
+  ext_ref Core.Std.Command.Spec.empty
+)
+"Regex.ml" 17 301 307 "Regex.ml" 17 301 309
+type(
+  (bool -> bool -> string -> string -> unit -> unit,
+   bool -> bool -> string -> string -> unit -> unit)
+  t ->
+  bool param ->
+  (bool -> bool -> string -> string -> unit -> unit,
+   bool -> string -> string -> unit -> unit)
+  t
+)
+ident(
+  ext_ref Core.Std.Command.Spec.( +> )
+)
+"Regex.ml" 17 301 310 "Regex.ml" 17 301 314
+type(
+  ?aliases:string list -> string -> bool flag -> doc:string -> bool param
+)
+ident(
+  ext_ref Core.Std.Command.Spec.flag
+)
+"Regex.ml" 17 301 315 "Regex.ml" 17 301 320
+type(
+  string
+)
+"Regex.ml" 17 301 321 "Regex.ml" 17 301 327
+type(
+  bool flag
+)
+ident(
+  ext_ref Core.Std.Command.Spec.no_arg
+)
+"Regex.ml" 17 301 333 "Regex.ml" 17 301 365
+type(
+  string
+)
+"Regex.ml" 17 301 310 "Regex.ml" 17 301 365
+call(
+  stack
+)
+type(
+  bool param
+)
+"Regex.ml" 16 289 295 "Regex.ml" 17 301 365
+call(
+  stack
+)
+type(
+  (bool -> bool -> string -> string -> unit -> unit,
+   bool -> string -> string -> unit -> unit)
+  t
+)
+"Regex.ml" 18 366 372 "Regex.ml" 18 366 374
+type(
+  (bool -> bool -> string -> string -> unit -> unit,
+   bool -> string -> string -> unit -> unit)
+  t ->
+  bool param ->
+  (bool -> bool -> string -> string -> unit -> unit,
+   string -> string -> unit -> unit)
+  t
+)
+ident(
+  ext_ref Core.Std.Command.Spec.( +> )
+)
+"Regex.ml" 18 366 375 "Regex.ml" 18 366 379
+type(
+  ?aliases:string list -> string -> bool flag -> doc:string -> bool param
+)
+ident(
+  ext_ref Core.Std.Command.Spec.flag
+)
+"Regex.ml" 18 366 380 "Regex.ml" 18 366 385
+type(
+  string
+)
+"Regex.ml" 18 366 386 "Regex.ml" 18 366 392
+type(
+  bool flag
+)
+ident(
+  ext_ref Core.Std.Command.Spec.no_arg
+)
+"Regex.ml" 18 366 398 "Regex.ml" 18 366 433
+type(
+  string
+)
+"Regex.ml" 18 366 375 "Regex.ml" 18 366 433
+call(
+  stack
+)
+type(
+  bool param
+)
+"Regex.ml" 16 289 295 "Regex.ml" 18 366 433
+call(
+  stack
+)
+type(
+  (bool -> bool -> string -> string -> unit -> unit,
+   string -> string -> unit -> unit)
+  t
+)
+"Regex.ml" 19 434 440 "Regex.ml" 19 434 442
+type(
+  (bool -> bool -> string -> string -> unit -> unit,
+   string -> string -> unit -> unit)
+  t ->
+  string param ->
+  (bool -> bool -> string -> string -> unit -> unit, string -> unit -> unit)
+  t
+)
+ident(
+  ext_ref Core.Std.Command.Spec.( +> )
+)
+"Regex.ml" 19 434 443 "Regex.ml" 19 434 447
+type(
+  string anons -> string param
+)
+ident(
+  ext_ref Core.Std.Command.Spec.anon
+)
+"Regex.ml" 19 434 449 "Regex.ml" 19 434 462
+type(
+  string
+)
+"Regex.ml" 19 434 463 "Regex.ml" 19 434 465
+type(
+  string -> string Arg_type.t -> string anons
+)
+ident(
+  ext_ref Core.Std.Command.Spec.( %: )
+)
+"Regex.ml" 19 434 466 "Regex.ml" 19 434 472
+type(
+  string Arg_type.t
+)
+ident(
+  ext_ref Core.Std.Command.Spec.string
+)
+"Regex.ml" 19 434 449 "Regex.ml" 19 434 472
+call(
+  stack
+)
+type(
+  string anons
+)
+"Regex.ml" 19 434 443 "Regex.ml" 19 434 473
+call(
+  stack
+)
+type(
+  string param
+)
+"Regex.ml" 16 289 295 "Regex.ml" 19 434 473
+call(
+  stack
+)
+type(
+  (bool -> bool -> string -> string -> unit -> unit, string -> unit -> unit)
+  t
+)
+"Regex.ml" 20 474 480 "Regex.ml" 20 474 482
+type(
+  (bool -> bool -> string -> string -> unit -> unit, string -> unit -> unit)
+  t ->
+  string param ->
+  (bool -> bool -> string -> string -> unit -> unit, unit -> unit) t
+)
+ident(
+  ext_ref Core.Std.Command.Spec.( +> )
+)
+"Regex.ml" 20 474 483 "Regex.ml" 20 474 487
+type(
+  string anons -> string param
+)
+ident(
+  ext_ref Core.Std.Command.Spec.anon
+)
+"Regex.ml" 20 474 489 "Regex.ml" 20 474 503
+type(
+  string
+)
+"Regex.ml" 20 474 504 "Regex.ml" 20 474 506
+type(
+  string -> string Arg_type.t -> string anons
+)
+ident(
+  ext_ref Core.Std.Command.Spec.( %: )
+)
+"Regex.ml" 20 474 507 "Regex.ml" 20 474 513
+type(
+  string Arg_type.t
+)
+ident(
+  ext_ref Core.Std.Command.Spec.string
+)
+"Regex.ml" 20 474 489 "Regex.ml" 20 474 513
+call(
+  stack
+)
+type(
+  string anons
+)
+"Regex.ml" 20 474 483 "Regex.ml" 20 474 514
+call(
+  stack
+)
+type(
+  string param
+)
+"Regex.ml" 16 289 295 "Regex.ml" 20 474 514
+call(
+  stack
+)
+type(
+  (bool -> bool -> string -> string -> unit -> unit, unit -> unit) t
+)
+"Regex.ml" 22 521 530 "Regex.ml" 22 521 540
+type(
+  bool
+)
+ident(
+  def if_dot_nfa "Regex.ml" 22 521 541 "Regex.ml" 33 978 1040
+)
+"Regex.ml" 22 521 541 "Regex.ml" 22 521 550
+type(
+  bool
+)
+ident(
+  def if_dot_pt "Regex.ml" 22 521 551 "Regex.ml" 33 978 1040
+)
+"Regex.ml" 22 521 551 "Regex.ml" 22 521 556
+type(
+  string
+)
+ident(
+  def regex "Regex.ml" 22 521 557 "Regex.ml" 33 978 1040
+)
+"Regex.ml" 22 521 557 "Regex.ml" 22 521 562
+type(
+  string
+)
+ident(
+  def input "Regex.ml" 22 521 563 "Regex.ml" 33 978 1040
+)
+"Regex.ml" 22 521 563 "Regex.ml" 22 521 565
+type(
+  unit
+)
+"Regex.ml" 23 570 579 "Regex.ml" 23 570 588
+type(
+  bool
+)
+ident(
+  int_ref if_dot_pt "Regex.ml" 22 521 541 "Regex.ml" 22 521 550
+)
+"Regex.ml" 24 595 603 "Regex.ml" 24 595 616
+type(
+  string -> unit
+)
+ident(
+  ext_ref Parser.Parse.makedot
+)
+"Regex.ml" 24 595 617 "Regex.ml" 24 595 622
+type(
+  string
+)
+ident(
+  int_ref regex "Regex.ml" 22 521 551 "Regex.ml" 22 521 556
+)
+"Regex.ml" 24 595 603 "Regex.ml" 24 595 622
+call(
+  stack
+)
+type(
+  unit
+)
+"Regex.ml" 23 570 576 "Regex.ml" 24 595 622
+type(
+  unit
+)
+type(
+  unit
+)
+"Regex.ml" 25 624 634 "Regex.ml" 25 624 639
+type(
+  Tree.tree option
+)
+ident(
+  def parse "Regex.ml" 26 663 669 "Regex.ml" 33 978 1040
+)
+"Regex.ml" 25 624 642 "Regex.ml" 25 624 653
+type(
+  string -> Tree.tree option
+)
+ident(
+  ext_ref Parser.Parse.parse
+)
+"Regex.ml" 25 624 654 "Regex.ml" 25 624 659
+type(
+  string
+)
+ident(
+  int_ref regex "Regex.ml" 22 521 551 "Regex.ml" 22 521 556
+)
+"Regex.ml" 25 624 642 "Regex.ml" 25 624 659
+call(
+  stack
+)
+type(
+  Tree.tree option
+)
+"Regex.ml" 26 663 672 "Regex.ml" 26 663 682
+type(
+  bool
+)
+ident(
+  int_ref if_dot_nfa "Regex.ml" 22 521 530 "Regex.ml" 22 521 540
+)
+"Regex.ml" 27 689 697 "Regex.ml" 27 689 709
+type(
+  Tree.tree option -> unit
+)
+ident(
+  ext_ref Nfa.Auto.makedot
+)
+"Regex.ml" 27 689 710 "Regex.ml" 27 689 715
+type(
+  Tree.tree option
+)
+ident(
+  int_ref parse "Regex.ml" 25 624 634 "Regex.ml" 25 624 639
+)
+"Regex.ml" 27 689 697 "Regex.ml" 27 689 715
+call(
+  stack
+)
+type(
+  unit
+)
+"Regex.ml" 26 663 669 "Regex.ml" 27 689 715
+type(
+  unit
+)
+type(
+  unit
+)
+"Regex.ml" 28 717 726 "Regex.ml" 28 717 729
+type(
+  bool -> bool
+)
+ident(
+  ext_ref Pervasives.not
+)
+"Regex.ml" 28 717 731 "Regex.ml" 28 717 741
+type(
+  bool
+)
+ident(
+  int_ref if_dot_nfa "Regex.ml" 22 521 530 "Regex.ml" 22 521 540
+)
+"Regex.ml" 28 717 742 "Regex.ml" 28 717 744
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( || )
+)
+"Regex.ml" 28 717 745 "Regex.ml" 28 717 754
+type(
+  bool
+)
+ident(
+  int_ref if_dot_pt "Regex.ml" 22 521 541 "Regex.ml" 22 521 550
+)
+"Regex.ml" 28 717 731 "Regex.ml" 28 717 754
+type(
+  bool
+)
+"Regex.ml" 28 717 726 "Regex.ml" 28 717 755
+type(
+  bool
+)
+"Regex.ml" 29 761 773 "Regex.ml" 29 761 776
+type(
+  Graph.graph option
+)
+ident(
+  def nfa "Regex.ml" 30 800 808 "Regex.ml" 33 978 1040
+)
+"Regex.ml" 29 761 779 "Regex.ml" 29 761 790
+type(
+  Tree.tree option -> Graph.graph option
+)
+ident(
+  ext_ref Nfa.Auto.to_nfa
+)
+"Regex.ml" 29 761 791 "Regex.ml" 29 761 796
+type(
+  Tree.tree option
+)
+ident(
+  int_ref parse "Regex.ml" 25 624 634 "Regex.ml" 25 624 639
+)
+"Regex.ml" 29 761 779 "Regex.ml" 29 761 796
+call(
+  stack
+)
+type(
+  Graph.graph option
+)
+"Regex.ml" 30 800 814 "Regex.ml" 30 800 826
+type(
+  string -> Graph.graph option -> bool option
+)
+ident(
+  ext_ref Emulator.Emulate.eval
+)
+"Regex.ml" 30 800 827 "Regex.ml" 30 800 832
+type(
+  string
+)
+ident(
+  int_ref input "Regex.ml" 22 521 557 "Regex.ml" 22 521 562
+)
+"Regex.ml" 30 800 833 "Regex.ml" 30 800 836
+type(
+  Graph.graph option
+)
+ident(
+  int_ref nfa "Regex.ml" 29 761 773 "Regex.ml" 29 761 776
+)
+"Regex.ml" 30 800 814 "Regex.ml" 30 800 836
+call(
+  stack
+)
+type(
+  bool option
+)
+"Regex.ml" 31 842 851 "Regex.ml" 31 842 855
+type(
+  bool option
+)
+"Regex.ml" 31 842 859 "Regex.ml" 31 842 872
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Regex.ml" 31 842 873 "Regex.ml" 31 842 925
+type(
+  (unit, out_channel, unit) format
+)
+"Regex.ml" 31 842 859 "Regex.ml" 31 842 925
+call(
+  tail
+)
+type(
+  unit
+)
+"Regex.ml" 32 926 940 "Regex.ml" 32 926 944
+type(
+  bool
+)
+"Regex.ml" 32 926 935 "Regex.ml" 32 926 944
+type(
+  bool option
+)
+"Regex.ml" 32 926 948 "Regex.ml" 32 926 961
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Regex.ml" 32 926 962 "Regex.ml" 32 926 977
+type(
+  (unit, out_channel, unit) format
+)
+"Regex.ml" 32 926 948 "Regex.ml" 32 926 977
+call(
+  tail
+)
+type(
+  unit
+)
+"Regex.ml" 33 978 992 "Regex.ml" 33 978 997
+type(
+  bool
+)
+"Regex.ml" 33 978 987 "Regex.ml" 33 978 997
+type(
+  bool option
+)
+"Regex.ml" 33 978 1001 "Regex.ml" 33 978 1014
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Regex.ml" 33 978 1015 "Regex.ml" 33 978 1040
+type(
+  (unit, out_channel, unit) format
+)
+"Regex.ml" 33 978 1001 "Regex.ml" 33 978 1040
+call(
+  tail
+)
+type(
+  unit
+)
+"Regex.ml" 30 800 808 "Regex.ml" 33 978 1040
+type(
+  unit
+)
+"Regex.ml" 29 761 769 "Regex.ml" 33 978 1040
+type(
+  unit
+)
+"Regex.ml" 28 717 723 "Regex.ml" 33 978 1040
+type(
+  unit
+)
+type(
+  unit
+)
+"Regex.ml" 26 663 669 "Regex.ml" 33 978 1040
+type(
+  unit
+)
+"Regex.ml" 25 624 630 "Regex.ml" 33 978 1040
+type(
+  unit
+)
+"Regex.ml" 23 570 576 "Regex.ml" 33 978 1040
+type(
+  unit
+)
+"Regex.ml" 22 521 563 "Regex.ml" 33 978 1040
+type(
+  unit -> unit
+)
+"Regex.ml" 22 521 557 "Regex.ml" 33 978 1040
+type(
+  string -> unit -> unit
+)
+"Regex.ml" 22 521 551 "Regex.ml" 33 978 1040
+type(
+  string -> string -> unit -> unit
+)
+"Regex.ml" 22 521 541 "Regex.ml" 33 978 1040
+type(
+  bool -> string -> string -> unit -> unit
+)
+"Regex.ml" 22 521 530 "Regex.ml" 33 978 1040
+type(
+  bool -> bool -> string -> string -> unit -> unit
+)
+"Regex.ml" 13 182 186 "Regex.ml" 33 978 1041
+call(
+  stack
+)
+type(
+  Command.t
+)
+"Regex.ml" 36 1052 1060 "Regex.ml" 36 1052 1062
+type(
+  unit
+)
+"Regex.ml" 36 1052 1065 "Regex.ml" 36 1052 1076
+type(
+  ?version:string ->
+  ?build_info:string ->
+  ?argv:string list ->
+  ?extend:(string list -> string list) -> Command.t -> unit
+)
+ident(
+  ext_ref Core.Std.Command.run
+)
+"Regex.ml" 36 1052 1077 "Regex.ml" 36 1052 1084
+type(
+  Command.t
+)
+ident(
+  int_ref command "Regex.ml" 12 165 171 "Regex.ml" 12 165 178
+)
+"Regex.ml" 36 1052 1065 "Regex.ml" 36 1052 1084
+call(
+  stack
+)
+type(
+  unit
+)

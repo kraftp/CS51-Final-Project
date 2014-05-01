@@ -1,0 +1,3796 @@
+"Parser.ml" 43 812 820 "Parser.ml" 43 812 827
+type(
+  string -> char list
+)
+ident(
+  def explode "Parser.ml" 48 960 964 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 43 812 828 "Parser.ml" 43 812 829
+type(
+  string
+)
+ident(
+  def s "Parser.ml" 44 832 840 "Parser.ml" 46 917 952
+)
+"Parser.ml" 44 832 848 "Parser.ml" 44 832 851
+type(
+  int -> char list -> char list
+)
+ident(
+  def exp "Parser.ml" 44 832 840 "Parser.ml" 46 917 952
+)
+"Parser.ml" 44 832 852 "Parser.ml" 44 832 853
+type(
+  int
+)
+ident(
+  def i "Parser.ml" 44 832 854 "Parser.ml" 45 859 913
+)
+"Parser.ml" 44 832 854 "Parser.ml" 44 832 855
+type(
+  char list
+)
+ident(
+  def l "Parser.ml" 45 859 871 "Parser.ml" 45 859 913
+)
+"Parser.ml" 45 859 874 "Parser.ml" 45 859 875
+type(
+  int
+)
+ident(
+  int_ref i "Parser.ml" 44 832 852 "Parser.ml" 44 832 853
+)
+"Parser.ml" 45 859 875 "Parser.ml" 45 859 876
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( < )
+)
+"Parser.ml" 45 859 877 "Parser.ml" 45 859 878
+type(
+  int
+)
+"Parser.ml" 45 859 874 "Parser.ml" 45 859 878
+type(
+  bool
+)
+"Parser.ml" 45 859 884 "Parser.ml" 45 859 885
+type(
+  char list
+)
+ident(
+  int_ref l "Parser.ml" 44 832 854 "Parser.ml" 44 832 855
+)
+"Parser.ml" 45 859 891 "Parser.ml" 45 859 894
+type(
+  int -> char list -> char list
+)
+ident(
+  int_ref exp "Parser.ml" 44 832 848 "Parser.ml" 44 832 851
+)
+"Parser.ml" 45 859 896 "Parser.ml" 45 859 897
+type(
+  int
+)
+ident(
+  int_ref i "Parser.ml" 44 832 852 "Parser.ml" 44 832 853
+)
+"Parser.ml" 45 859 897 "Parser.ml" 45 859 898
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"Parser.ml" 45 859 898 "Parser.ml" 45 859 899
+type(
+  int
+)
+"Parser.ml" 45 859 896 "Parser.ml" 45 859 899
+type(
+  int
+)
+"Parser.ml" 45 859 902 "Parser.ml" 45 859 903
+type(
+  string
+)
+ident(
+  int_ref s "Parser.ml" 43 812 828 "Parser.ml" 43 812 829
+)
+"Parser.ml" 45 859 905 "Parser.ml" 45 859 906
+type(
+  int
+)
+ident(
+  int_ref i "Parser.ml" 44 832 852 "Parser.ml" 44 832 853
+)
+"Parser.ml" 45 859 902 "Parser.ml" 45 859 907
+type(
+  char
+)
+type(
+  string -> int -> char
+)
+ident(
+  ext_ref Core.Std.String.get
+)
+"Parser.ml" 45 859 911 "Parser.ml" 45 859 912
+type(
+  char list
+)
+ident(
+  int_ref l "Parser.ml" 44 832 854 "Parser.ml" 44 832 855
+)
+"Parser.ml" 45 859 902 "Parser.ml" 45 859 912
+type(
+  char list
+)
+"Parser.ml" 45 859 891 "Parser.ml" 45 859 913
+call(
+  tail
+)
+type(
+  char list
+)
+"Parser.ml" 45 859 871 "Parser.ml" 45 859 913
+type(
+  char list
+)
+"Parser.ml" 44 832 854 "Parser.ml" 45 859 913
+type(
+  char list -> char list
+)
+"Parser.ml" 44 832 852 "Parser.ml" 45 859 913
+type(
+  int -> char list -> char list
+)
+"Parser.ml" 46 917 925 "Parser.ml" 46 917 928
+type(
+  int -> char list -> char list
+)
+ident(
+  int_ref exp "Parser.ml" 44 832 848 "Parser.ml" 44 832 851
+)
+"Parser.ml" 46 917 930 "Parser.ml" 46 917 943
+type(
+  string -> int
+)
+ident(
+  ext_ref Core.Std.String.length
+)
+"Parser.ml" 46 917 944 "Parser.ml" 46 917 945
+type(
+  string
+)
+ident(
+  int_ref s "Parser.ml" 43 812 828 "Parser.ml" 43 812 829
+)
+"Parser.ml" 46 917 930 "Parser.ml" 46 917 945
+type(
+  int
+)
+"Parser.ml" 46 917 946 "Parser.ml" 46 917 947
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"Parser.ml" 46 917 948 "Parser.ml" 46 917 949
+type(
+  int
+)
+"Parser.ml" 46 917 930 "Parser.ml" 46 917 949
+type(
+  int
+)
+"Parser.ml" 46 917 950 "Parser.ml" 46 917 952
+type(
+  char list
+)
+"Parser.ml" 46 917 925 "Parser.ml" 46 917 952
+call(
+  tail
+)
+type(
+  char list
+)
+"Parser.ml" 44 832 840 "Parser.ml" 46 917 952
+type(
+  char list
+)
+"Parser.ml" 43 812 828 "Parser.ml" 46 917 952
+type(
+  string -> char list
+)
+"Parser.ml" 48 960 972 "Parser.ml" 48 960 981
+type(
+  char list -> token list
+)
+ident(
+  def tokenizer "Parser.ml" 48 960 964 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 48 960 983 "Parser.ml" 48 960 988
+type(
+  char list
+)
+ident(
+  def clist "Parser.ml" 48 960 1002 "Parser.ml" 58 1347 1392
+)
+"Parser.ml" 49 1017 1031 "Parser.ml" 49 1017 1036
+type(
+  char list
+)
+ident(
+  int_ref clist "Parser.ml" 48 960 983 "Parser.ml" 48 960 988
+)
+"Parser.ml" 50 1042 1052 "Parser.ml" 50 1042 1054
+type(
+  char list
+)
+"Parser.ml" 50 1042 1058 "Parser.ml" 50 1042 1060
+type(
+  token list
+)
+"Parser.ml" 51 1065 1075 "Parser.ml" 51 1065 1077
+type(
+  char
+)
+ident(
+  def hd "Parser.ml" 52 1086 1098 "Parser.ml" 58 1347 1392
+)
+"Parser.ml" 51 1065 1079 "Parser.ml" 51 1065 1081
+type(
+  char list
+)
+ident(
+  def tl "Parser.ml" 52 1086 1098 "Parser.ml" 58 1347 1392
+)
+"Parser.ml" 51 1065 1075 "Parser.ml" 51 1065 1081
+type(
+  char list
+)
+"Parser.ml" 52 1086 1104 "Parser.ml" 52 1086 1106
+type(
+  char
+)
+ident(
+  int_ref hd "Parser.ml" 51 1065 1075 "Parser.ml" 51 1065 1077
+)
+"Parser.ml" 53 1112 1126 "Parser.ml" 53 1112 1129
+type(
+  char
+)
+"Parser.ml" 53 1112 1138 "Parser.ml" 53 1112 1141
+type(
+  char
+)
+"Parser.ml" 53 1112 1133 "Parser.ml" 53 1112 1142
+type(
+  token
+)
+"Parser.ml" 53 1112 1145 "Parser.ml" 53 1112 1154
+type(
+  char list -> token list
+)
+ident(
+  int_ref tokenizer "Parser.ml" 48 960 972 "Parser.ml" 48 960 981
+)
+"Parser.ml" 53 1112 1155 "Parser.ml" 53 1112 1157
+type(
+  char list
+)
+ident(
+  int_ref tl "Parser.ml" 51 1065 1079 "Parser.ml" 51 1065 1081
+)
+"Parser.ml" 53 1112 1145 "Parser.ml" 53 1112 1157
+call(
+  stack
+)
+type(
+  token list
+)
+"Parser.ml" 53 1112 1133 "Parser.ml" 53 1112 1158
+type(
+  token list
+)
+"Parser.ml" 54 1159 1173 "Parser.ml" 54 1159 1176
+type(
+  char
+)
+"Parser.ml" 54 1159 1185 "Parser.ml" 54 1159 1188
+type(
+  char
+)
+"Parser.ml" 54 1159 1180 "Parser.ml" 54 1159 1189
+type(
+  token
+)
+"Parser.ml" 54 1159 1192 "Parser.ml" 54 1159 1201
+type(
+  char list -> token list
+)
+ident(
+  int_ref tokenizer "Parser.ml" 48 960 972 "Parser.ml" 48 960 981
+)
+"Parser.ml" 54 1159 1202 "Parser.ml" 54 1159 1204
+type(
+  char list
+)
+ident(
+  int_ref tl "Parser.ml" 51 1065 1079 "Parser.ml" 51 1065 1081
+)
+"Parser.ml" 54 1159 1192 "Parser.ml" 54 1159 1204
+call(
+  stack
+)
+type(
+  token list
+)
+"Parser.ml" 54 1159 1180 "Parser.ml" 54 1159 1205
+type(
+  token list
+)
+"Parser.ml" 55 1206 1220 "Parser.ml" 55 1206 1223
+type(
+  char
+)
+"Parser.ml" 55 1206 1232 "Parser.ml" 55 1206 1235
+type(
+  char
+)
+"Parser.ml" 55 1206 1227 "Parser.ml" 55 1206 1236
+type(
+  token
+)
+"Parser.ml" 55 1206 1239 "Parser.ml" 55 1206 1248
+type(
+  char list -> token list
+)
+ident(
+  int_ref tokenizer "Parser.ml" 48 960 972 "Parser.ml" 48 960 981
+)
+"Parser.ml" 55 1206 1249 "Parser.ml" 55 1206 1251
+type(
+  char list
+)
+ident(
+  int_ref tl "Parser.ml" 51 1065 1079 "Parser.ml" 51 1065 1081
+)
+"Parser.ml" 55 1206 1239 "Parser.ml" 55 1206 1251
+call(
+  stack
+)
+type(
+  token list
+)
+"Parser.ml" 55 1206 1227 "Parser.ml" 55 1206 1252
+type(
+  token list
+)
+"Parser.ml" 56 1253 1267 "Parser.ml" 56 1253 1270
+type(
+  char
+)
+"Parser.ml" 56 1253 1279 "Parser.ml" 56 1253 1282
+type(
+  char
+)
+"Parser.ml" 56 1253 1274 "Parser.ml" 56 1253 1283
+type(
+  token
+)
+"Parser.ml" 56 1253 1286 "Parser.ml" 56 1253 1295
+type(
+  char list -> token list
+)
+ident(
+  int_ref tokenizer "Parser.ml" 48 960 972 "Parser.ml" 48 960 981
+)
+"Parser.ml" 56 1253 1296 "Parser.ml" 56 1253 1298
+type(
+  char list
+)
+ident(
+  int_ref tl "Parser.ml" 51 1065 1079 "Parser.ml" 51 1065 1081
+)
+"Parser.ml" 56 1253 1286 "Parser.ml" 56 1253 1298
+call(
+  stack
+)
+type(
+  token list
+)
+"Parser.ml" 56 1253 1274 "Parser.ml" 56 1253 1299
+type(
+  token list
+)
+"Parser.ml" 58 1347 1361 "Parser.ml" 58 1347 1362
+type(
+  char
+)
+"Parser.ml" 58 1347 1373 "Parser.ml" 58 1347 1375
+type(
+  char
+)
+ident(
+  int_ref hd "Parser.ml" 51 1065 1075 "Parser.ml" 51 1065 1077
+)
+"Parser.ml" 58 1347 1368 "Parser.ml" 58 1347 1376
+type(
+  token
+)
+"Parser.ml" 58 1347 1379 "Parser.ml" 58 1347 1388
+type(
+  char list -> token list
+)
+ident(
+  int_ref tokenizer "Parser.ml" 48 960 972 "Parser.ml" 48 960 981
+)
+"Parser.ml" 58 1347 1389 "Parser.ml" 58 1347 1391
+type(
+  char list
+)
+ident(
+  int_ref tl "Parser.ml" 51 1065 1079 "Parser.ml" 51 1065 1081
+)
+"Parser.ml" 58 1347 1379 "Parser.ml" 58 1347 1391
+call(
+  stack
+)
+type(
+  token list
+)
+"Parser.ml" 58 1347 1368 "Parser.ml" 58 1347 1392
+type(
+  token list
+)
+"Parser.ml" 52 1086 1098 "Parser.ml" 58 1347 1392
+type(
+  token list
+)
+"Parser.ml" 49 1017 1025 "Parser.ml" 58 1347 1392
+type(
+  token list
+)
+type(
+  token list
+)
+"Parser.ml" 48 960 982 "Parser.ml" 58 1347 1392
+type(
+  char list -> token list
+)
+"Parser.ml" 60 1403 1415 "Parser.ml" 60 1403 1424
+type(
+  token list -> bool
+)
+ident(
+  def checkchar "Parser.ml" 60 1403 1407 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 60 1403 1426 "Parser.ml" 60 1403 1431
+type(
+  token list
+)
+ident(
+  def tlist "Parser.ml" 60 1403 1445 "Parser.ml" 65 1612 1643
+)
+"Parser.ml" 61 1454 1468 "Parser.ml" 61 1454 1473
+type(
+  token list
+)
+ident(
+  int_ref tlist "Parser.ml" 60 1403 1426 "Parser.ml" 60 1403 1431
+)
+"Parser.ml" 62 1479 1488 "Parser.ml" 62 1479 1490
+type(
+  token list
+)
+"Parser.ml" 62 1479 1494 "Parser.ml" 62 1479 1507
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 62 1479 1508 "Parser.ml" 62 1479 1547
+type(
+  (unit, out_channel, unit) format
+)
+"Parser.ml" 62 1479 1494 "Parser.ml" 62 1479 1547
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 62 1479 1549 "Parser.ml" 62 1479 1554
+type(
+  bool
+)
+"Parser.ml" 62 1479 1494 "Parser.ml" 62 1479 1554
+type(
+  bool
+)
+"Parser.ml" 63 1555 1564 "Parser.ml" 63 1555 1566
+type(
+  token
+)
+ident(
+  def hd "Parser.ml" 63 1555 1574 "Parser.ml" 65 1612 1643
+)
+"Parser.ml" 63 1555 1568 "Parser.ml" 63 1555 1570
+type(
+  token list
+)
+ident(
+  def tl "Parser.ml" 63 1555 1574 "Parser.ml" 65 1612 1643
+)
+"Parser.ml" 63 1555 1564 "Parser.ml" 63 1555 1570
+type(
+  token list
+)
+"Parser.ml" 63 1555 1580 "Parser.ml" 63 1555 1582
+type(
+  token
+)
+ident(
+  int_ref hd "Parser.ml" 63 1555 1564 "Parser.ml" 63 1555 1566
+)
+"Parser.ml" 64 1588 1601 "Parser.ml" 64 1588 1602
+type(
+  char
+)
+"Parser.ml" 64 1588 1596 "Parser.ml" 64 1588 1603
+type(
+  token
+)
+"Parser.ml" 64 1588 1607 "Parser.ml" 64 1588 1611
+type(
+  bool
+)
+"Parser.ml" 65 1612 1625 "Parser.ml" 65 1612 1626
+type(
+  char
+)
+"Parser.ml" 65 1612 1620 "Parser.ml" 65 1612 1627
+type(
+  token
+)
+"Parser.ml" 65 1612 1631 "Parser.ml" 65 1612 1640
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkchar "Parser.ml" 60 1403 1415 "Parser.ml" 60 1403 1424
+)
+"Parser.ml" 65 1612 1641 "Parser.ml" 65 1612 1643
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 63 1555 1568 "Parser.ml" 63 1555 1570
+)
+"Parser.ml" 65 1612 1631 "Parser.ml" 65 1612 1643
+call(
+  tail
+)
+type(
+  bool
+)
+"Parser.ml" 63 1555 1574 "Parser.ml" 65 1612 1643
+type(
+  bool
+)
+"Parser.ml" 61 1454 1462 "Parser.ml" 65 1612 1643
+type(
+  bool
+)
+type(
+  bool
+)
+"Parser.ml" 60 1403 1425 "Parser.ml" 65 1612 1643
+type(
+  token list -> bool
+)
+"Parser.ml" 67 1651 1659 "Parser.ml" 67 1651 1669
+type(
+  token list -> bool
+)
+ident(
+  def checkparen "Parser.ml" 79 2224 2228 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 67 1651 1671 "Parser.ml" 67 1651 1676
+type(
+  token list
+)
+ident(
+  def tlist "Parser.ml" 67 1651 1691 "Parser.ml" 77 2166 2222
+)
+"Parser.ml" 68 1700 1714 "Parser.ml" 68 1700 1719
+type(
+  int list -> token list -> bool
+)
+ident(
+  def cpaux "Parser.ml" 68 1700 1706 "Parser.ml" 77 2166 2222
+)
+"Parser.ml" 68 1700 1721 "Parser.ml" 68 1700 1726
+type(
+  int list
+)
+ident(
+  def plist "Parser.ml" 68 1700 1741 "Parser.ml" 77 2166 2204
+)
+"Parser.ml" 69 1750 1760 "Parser.ml" 69 1750 1762
+type(
+  token list
+)
+"Parser.ml" 69 1750 1773 "Parser.ml" 69 1750 1778
+type(
+  int list
+)
+ident(
+  int_ref plist "Parser.ml" 68 1700 1721 "Parser.ml" 68 1700 1726
+)
+"Parser.ml" 70 1784 1798 "Parser.ml" 70 1784 1800
+type(
+  int list
+)
+"Parser.ml" 70 1784 1804 "Parser.ml" 70 1784 1808
+type(
+  bool
+)
+"Parser.ml" 71 1809 1823 "Parser.ml" 71 1809 1824
+type(
+  int list
+)
+"Parser.ml" 71 1809 1829 "Parser.ml" 71 1809 1842
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 71 1809 1843 "Parser.ml" 71 1809 1877
+type(
+  (unit, out_channel, unit) format
+)
+"Parser.ml" 71 1809 1829 "Parser.ml" 71 1809 1877
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 71 1809 1879 "Parser.ml" 71 1809 1884
+type(
+  bool
+)
+"Parser.ml" 71 1809 1829 "Parser.ml" 71 1809 1884
+type(
+  bool
+)
+"Parser.ml" 69 1750 1767 "Parser.ml" 71 1809 1884
+type(
+  bool
+)
+"Parser.ml" 72 1886 1896 "Parser.ml" 72 1886 1898
+type(
+  token
+)
+ident(
+  def hd "Parser.ml" 72 1886 1906 "Parser.ml" 77 2166 2204
+)
+"Parser.ml" 72 1886 1900 "Parser.ml" 72 1886 1902
+type(
+  token list
+)
+ident(
+  def tl "Parser.ml" 72 1886 1906 "Parser.ml" 77 2166 2204
+)
+"Parser.ml" 72 1886 1896 "Parser.ml" 72 1886 1902
+type(
+  token list
+)
+"Parser.ml" 72 1886 1912 "Parser.ml" 72 1886 1914
+type(
+  token
+)
+ident(
+  int_ref hd "Parser.ml" 72 1886 1896 "Parser.ml" 72 1886 1898
+)
+"Parser.ml" 73 1920 1943 "Parser.ml" 73 1920 1946
+type(
+  char
+)
+"Parser.ml" 73 1920 1938 "Parser.ml" 73 1920 1947
+type(
+  token
+)
+"Parser.ml" 73 1920 1951 "Parser.ml" 73 1920 1956
+type(
+  int list -> token list -> bool
+)
+ident(
+  int_ref cpaux "Parser.ml" 68 1700 1714 "Parser.ml" 68 1700 1719
+)
+"Parser.ml" 73 1920 1958 "Parser.ml" 73 1920 1959
+type(
+  int
+)
+"Parser.ml" 73 1920 1961 "Parser.ml" 73 1920 1966
+type(
+  int list
+)
+ident(
+  int_ref plist "Parser.ml" 68 1700 1721 "Parser.ml" 68 1700 1726
+)
+"Parser.ml" 73 1920 1958 "Parser.ml" 73 1920 1966
+type(
+  int list
+)
+"Parser.ml" 73 1920 1968 "Parser.ml" 73 1920 1970
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 72 1886 1900 "Parser.ml" 72 1886 1902
+)
+"Parser.ml" 73 1920 1951 "Parser.ml" 73 1920 1970
+call(
+  tail
+)
+type(
+  bool
+)
+"Parser.ml" 74 1971 1994 "Parser.ml" 74 1971 1997
+type(
+  char
+)
+"Parser.ml" 74 1971 1989 "Parser.ml" 74 1971 1998
+type(
+  token
+)
+"Parser.ml" 74 1971 2009 "Parser.ml" 74 1971 2014
+type(
+  int list
+)
+ident(
+  int_ref plist "Parser.ml" 68 1700 1721 "Parser.ml" 68 1700 1726
+)
+"Parser.ml" 75 2020 2050 "Parser.ml" 75 2020 2052
+type(
+  int list
+)
+"Parser.ml" 75 2020 2056 "Parser.ml" 75 2020 2069
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 75 2020 2070 "Parser.ml" 75 2020 2104
+type(
+  (unit, out_channel, unit) format
+)
+"Parser.ml" 75 2020 2056 "Parser.ml" 75 2020 2104
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 75 2020 2106 "Parser.ml" 75 2020 2111
+type(
+  bool
+)
+"Parser.ml" 75 2020 2056 "Parser.ml" 75 2020 2111
+type(
+  bool
+)
+"Parser.ml" 76 2112 2142 "Parser.ml" 76 2112 2143
+type(
+  int
+)
+"Parser.ml" 76 2112 2145 "Parser.ml" 76 2112 2148
+type(
+  int list
+)
+ident(
+  def tlp "Parser.ml" 76 2112 2152 "Parser.ml" 76 2112 2164
+)
+"Parser.ml" 76 2112 2142 "Parser.ml" 76 2112 2148
+type(
+  int list
+)
+"Parser.ml" 76 2112 2152 "Parser.ml" 76 2112 2157
+type(
+  int list -> token list -> bool
+)
+ident(
+  int_ref cpaux "Parser.ml" 68 1700 1714 "Parser.ml" 68 1700 1719
+)
+"Parser.ml" 76 2112 2158 "Parser.ml" 76 2112 2161
+type(
+  int list
+)
+ident(
+  int_ref tlp "Parser.ml" 76 2112 2145 "Parser.ml" 76 2112 2148
+)
+"Parser.ml" 76 2112 2162 "Parser.ml" 76 2112 2164
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 72 1886 1900 "Parser.ml" 72 1886 1902
+)
+"Parser.ml" 76 2112 2152 "Parser.ml" 76 2112 2164
+call(
+  tail
+)
+type(
+  bool
+)
+"Parser.ml" 74 1971 2003 "Parser.ml" 76 2112 2164
+type(
+  bool
+)
+"Parser.ml" 77 2166 2184 "Parser.ml" 77 2166 2185
+type(
+  token
+)
+"Parser.ml" 77 2166 2190 "Parser.ml" 77 2166 2195
+type(
+  int list -> token list -> bool
+)
+ident(
+  int_ref cpaux "Parser.ml" 68 1700 1714 "Parser.ml" 68 1700 1719
+)
+"Parser.ml" 77 2166 2196 "Parser.ml" 77 2166 2201
+type(
+  int list
+)
+ident(
+  int_ref plist "Parser.ml" 68 1700 1721 "Parser.ml" 68 1700 1726
+)
+"Parser.ml" 77 2166 2202 "Parser.ml" 77 2166 2204
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 72 1886 1900 "Parser.ml" 72 1886 1902
+)
+"Parser.ml" 77 2166 2190 "Parser.ml" 77 2166 2204
+call(
+  tail
+)
+type(
+  bool
+)
+"Parser.ml" 72 1886 1906 "Parser.ml" 77 2166 2204
+type(
+  bool
+)
+"Parser.ml" 68 1700 1741 "Parser.ml" 77 2166 2204
+type(
+  token list -> bool
+)
+"Parser.ml" 68 1700 1720 "Parser.ml" 77 2166 2204
+type(
+  int list -> token list -> bool
+)
+"Parser.ml" 77 2166 2208 "Parser.ml" 77 2166 2213
+type(
+  int list -> token list -> bool
+)
+ident(
+  int_ref cpaux "Parser.ml" 68 1700 1714 "Parser.ml" 68 1700 1719
+)
+"Parser.ml" 77 2166 2214 "Parser.ml" 77 2166 2216
+type(
+  int list
+)
+"Parser.ml" 77 2166 2217 "Parser.ml" 77 2166 2222
+type(
+  token list
+)
+ident(
+  int_ref tlist "Parser.ml" 67 1651 1671 "Parser.ml" 67 1651 1676
+)
+"Parser.ml" 77 2166 2208 "Parser.ml" 77 2166 2222
+call(
+  tail
+)
+type(
+  bool
+)
+"Parser.ml" 68 1700 1706 "Parser.ml" 77 2166 2222
+type(
+  bool
+)
+type(
+  bool
+)
+"Parser.ml" 67 1651 1670 "Parser.ml" 77 2166 2222
+type(
+  token list -> bool
+)
+"Parser.ml" 79 2224 2236 "Parser.ml" 79 2224 2244
+type(
+  token list -> bool
+)
+ident(
+  def checkdbl "Parser.ml" 79 2224 2228 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 79 2224 2246 "Parser.ml" 79 2224 2251
+type(
+  token list
+)
+ident(
+  def tlist "Parser.ml" 79 2224 2266 "Parser.ml" 99 2997 3027
+)
+"Parser.ml" 80 2276 2288 "Parser.ml" 80 2276 2293
+type(
+  token list
+)
+ident(
+  int_ref tlist "Parser.ml" 79 2224 2246 "Parser.ml" 79 2224 2251
+)
+"Parser.ml" 81 2299 2307 "Parser.ml" 81 2299 2309
+type(
+  token list
+)
+"Parser.ml" 81 2299 2311 "Parser.ml" 81 2299 2312
+type(
+  token list
+)
+type(
+  token
+)
+"Parser.ml" 81 2299 2310 "Parser.ml" 81 2299 2313
+type(
+  token list
+)
+"Parser.ml" 81 2299 2307 "Parser.ml" 81 2299 2313
+type(
+  token list
+)
+"Parser.ml" 81 2299 2317 "Parser.ml" 81 2299 2321
+type(
+  bool
+)
+"Parser.ml" 82 2322 2330 "Parser.ml" 82 2322 2333
+type(
+  token
+)
+ident(
+  def hd1 "Parser.ml" 83 2347 2352 "Parser.ml" 99 2997 3027
+)
+"Parser.ml" 82 2322 2335 "Parser.ml" 82 2322 2338
+type(
+  token
+)
+ident(
+  def hd2 "Parser.ml" 83 2347 2352 "Parser.ml" 99 2997 3027
+)
+"Parser.ml" 82 2322 2340 "Parser.ml" 82 2322 2342
+type(
+  token list
+)
+ident(
+  def tl "Parser.ml" 83 2347 2352 "Parser.ml" 99 2997 3027
+)
+"Parser.ml" 82 2322 2335 "Parser.ml" 82 2322 2342
+type(
+  token list
+)
+"Parser.ml" 82 2322 2330 "Parser.ml" 82 2322 2342
+type(
+  token list
+)
+"Parser.ml" 83 2347 2358 "Parser.ml" 83 2347 2361
+type(
+  token
+)
+ident(
+  int_ref hd1 "Parser.ml" 82 2322 2330 "Parser.ml" 82 2322 2333
+)
+"Parser.ml" 84 2367 2380 "Parser.ml" 84 2367 2383
+type(
+  char
+)
+"Parser.ml" 84 2367 2375 "Parser.ml" 84 2367 2384
+type(
+  token
+)
+"Parser.ml" 85 2388 2406 "Parser.ml" 85 2388 2409
+type(
+  token
+)
+ident(
+  int_ref hd2 "Parser.ml" 82 2322 2335 "Parser.ml" 82 2322 2338
+)
+"Parser.ml" 86 2415 2433 "Parser.ml" 86 2415 2436
+type(
+  char
+)
+"Parser.ml" 86 2415 2428 "Parser.ml" 86 2415 2437
+type(
+  token
+)
+"Parser.ml" 86 2415 2444 "Parser.ml" 86 2415 2447
+type(
+  char
+)
+"Parser.ml" 86 2415 2439 "Parser.ml" 86 2415 2448
+type(
+  token
+)
+"Parser.ml" 86 2415 2428 "Parser.ml" 86 2415 2448
+type(
+  token
+)
+"Parser.ml" 86 2415 2455 "Parser.ml" 86 2415 2458
+type(
+  char
+)
+"Parser.ml" 86 2415 2450 "Parser.ml" 86 2415 2459
+type(
+  token
+)
+"Parser.ml" 86 2415 2428 "Parser.ml" 86 2415 2459
+type(
+  token
+)
+"Parser.ml" 87 2463 2476 "Parser.ml" 87 2463 2489
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 87 2463 2490 "Parser.ml" 87 2463 2543
+type(
+  (unit, out_channel, unit) format
+)
+"Parser.ml" 87 2463 2476 "Parser.ml" 87 2463 2543
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 87 2463 2545 "Parser.ml" 87 2463 2550
+type(
+  bool
+)
+"Parser.ml" 87 2463 2476 "Parser.ml" 87 2463 2550
+type(
+  bool
+)
+"Parser.ml" 88 2551 2564 "Parser.ml" 88 2551 2565
+type(
+  token
+)
+"Parser.ml" 88 2551 2569 "Parser.ml" 88 2551 2577
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkdbl "Parser.ml" 79 2224 2236 "Parser.ml" 79 2224 2244
+)
+"Parser.ml" 88 2551 2579 "Parser.ml" 88 2551 2582
+type(
+  token
+)
+ident(
+  int_ref hd2 "Parser.ml" 82 2322 2335 "Parser.ml" 82 2322 2338
+)
+"Parser.ml" 88 2551 2584 "Parser.ml" 88 2551 2586
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 82 2322 2340 "Parser.ml" 82 2322 2342
+)
+"Parser.ml" 88 2551 2579 "Parser.ml" 88 2551 2586
+type(
+  token list
+)
+"Parser.ml" 88 2551 2569 "Parser.ml" 88 2551 2587
+call(
+  tail
+)
+type(
+  bool
+)
+"Parser.ml" 85 2388 2400 "Parser.ml" 88 2551 2587
+type(
+  bool
+)
+"Parser.ml" 89 2589 2601 "Parser.ml" 89 2589 2604
+type(
+  char
+)
+"Parser.ml" 89 2589 2596 "Parser.ml" 89 2589 2605
+type(
+  token
+)
+"Parser.ml" 90 2609 2624 "Parser.ml" 90 2609 2627
+type(
+  token
+)
+ident(
+  int_ref hd2 "Parser.ml" 82 2322 2335 "Parser.ml" 82 2322 2338
+)
+"Parser.ml" 91 2633 2649 "Parser.ml" 91 2633 2652
+type(
+  char
+)
+"Parser.ml" 91 2633 2644 "Parser.ml" 91 2633 2653
+type(
+  token
+)
+"Parser.ml" 92 2658 2669 "Parser.ml" 92 2658 2682
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 92 2658 2683 "Parser.ml" 92 2658 2736
+type(
+  (unit, out_channel, unit) format
+)
+"Parser.ml" 92 2658 2669 "Parser.ml" 92 2658 2736
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 92 2658 2738 "Parser.ml" 92 2658 2743
+type(
+  bool
+)
+"Parser.ml" 92 2658 2669 "Parser.ml" 92 2658 2743
+type(
+  bool
+)
+"Parser.ml" 93 2744 2755 "Parser.ml" 93 2744 2756
+type(
+  token
+)
+"Parser.ml" 93 2744 2760 "Parser.ml" 93 2744 2768
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkdbl "Parser.ml" 79 2224 2236 "Parser.ml" 79 2224 2244
+)
+"Parser.ml" 93 2744 2770 "Parser.ml" 93 2744 2773
+type(
+  token
+)
+ident(
+  int_ref hd2 "Parser.ml" 82 2322 2335 "Parser.ml" 82 2322 2338
+)
+"Parser.ml" 93 2744 2775 "Parser.ml" 93 2744 2777
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 82 2322 2340 "Parser.ml" 82 2322 2342
+)
+"Parser.ml" 93 2744 2770 "Parser.ml" 93 2744 2777
+type(
+  token list
+)
+"Parser.ml" 93 2744 2760 "Parser.ml" 93 2744 2778
+call(
+  tail
+)
+type(
+  bool
+)
+"Parser.ml" 90 2609 2618 "Parser.ml" 93 2744 2778
+type(
+  bool
+)
+"Parser.ml" 94 2780 2792 "Parser.ml" 94 2780 2795
+type(
+  char
+)
+"Parser.ml" 94 2780 2787 "Parser.ml" 94 2780 2796
+type(
+  token
+)
+"Parser.ml" 95 2800 2816 "Parser.ml" 95 2800 2819
+type(
+  token
+)
+ident(
+  int_ref hd2 "Parser.ml" 82 2322 2335 "Parser.ml" 82 2322 2338
+)
+"Parser.ml" 96 2825 2844 "Parser.ml" 96 2825 2847
+type(
+  char
+)
+"Parser.ml" 96 2825 2839 "Parser.ml" 96 2825 2848
+type(
+  token
+)
+"Parser.ml" 96 2825 2855 "Parser.ml" 96 2825 2858
+type(
+  char
+)
+"Parser.ml" 96 2825 2850 "Parser.ml" 96 2825 2859
+type(
+  token
+)
+"Parser.ml" 96 2825 2839 "Parser.ml" 96 2825 2859
+type(
+  token
+)
+"Parser.ml" 96 2825 2866 "Parser.ml" 96 2825 2869
+type(
+  char
+)
+"Parser.ml" 96 2825 2861 "Parser.ml" 96 2825 2870
+type(
+  token
+)
+"Parser.ml" 96 2825 2839 "Parser.ml" 96 2825 2870
+type(
+  token
+)
+"Parser.ml" 97 2874 2885 "Parser.ml" 97 2874 2898
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 97 2874 2899 "Parser.ml" 97 2874 2952
+type(
+  (unit, out_channel, unit) format
+)
+"Parser.ml" 97 2874 2885 "Parser.ml" 97 2874 2952
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 97 2874 2954 "Parser.ml" 97 2874 2959
+type(
+  bool
+)
+"Parser.ml" 97 2874 2885 "Parser.ml" 97 2874 2959
+type(
+  bool
+)
+"Parser.ml" 98 2960 2972 "Parser.ml" 98 2960 2973
+type(
+  token
+)
+"Parser.ml" 98 2960 2977 "Parser.ml" 98 2960 2985
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkdbl "Parser.ml" 79 2224 2236 "Parser.ml" 79 2224 2244
+)
+"Parser.ml" 98 2960 2987 "Parser.ml" 98 2960 2990
+type(
+  token
+)
+ident(
+  int_ref hd2 "Parser.ml" 82 2322 2335 "Parser.ml" 82 2322 2338
+)
+"Parser.ml" 98 2960 2992 "Parser.ml" 98 2960 2994
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 82 2322 2340 "Parser.ml" 82 2322 2342
+)
+"Parser.ml" 98 2960 2987 "Parser.ml" 98 2960 2994
+type(
+  token list
+)
+"Parser.ml" 98 2960 2977 "Parser.ml" 98 2960 2995
+call(
+  tail
+)
+type(
+  bool
+)
+"Parser.ml" 95 2800 2810 "Parser.ml" 98 2960 2995
+type(
+  bool
+)
+"Parser.ml" 99 2997 3004 "Parser.ml" 99 2997 3005
+type(
+  token
+)
+"Parser.ml" 99 2997 3009 "Parser.ml" 99 2997 3017
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkdbl "Parser.ml" 79 2224 2236 "Parser.ml" 79 2224 2244
+)
+"Parser.ml" 99 2997 3019 "Parser.ml" 99 2997 3022
+type(
+  token
+)
+ident(
+  int_ref hd2 "Parser.ml" 82 2322 2335 "Parser.ml" 82 2322 2338
+)
+"Parser.ml" 99 2997 3024 "Parser.ml" 99 2997 3026
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 82 2322 2340 "Parser.ml" 82 2322 2342
+)
+"Parser.ml" 99 2997 3019 "Parser.ml" 99 2997 3026
+type(
+  token list
+)
+"Parser.ml" 99 2997 3009 "Parser.ml" 99 2997 3027
+call(
+  tail
+)
+type(
+  bool
+)
+"Parser.ml" 83 2347 2352 "Parser.ml" 99 2997 3027
+type(
+  bool
+)
+"Parser.ml" 80 2276 2282 "Parser.ml" 99 2997 3027
+type(
+  bool
+)
+type(
+  bool
+)
+"Parser.ml" 79 2224 2245 "Parser.ml" 99 2997 3027
+type(
+  token list -> bool
+)
+"Parser.ml" 101 3029 3037 "Parser.ml" 101 3029 3047
+type(
+  token list -> bool
+)
+ident(
+  def checkfirst "Parser.ml" 109 3328 3332 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 101 3029 3049 "Parser.ml" 101 3029 3054
+type(
+  token list
+)
+ident(
+  def tlist "Parser.ml" 101 3029 3069 "Parser.ml" 107 3310 3326
+)
+"Parser.ml" 102 3078 3090 "Parser.ml" 102 3078 3095
+type(
+  token list
+)
+ident(
+  int_ref tlist "Parser.ml" 101 3029 3049 "Parser.ml" 101 3029 3054
+)
+"Parser.ml" 103 3102 3110 "Parser.ml" 103 3102 3112
+type(
+  token list
+)
+"Parser.ml" 103 3102 3116 "Parser.ml" 103 3102 3129
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 103 3102 3130 "Parser.ml" 103 3102 3153
+type(
+  (unit, out_channel, unit) format
+)
+"Parser.ml" 103 3102 3116 "Parser.ml" 103 3102 3153
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 103 3102 3155 "Parser.ml" 103 3102 3160
+type(
+  bool
+)
+"Parser.ml" 103 3102 3116 "Parser.ml" 103 3102 3160
+type(
+  bool
+)
+"Parser.ml" 104 3161 3169 "Parser.ml" 104 3161 3171
+type(
+  token
+)
+ident(
+  def hd "Parser.ml" 104 3161 3178 "Parser.ml" 107 3310 3326
+)
+"Parser.ml" 104 3161 3173 "Parser.ml" 104 3161 3174
+type(
+  token list
+)
+"Parser.ml" 104 3161 3169 "Parser.ml" 104 3161 3174
+type(
+  token list
+)
+"Parser.ml" 104 3161 3184 "Parser.ml" 104 3161 3186
+type(
+  token
+)
+ident(
+  int_ref hd "Parser.ml" 104 3161 3169 "Parser.ml" 104 3161 3171
+)
+"Parser.ml" 105 3192 3204 "Parser.ml" 105 3192 3207
+type(
+  char
+)
+"Parser.ml" 105 3192 3199 "Parser.ml" 105 3192 3208
+type(
+  token
+)
+"Parser.ml" 105 3192 3214 "Parser.ml" 105 3192 3217
+type(
+  char
+)
+"Parser.ml" 105 3192 3209 "Parser.ml" 105 3192 3218
+type(
+  token
+)
+"Parser.ml" 105 3192 3199 "Parser.ml" 105 3192 3218
+type(
+  token
+)
+"Parser.ml" 105 3192 3224 "Parser.ml" 105 3192 3227
+type(
+  char
+)
+"Parser.ml" 105 3192 3219 "Parser.ml" 105 3192 3228
+type(
+  token
+)
+"Parser.ml" 105 3192 3199 "Parser.ml" 105 3192 3228
+type(
+  token
+)
+"Parser.ml" 106 3232 3242 "Parser.ml" 106 3232 3255
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 106 3232 3256 "Parser.ml" 106 3232 3302
+type(
+  (unit, out_channel, unit) format
+)
+"Parser.ml" 106 3232 3242 "Parser.ml" 106 3232 3302
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 106 3232 3304 "Parser.ml" 106 3232 3309
+type(
+  bool
+)
+"Parser.ml" 106 3232 3242 "Parser.ml" 106 3232 3309
+type(
+  bool
+)
+"Parser.ml" 107 3310 3317 "Parser.ml" 107 3310 3318
+type(
+  token
+)
+"Parser.ml" 107 3310 3322 "Parser.ml" 107 3310 3326
+type(
+  bool
+)
+"Parser.ml" 104 3161 3178 "Parser.ml" 107 3310 3326
+type(
+  bool
+)
+"Parser.ml" 102 3078 3084 "Parser.ml" 107 3310 3326
+type(
+  bool
+)
+type(
+  bool
+)
+"Parser.ml" 101 3029 3048 "Parser.ml" 107 3310 3326
+type(
+  token list -> bool
+)
+"Parser.ml" 109 3328 3340 "Parser.ml" 109 3328 3345
+type(
+  token list -> token list * pt
+)
+ident(
+  def orfun "Parser.ml" 109 3328 3332 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 109 3328 3347 "Parser.ml" 109 3328 3352
+type(
+  token list
+)
+ident(
+  def tlist "Parser.ml" 109 3328 3367 "Parser.ml" 117 3670 3705
+)
+"Parser.ml" 110 3387 3400 "Parser.ml" 110 3387 3406
+type(
+  token list
+)
+ident(
+  def ntlist "Parser.ml" 111 3434 3442 "Parser.ml" 117 3670 3705
+)
+"Parser.ml" 110 3387 3408 "Parser.ml" 110 3387 3414
+type(
+  pt
+)
+ident(
+  def nptree "Parser.ml" 111 3434 3442 "Parser.ml" 117 3670 3705
+)
+"Parser.ml" 110 3387 3400 "Parser.ml" 110 3387 3414
+type(
+  token list * pt
+)
+"Parser.ml" 110 3387 3418 "Parser.ml" 110 3387 3424
+type(
+  token list -> token list * pt
+)
+ident(
+  int_ref catfun "Parser.ml" 119 3722 3730 "Parser.ml" 119 3722 3736
+)
+"Parser.ml" 110 3387 3425 "Parser.ml" 110 3387 3430
+type(
+  token list
+)
+ident(
+  int_ref tlist "Parser.ml" 109 3328 3347 "Parser.ml" 109 3328 3352
+)
+"Parser.ml" 110 3387 3418 "Parser.ml" 110 3387 3430
+call(
+  stack
+)
+type(
+  token list * pt
+)
+"Parser.ml" 111 3434 3448 "Parser.ml" 111 3434 3454
+type(
+  token list
+)
+ident(
+  int_ref ntlist "Parser.ml" 110 3387 3400 "Parser.ml" 110 3387 3406
+)
+"Parser.ml" 112 3460 3470 "Parser.ml" 112 3460 3472
+type(
+  token list
+)
+"Parser.ml" 112 3460 3477 "Parser.ml" 112 3460 3479
+type(
+  token list
+)
+"Parser.ml" 112 3460 3481 "Parser.ml" 112 3460 3487
+type(
+  pt
+)
+ident(
+  int_ref nptree "Parser.ml" 110 3387 3408 "Parser.ml" 110 3387 3414
+)
+"Parser.ml" 112 3460 3477 "Parser.ml" 112 3460 3487
+type(
+  token list * pt
+)
+"Parser.ml" 113 3489 3499 "Parser.ml" 113 3489 3501
+type(
+  token
+)
+ident(
+  def hd "Parser.ml" 114 3510 3522 "Parser.ml" 117 3670 3705
+)
+"Parser.ml" 113 3489 3503 "Parser.ml" 113 3489 3505
+type(
+  token list
+)
+ident(
+  def tl "Parser.ml" 114 3510 3522 "Parser.ml" 117 3670 3705
+)
+"Parser.ml" 113 3489 3499 "Parser.ml" 113 3489 3505
+type(
+  token list
+)
+"Parser.ml" 114 3510 3528 "Parser.ml" 114 3510 3530
+type(
+  token
+)
+ident(
+  int_ref hd "Parser.ml" 113 3489 3499 "Parser.ml" 113 3489 3501
+)
+"Parser.ml" 115 3536 3555 "Parser.ml" 115 3536 3558
+type(
+  char
+)
+"Parser.ml" 115 3536 3550 "Parser.ml" 115 3536 3559
+type(
+  token
+)
+"Parser.ml" 115 3536 3568 "Parser.ml" 115 3536 3575
+type(
+  token list
+)
+ident(
+  def listret "Parser.ml" 115 3536 3601 "Parser.ml" 115 3536 3629
+)
+"Parser.ml" 115 3536 3577 "Parser.ml" 115 3536 3584
+type(
+  pt
+)
+ident(
+  def treeret "Parser.ml" 115 3536 3601 "Parser.ml" 115 3536 3629
+)
+"Parser.ml" 115 3536 3568 "Parser.ml" 115 3536 3584
+type(
+  token list * pt
+)
+"Parser.ml" 115 3536 3588 "Parser.ml" 115 3536 3593
+type(
+  token list -> token list * pt
+)
+ident(
+  int_ref orfun "Parser.ml" 109 3328 3340 "Parser.ml" 109 3328 3345
+)
+"Parser.ml" 115 3536 3594 "Parser.ml" 115 3536 3596
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 113 3489 3503 "Parser.ml" 113 3489 3505
+)
+"Parser.ml" 115 3536 3588 "Parser.ml" 115 3536 3596
+call(
+  stack
+)
+type(
+  token list * pt
+)
+"Parser.ml" 115 3536 3601 "Parser.ml" 115 3536 3608
+type(
+  token list
+)
+ident(
+  int_ref listret "Parser.ml" 115 3536 3568 "Parser.ml" 115 3536 3575
+)
+"Parser.ml" 115 3536 3613 "Parser.ml" 115 3536 3619
+type(
+  pt
+)
+ident(
+  int_ref nptree "Parser.ml" 110 3387 3408 "Parser.ml" 110 3387 3414
+)
+"Parser.ml" 115 3536 3621 "Parser.ml" 115 3536 3628
+type(
+  pt
+)
+ident(
+  int_ref treeret "Parser.ml" 115 3536 3577 "Parser.ml" 115 3536 3584
+)
+"Parser.ml" 115 3536 3610 "Parser.ml" 115 3536 3629
+type(
+  pt
+)
+"Parser.ml" 115 3536 3601 "Parser.ml" 115 3536 3629
+type(
+  token list * pt
+)
+"Parser.ml" 115 3536 3563 "Parser.ml" 115 3536 3630
+type(
+  token list * pt
+)
+"Parser.ml" 116 3631 3649 "Parser.ml" 116 3631 3652
+type(
+  char
+)
+"Parser.ml" 116 3631 3644 "Parser.ml" 116 3631 3653
+type(
+  token
+)
+"Parser.ml" 116 3631 3658 "Parser.ml" 116 3631 3660
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 113 3489 3503 "Parser.ml" 113 3489 3505
+)
+"Parser.ml" 116 3631 3662 "Parser.ml" 116 3631 3668
+type(
+  pt
+)
+ident(
+  int_ref nptree "Parser.ml" 110 3387 3408 "Parser.ml" 110 3387 3414
+)
+"Parser.ml" 116 3631 3658 "Parser.ml" 116 3631 3668
+type(
+  token list * pt
+)
+"Parser.ml" 117 3670 3684 "Parser.ml" 117 3670 3685
+type(
+  token
+)
+"Parser.ml" 117 3670 3690 "Parser.ml" 117 3670 3696
+type(
+  token list
+)
+ident(
+  int_ref ntlist "Parser.ml" 110 3387 3400 "Parser.ml" 110 3387 3406
+)
+"Parser.ml" 117 3670 3698 "Parser.ml" 117 3670 3704
+type(
+  pt
+)
+ident(
+  int_ref nptree "Parser.ml" 110 3387 3408 "Parser.ml" 110 3387 3414
+)
+"Parser.ml" 117 3670 3690 "Parser.ml" 117 3670 3704
+type(
+  token list * pt
+)
+"Parser.ml" 114 3510 3522 "Parser.ml" 117 3670 3705
+type(
+  token list * pt
+)
+"Parser.ml" 111 3434 3442 "Parser.ml" 117 3670 3705
+type(
+  token list * pt
+)
+"Parser.ml" 110 3387 3395 "Parser.ml" 117 3670 3705
+type(
+  token list * pt
+)
+type(
+  token list * pt
+)
+"Parser.ml" 109 3328 3346 "Parser.ml" 117 3670 3705
+type(
+  token list -> token list * pt
+)
+"Parser.ml" 119 3722 3730 "Parser.ml" 119 3722 3736
+type(
+  token list -> token list * pt
+)
+ident(
+  def catfun "Parser.ml" 109 3328 3332 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 119 3722 3738 "Parser.ml" 119 3722 3743
+type(
+  token list
+)
+ident(
+  def tlist "Parser.ml" 119 3722 3759 "Parser.ml" 126 3993 4085
+)
+"Parser.ml" 120 3780 3793 "Parser.ml" 120 3780 3799
+type(
+  token list
+)
+ident(
+  def ntlist "Parser.ml" 121 3834 3842 "Parser.ml" 126 3993 4085
+)
+"Parser.ml" 120 3780 3801 "Parser.ml" 120 3780 3807
+type(
+  pt
+)
+ident(
+  def nptree "Parser.ml" 121 3834 3842 "Parser.ml" 126 3993 4085
+)
+"Parser.ml" 120 3780 3793 "Parser.ml" 120 3780 3807
+type(
+  token list * pt
+)
+"Parser.ml" 120 3780 3811 "Parser.ml" 120 3780 3818
+type(
+  token list -> token list * pt
+)
+ident(
+  int_ref starfun "Parser.ml" 128 4131 4139 "Parser.ml" 128 4131 4146
+)
+"Parser.ml" 120 3780 3819 "Parser.ml" 120 3780 3824
+type(
+  token list
+)
+ident(
+  int_ref tlist "Parser.ml" 119 3722 3738 "Parser.ml" 119 3722 3743
+)
+"Parser.ml" 120 3780 3811 "Parser.ml" 120 3780 3824
+call(
+  stack
+)
+type(
+  token list * pt
+)
+"Parser.ml" 121 3834 3848 "Parser.ml" 121 3834 3854
+type(
+  token list
+)
+ident(
+  int_ref ntlist "Parser.ml" 120 3780 3793 "Parser.ml" 120 3780 3799
+)
+"Parser.ml" 122 3860 3870 "Parser.ml" 122 3860 3872
+type(
+  token list
+)
+"Parser.ml" 122 3860 3877 "Parser.ml" 122 3860 3879
+type(
+  token list
+)
+"Parser.ml" 122 3860 3881 "Parser.ml" 122 3860 3887
+type(
+  pt
+)
+ident(
+  int_ref nptree "Parser.ml" 120 3780 3801 "Parser.ml" 120 3780 3807
+)
+"Parser.ml" 122 3860 3877 "Parser.ml" 122 3860 3887
+type(
+  token list * pt
+)
+"Parser.ml" 123 3889 3899 "Parser.ml" 123 3889 3901
+type(
+  token
+)
+ident(
+  def hd "Parser.ml" 124 3909 3921 "Parser.ml" 126 3993 4085
+)
+"Parser.ml" 123 3889 3903 "Parser.ml" 123 3889 3904
+type(
+  token list
+)
+"Parser.ml" 123 3889 3899 "Parser.ml" 123 3889 3904
+type(
+  token list
+)
+"Parser.ml" 124 3909 3927 "Parser.ml" 124 3909 3929
+type(
+  token
+)
+ident(
+  int_ref hd "Parser.ml" 123 3889 3899 "Parser.ml" 123 3889 3901
+)
+"Parser.ml" 125 3935 3954 "Parser.ml" 125 3935 3957
+type(
+  char
+)
+"Parser.ml" 125 3935 3949 "Parser.ml" 125 3935 3958
+type(
+  token
+)
+"Parser.ml" 125 3935 3965 "Parser.ml" 125 3935 3968
+type(
+  char
+)
+"Parser.ml" 125 3935 3960 "Parser.ml" 125 3935 3969
+type(
+  token
+)
+"Parser.ml" 125 3935 3949 "Parser.ml" 125 3935 3969
+type(
+  token
+)
+"Parser.ml" 125 3935 3976 "Parser.ml" 125 3935 3982
+type(
+  token list
+)
+ident(
+  int_ref ntlist "Parser.ml" 120 3780 3793 "Parser.ml" 120 3780 3799
+)
+"Parser.ml" 125 3935 3984 "Parser.ml" 125 3935 3990
+type(
+  pt
+)
+ident(
+  int_ref nptree "Parser.ml" 120 3780 3801 "Parser.ml" 120 3780 3807
+)
+"Parser.ml" 125 3935 3976 "Parser.ml" 125 3935 3990
+type(
+  token list * pt
+)
+"Parser.ml" 126 3993 4007 "Parser.ml" 126 3993 4008
+type(
+  token
+)
+"Parser.ml" 126 3993 4017 "Parser.ml" 126 3993 4024
+type(
+  token list
+)
+ident(
+  def listret "Parser.ml" 126 3993 4055 "Parser.ml" 126 3993 4084
+)
+"Parser.ml" 126 3993 4026 "Parser.ml" 126 3993 4033
+type(
+  pt
+)
+ident(
+  def treeret "Parser.ml" 126 3993 4055 "Parser.ml" 126 3993 4084
+)
+"Parser.ml" 126 3993 4017 "Parser.ml" 126 3993 4033
+type(
+  token list * pt
+)
+"Parser.ml" 126 3993 4037 "Parser.ml" 126 3993 4043
+type(
+  token list -> token list * pt
+)
+ident(
+  int_ref catfun "Parser.ml" 119 3722 3730 "Parser.ml" 119 3722 3736
+)
+"Parser.ml" 126 3993 4044 "Parser.ml" 126 3993 4050
+type(
+  token list
+)
+ident(
+  int_ref ntlist "Parser.ml" 120 3780 3793 "Parser.ml" 120 3780 3799
+)
+"Parser.ml" 126 3993 4037 "Parser.ml" 126 3993 4050
+call(
+  stack
+)
+type(
+  token list * pt
+)
+"Parser.ml" 126 3993 4055 "Parser.ml" 126 3993 4062
+type(
+  token list
+)
+ident(
+  int_ref listret "Parser.ml" 126 3993 4017 "Parser.ml" 126 3993 4024
+)
+"Parser.ml" 126 3993 4068 "Parser.ml" 126 3993 4074
+type(
+  pt
+)
+ident(
+  int_ref nptree "Parser.ml" 120 3780 3801 "Parser.ml" 120 3780 3807
+)
+"Parser.ml" 126 3993 4076 "Parser.ml" 126 3993 4083
+type(
+  pt
+)
+ident(
+  int_ref treeret "Parser.ml" 126 3993 4026 "Parser.ml" 126 3993 4033
+)
+"Parser.ml" 126 3993 4064 "Parser.ml" 126 3993 4084
+type(
+  pt
+)
+"Parser.ml" 126 3993 4055 "Parser.ml" 126 3993 4084
+type(
+  token list * pt
+)
+"Parser.ml" 126 3993 4012 "Parser.ml" 126 3993 4085
+type(
+  token list * pt
+)
+"Parser.ml" 124 3909 3921 "Parser.ml" 126 3993 4085
+type(
+  token list * pt
+)
+"Parser.ml" 121 3834 3842 "Parser.ml" 126 3993 4085
+type(
+  token list * pt
+)
+"Parser.ml" 120 3780 3788 "Parser.ml" 126 3993 4085
+type(
+  token list * pt
+)
+type(
+  token list * pt
+)
+"Parser.ml" 119 3722 3737 "Parser.ml" 126 3993 4085
+type(
+  token list -> token list * pt
+)
+"Parser.ml" 128 4131 4139 "Parser.ml" 128 4131 4146
+type(
+  token list -> token list * pt
+)
+ident(
+  def starfun "Parser.ml" 109 3328 3332 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 128 4131 4148 "Parser.ml" 128 4131 4153
+type(
+  token list
+)
+ident(
+  def tlist "Parser.ml" 128 4131 4169 "Parser.ml" 135 4384 4419
+)
+"Parser.ml" 129 4190 4203 "Parser.ml" 129 4190 4209
+type(
+  token list
+)
+ident(
+  def ntlist "Parser.ml" 130 4235 4243 "Parser.ml" 135 4384 4419
+)
+"Parser.ml" 129 4190 4211 "Parser.ml" 129 4190 4217
+type(
+  pt
+)
+ident(
+  def nptree "Parser.ml" 130 4235 4243 "Parser.ml" 135 4384 4419
+)
+"Parser.ml" 129 4190 4203 "Parser.ml" 129 4190 4217
+type(
+  token list * pt
+)
+"Parser.ml" 129 4190 4221 "Parser.ml" 129 4190 4225
+type(
+  token list -> token list * pt
+)
+ident(
+  int_ref pfun "Parser.ml" 137 4439 4447 "Parser.ml" 137 4439 4451
+)
+"Parser.ml" 129 4190 4226 "Parser.ml" 129 4190 4231
+type(
+  token list
+)
+ident(
+  int_ref tlist "Parser.ml" 128 4131 4148 "Parser.ml" 128 4131 4153
+)
+"Parser.ml" 129 4190 4221 "Parser.ml" 129 4190 4231
+call(
+  stack
+)
+type(
+  token list * pt
+)
+"Parser.ml" 130 4235 4249 "Parser.ml" 130 4235 4255
+type(
+  token list
+)
+ident(
+  int_ref ntlist "Parser.ml" 129 4190 4203 "Parser.ml" 129 4190 4209
+)
+"Parser.ml" 131 4261 4271 "Parser.ml" 131 4261 4273
+type(
+  token list
+)
+"Parser.ml" 131 4261 4278 "Parser.ml" 131 4261 4280
+type(
+  token list
+)
+"Parser.ml" 131 4261 4282 "Parser.ml" 131 4261 4288
+type(
+  pt
+)
+ident(
+  int_ref nptree "Parser.ml" 129 4190 4211 "Parser.ml" 129 4190 4217
+)
+"Parser.ml" 131 4261 4278 "Parser.ml" 131 4261 4288
+type(
+  token list * pt
+)
+"Parser.ml" 132 4291 4301 "Parser.ml" 132 4291 4303
+type(
+  token
+)
+ident(
+  def hd "Parser.ml" 133 4312 4324 "Parser.ml" 135 4384 4419
+)
+"Parser.ml" 132 4291 4305 "Parser.ml" 132 4291 4307
+type(
+  token list
+)
+ident(
+  def tl "Parser.ml" 133 4312 4324 "Parser.ml" 135 4384 4419
+)
+"Parser.ml" 132 4291 4301 "Parser.ml" 132 4291 4307
+type(
+  token list
+)
+"Parser.ml" 133 4312 4330 "Parser.ml" 133 4312 4332
+type(
+  token
+)
+ident(
+  int_ref hd "Parser.ml" 132 4291 4301 "Parser.ml" 132 4291 4303
+)
+"Parser.ml" 134 4338 4357 "Parser.ml" 134 4338 4360
+type(
+  char
+)
+"Parser.ml" 134 4338 4352 "Parser.ml" 134 4338 4361
+type(
+  token
+)
+"Parser.ml" 134 4338 4366 "Parser.ml" 134 4338 4368
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 132 4291 4305 "Parser.ml" 132 4291 4307
+)
+"Parser.ml" 134 4338 4375 "Parser.ml" 134 4338 4381
+type(
+  pt
+)
+ident(
+  int_ref nptree "Parser.ml" 129 4190 4211 "Parser.ml" 129 4190 4217
+)
+"Parser.ml" 134 4338 4370 "Parser.ml" 134 4338 4382
+type(
+  pt
+)
+"Parser.ml" 134 4338 4366 "Parser.ml" 134 4338 4382
+type(
+  token list * pt
+)
+"Parser.ml" 135 4384 4398 "Parser.ml" 135 4384 4399
+type(
+  token
+)
+"Parser.ml" 135 4384 4404 "Parser.ml" 135 4384 4410
+type(
+  token list
+)
+ident(
+  int_ref ntlist "Parser.ml" 129 4190 4203 "Parser.ml" 129 4190 4209
+)
+"Parser.ml" 135 4384 4412 "Parser.ml" 135 4384 4418
+type(
+  pt
+)
+ident(
+  int_ref nptree "Parser.ml" 129 4190 4211 "Parser.ml" 129 4190 4217
+)
+"Parser.ml" 135 4384 4404 "Parser.ml" 135 4384 4418
+type(
+  token list * pt
+)
+"Parser.ml" 133 4312 4324 "Parser.ml" 135 4384 4419
+type(
+  token list * pt
+)
+"Parser.ml" 130 4235 4243 "Parser.ml" 135 4384 4419
+type(
+  token list * pt
+)
+"Parser.ml" 129 4190 4198 "Parser.ml" 135 4384 4419
+type(
+  token list * pt
+)
+type(
+  token list * pt
+)
+"Parser.ml" 128 4131 4147 "Parser.ml" 135 4384 4419
+type(
+  token list -> token list * pt
+)
+"Parser.ml" 137 4439 4447 "Parser.ml" 137 4439 4451
+type(
+  token list -> token list * pt
+)
+ident(
+  def pfun "Parser.ml" 109 3328 3332 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 137 4439 4453 "Parser.ml" 137 4439 4458
+type(
+  token list
+)
+ident(
+  def tlist "Parser.ml" 137 4439 4473 "Parser.ml" 144 4711 4777
+)
+"Parser.ml" 138 4493 4508 "Parser.ml" 138 4493 4513
+type(
+  token list
+)
+ident(
+  int_ref tlist "Parser.ml" 137 4439 4453 "Parser.ml" 137 4439 4458
+)
+"Parser.ml" 139 4519 4530 "Parser.ml" 139 4519 4532
+type(
+  token list
+)
+"Parser.ml" 139 4519 4536 "Parser.ml" 139 4519 4544
+type(
+  string -> token list * pt
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"Parser.ml" 139 4519 4545 "Parser.ml" 139 4519 4582
+type(
+  string
+)
+"Parser.ml" 139 4519 4536 "Parser.ml" 139 4519 4582
+call(
+  tail
+)
+type(
+  token list * pt
+)
+"Parser.ml" 140 4583 4594 "Parser.ml" 140 4583 4596
+type(
+  token
+)
+ident(
+  def hd "Parser.ml" 141 4605 4618 "Parser.ml" 144 4711 4777
+)
+"Parser.ml" 140 4583 4598 "Parser.ml" 140 4583 4600
+type(
+  token list
+)
+ident(
+  def tl "Parser.ml" 141 4605 4618 "Parser.ml" 144 4711 4777
+)
+"Parser.ml" 140 4583 4594 "Parser.ml" 140 4583 4600
+type(
+  token list
+)
+"Parser.ml" 141 4605 4624 "Parser.ml" 141 4605 4626
+type(
+  token
+)
+ident(
+  int_ref hd "Parser.ml" 140 4583 4594 "Parser.ml" 140 4583 4596
+)
+"Parser.ml" 142 4632 4652 "Parser.ml" 142 4632 4653
+type(
+  char
+)
+ident(
+  def a "Parser.ml" 142 4632 4659 "Parser.ml" 142 4632 4672
+)
+"Parser.ml" 142 4632 4647 "Parser.ml" 142 4632 4654
+type(
+  token
+)
+"Parser.ml" 142 4632 4659 "Parser.ml" 142 4632 4661
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 140 4583 4598 "Parser.ml" 140 4583 4600
+)
+"Parser.ml" 142 4632 4670 "Parser.ml" 142 4632 4671
+type(
+  char
+)
+ident(
+  int_ref a "Parser.ml" 142 4632 4652 "Parser.ml" 142 4632 4653
+)
+"Parser.ml" 142 4632 4663 "Parser.ml" 142 4632 4672
+type(
+  pt
+)
+"Parser.ml" 142 4632 4659 "Parser.ml" 142 4632 4672
+type(
+  token list * pt
+)
+"Parser.ml" 143 4674 4694 "Parser.ml" 143 4674 4697
+type(
+  char
+)
+"Parser.ml" 143 4674 4689 "Parser.ml" 143 4674 4698
+type(
+  token
+)
+"Parser.ml" 143 4674 4702 "Parser.ml" 143 4674 4707
+type(
+  token list -> token list * pt
+)
+ident(
+  int_ref orfun "Parser.ml" 109 3328 3340 "Parser.ml" 109 3328 3345
+)
+"Parser.ml" 143 4674 4708 "Parser.ml" 143 4674 4710
+type(
+  token list
+)
+ident(
+  int_ref tl "Parser.ml" 140 4583 4598 "Parser.ml" 140 4583 4600
+)
+"Parser.ml" 143 4674 4702 "Parser.ml" 143 4674 4710
+call(
+  tail
+)
+type(
+  token list * pt
+)
+"Parser.ml" 144 4711 4726 "Parser.ml" 144 4711 4727
+type(
+  token
+)
+"Parser.ml" 144 4711 4731 "Parser.ml" 144 4711 4739
+type(
+  string -> token list * pt
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"Parser.ml" 144 4711 4740 "Parser.ml" 144 4711 4777
+type(
+  string
+)
+"Parser.ml" 144 4711 4731 "Parser.ml" 144 4711 4777
+call(
+  tail
+)
+type(
+  token list * pt
+)
+"Parser.ml" 141 4605 4618 "Parser.ml" 144 4711 4777
+type(
+  token list * pt
+)
+"Parser.ml" 138 4493 4502 "Parser.ml" 144 4711 4777
+type(
+  token list * pt
+)
+type(
+  token list * pt
+)
+"Parser.ml" 137 4439 4452 "Parser.ml" 144 4711 4777
+type(
+  token list -> token list * pt
+)
+"Parser.ml" 146 4791 4799 "Parser.ml" 146 4791 4804
+type(
+  string -> pt option
+)
+ident(
+  def parse "Parser.ml" 153 5137 5141 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 146 4791 4806 "Parser.ml" 146 4791 4809
+type(
+  string
+)
+ident(
+  def str "Parser.ml" 146 4791 4820 "Parser.ml" 149 4966 5032
+)
+"Parser.ml" 147 4835 4847 "Parser.ml" 147 4835 4852
+type(
+  token list
+)
+ident(
+  def input "Parser.ml" 148 4882 4889 "Parser.ml" 149 4966 5032
+)
+"Parser.ml" 147 4835 4855 "Parser.ml" 147 4835 4864
+type(
+  char list -> token list
+)
+ident(
+  int_ref tokenizer "Parser.ml" 48 960 972 "Parser.ml" 48 960 981
+)
+"Parser.ml" 147 4835 4866 "Parser.ml" 147 4835 4873
+type(
+  string -> char list
+)
+ident(
+  int_ref explode "Parser.ml" 43 812 820 "Parser.ml" 43 812 827
+)
+"Parser.ml" 147 4835 4874 "Parser.ml" 147 4835 4877
+type(
+  string
+)
+ident(
+  int_ref str "Parser.ml" 146 4791 4806 "Parser.ml" 146 4791 4809
+)
+"Parser.ml" 147 4835 4866 "Parser.ml" 147 4835 4877
+call(
+  stack
+)
+type(
+  char list
+)
+"Parser.ml" 147 4835 4855 "Parser.ml" 147 4835 4878
+call(
+  stack
+)
+type(
+  token list
+)
+"Parser.ml" 148 4882 4892 "Parser.ml" 148 4882 4902
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkfirst "Parser.ml" 101 3029 3037 "Parser.ml" 101 3029 3047
+)
+"Parser.ml" 148 4882 4903 "Parser.ml" 148 4882 4908
+type(
+  token list
+)
+ident(
+  int_ref input "Parser.ml" 147 4835 4847 "Parser.ml" 147 4835 4852
+)
+"Parser.ml" 148 4882 4892 "Parser.ml" 148 4882 4908
+call(
+  stack
+)
+type(
+  bool
+)
+"Parser.ml" 148 4882 4909 "Parser.ml" 148 4882 4911
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"Parser.ml" 148 4882 4912 "Parser.ml" 148 4882 4921
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkchar "Parser.ml" 60 1403 1415 "Parser.ml" 60 1403 1424
+)
+"Parser.ml" 148 4882 4922 "Parser.ml" 148 4882 4927
+type(
+  token list
+)
+ident(
+  int_ref input "Parser.ml" 147 4835 4847 "Parser.ml" 147 4835 4852
+)
+"Parser.ml" 148 4882 4912 "Parser.ml" 148 4882 4927
+call(
+  stack
+)
+type(
+  bool
+)
+"Parser.ml" 148 4882 4928 "Parser.ml" 148 4882 4930
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"Parser.ml" 148 4882 4931 "Parser.ml" 148 4882 4939
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkdbl "Parser.ml" 79 2224 2236 "Parser.ml" 79 2224 2244
+)
+"Parser.ml" 148 4882 4940 "Parser.ml" 148 4882 4945
+type(
+  token list
+)
+ident(
+  int_ref input "Parser.ml" 147 4835 4847 "Parser.ml" 147 4835 4852
+)
+"Parser.ml" 148 4882 4931 "Parser.ml" 148 4882 4945
+call(
+  stack
+)
+type(
+  bool
+)
+"Parser.ml" 148 4882 4946 "Parser.ml" 148 4882 4948
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"Parser.ml" 148 4882 4949 "Parser.ml" 148 4882 4959
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkparen "Parser.ml" 67 1651 1659 "Parser.ml" 67 1651 1669
+)
+"Parser.ml" 148 4882 4960 "Parser.ml" 148 4882 4965
+type(
+  token list
+)
+ident(
+  int_ref input "Parser.ml" 147 4835 4847 "Parser.ml" 147 4835 4852
+)
+"Parser.ml" 148 4882 4949 "Parser.ml" 148 4882 4965
+call(
+  stack
+)
+type(
+  bool
+)
+"Parser.ml" 148 4882 4931 "Parser.ml" 148 4882 4965
+type(
+  bool
+)
+"Parser.ml" 148 4882 4912 "Parser.ml" 148 4882 4965
+type(
+  bool
+)
+"Parser.ml" 148 4882 4892 "Parser.ml" 148 4882 4965
+type(
+  bool
+)
+"Parser.ml" 149 4966 4983 "Parser.ml" 149 4966 4984
+type(
+  token list
+)
+"Parser.ml" 149 4966 4986 "Parser.ml" 149 4966 4992
+type(
+  pt
+)
+ident(
+  def answer "Parser.ml" 149 4966 5011 "Parser.ml" 149 4966 5022
+)
+"Parser.ml" 149 4966 4983 "Parser.ml" 149 4966 4992
+type(
+  token list * pt
+)
+"Parser.ml" 149 4966 4996 "Parser.ml" 149 4966 5001
+type(
+  token list -> token list * pt
+)
+ident(
+  int_ref orfun "Parser.ml" 109 3328 3340 "Parser.ml" 109 3328 3345
+)
+"Parser.ml" 149 4966 5002 "Parser.ml" 149 4966 5007
+type(
+  token list
+)
+ident(
+  int_ref input "Parser.ml" 147 4835 4847 "Parser.ml" 147 4835 4852
+)
+"Parser.ml" 149 4966 4996 "Parser.ml" 149 4966 5007
+call(
+  stack
+)
+type(
+  token list * pt
+)
+"Parser.ml" 149 4966 5016 "Parser.ml" 149 4966 5022
+type(
+  pt
+)
+ident(
+  int_ref answer "Parser.ml" 149 4966 4986 "Parser.ml" 149 4966 4992
+)
+"Parser.ml" 149 4966 5011 "Parser.ml" 149 4966 5022
+type(
+  pt option
+)
+"Parser.ml" 149 4966 4978 "Parser.ml" 149 4966 5022
+type(
+  pt option
+)
+"Parser.ml" 149 4966 5028 "Parser.ml" 149 4966 5032
+type(
+  pt option
+)
+"Parser.ml" 148 4882 4889 "Parser.ml" 149 4966 5032
+type(
+  pt option
+)
+"Parser.ml" 147 4835 4843 "Parser.ml" 149 4966 5032
+type(
+  pt option
+)
+type(
+  pt option
+)
+"Parser.ml" 146 4791 4805 "Parser.ml" 149 4966 5032
+type(
+  string -> pt option
+)
+"Parser.ml" 153 5137 5149 "Parser.ml" 153 5137 5155
+type(
+  pt -> int ref -> unit
+)
+ident(
+  def dotter "Parser.ml" 153 5137 5141 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 153 5137 5157 "Parser.ml" 153 5137 5161
+type(
+  pt
+)
+ident(
+  def tree "Parser.ml" 153 5137 5168 "Parser.ml" 174 6118 6163
+)
+"Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+type(
+  int ref
+)
+ident(
+  def x "Parser.ml" 153 5137 5182 "Parser.ml" 174 6118 6163
+)
+"Parser.ml" 154 5191 5199 "Parser.ml" 154 5191 5203
+type(
+  int
+)
+ident(
+  def orig "Parser.ml" 155 5212 5216 "Parser.ml" 174 6118 6163
+)
+"Parser.ml" 154 5191 5207 "Parser.ml" 154 5191 5208
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 154 5191 5206 "Parser.ml" 154 5191 5208
+type(
+  int
+)
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"Parser.ml" 155 5212 5222 "Parser.ml" 155 5212 5226
+type(
+  pt
+)
+ident(
+  int_ref tree "Parser.ml" 153 5137 5157 "Parser.ml" 153 5137 5161
+)
+"Parser.ml" 156 5232 5245 "Parser.ml" 156 5232 5246
+type(
+  char
+)
+ident(
+  def a "Parser.ml" 157 5252 5277 "Parser.ml" 158 5323 5354
+)
+"Parser.ml" 156 5232 5237 "Parser.ml" 156 5232 5247
+type(
+  pt
+)
+"Parser.ml" 157 5252 5277 "Parser.ml" 157 5252 5290
+type(
+  (int -> char -> unit, out_channel, unit) format -> int -> char -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 157 5252 5291 "Parser.ml" 157 5252 5313
+type(
+  (int -> char -> unit, out_channel, unit) format
+)
+"Parser.ml" 157 5252 5314 "Parser.ml" 157 5252 5318
+type(
+  int
+)
+ident(
+  int_ref orig "Parser.ml" 154 5191 5199 "Parser.ml" 154 5191 5203
+)
+"Parser.ml" 157 5252 5319 "Parser.ml" 157 5252 5320
+type(
+  char
+)
+ident(
+  int_ref a "Parser.ml" 156 5232 5245 "Parser.ml" 156 5232 5246
+)
+"Parser.ml" 157 5252 5277 "Parser.ml" 157 5252 5320
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 158 5323 5347 "Parser.ml" 158 5323 5348
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 158 5323 5351 "Parser.ml" 158 5323 5352
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 158 5323 5350 "Parser.ml" 158 5323 5352
+type(
+  int
+)
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"Parser.ml" 158 5323 5352 "Parser.ml" 158 5323 5353
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"Parser.ml" 158 5323 5353 "Parser.ml" 158 5323 5354
+type(
+  int
+)
+"Parser.ml" 158 5323 5350 "Parser.ml" 158 5323 5354
+type(
+  int
+)
+"Parser.ml" 158 5323 5347 "Parser.ml" 158 5323 5354
+type(
+  unit
+)
+type(
+  int ref -> int -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"Parser.ml" 157 5252 5277 "Parser.ml" 158 5323 5354
+type(
+  unit
+)
+"Parser.ml" 159 5356 5366 "Parser.ml" 159 5356 5368
+type(
+  pt
+)
+ident(
+  def t1 "Parser.ml" 160 5380 5405 "Parser.ml" 164 5621 5656
+)
+"Parser.ml" 159 5356 5370 "Parser.ml" 159 5356 5372
+type(
+  pt
+)
+ident(
+  def t2 "Parser.ml" 160 5380 5405 "Parser.ml" 164 5621 5656
+)
+"Parser.ml" 159 5356 5361 "Parser.ml" 159 5356 5373
+type(
+  pt
+)
+"Parser.ml" 160 5380 5405 "Parser.ml" 160 5380 5418
+type(
+  (int -> int -> unit, out_channel, unit) format -> int -> int -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 160 5380 5419 "Parser.ml" 160 5380 5432
+type(
+  (int -> int -> unit, out_channel, unit) format
+)
+"Parser.ml" 160 5380 5433 "Parser.ml" 160 5380 5437
+type(
+  int
+)
+ident(
+  int_ref orig "Parser.ml" 154 5191 5199 "Parser.ml" 154 5191 5203
+)
+"Parser.ml" 160 5380 5440 "Parser.ml" 160 5380 5441
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 160 5380 5439 "Parser.ml" 160 5380 5441
+type(
+  int
+)
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"Parser.ml" 160 5380 5441 "Parser.ml" 160 5380 5442
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"Parser.ml" 160 5380 5442 "Parser.ml" 160 5380 5443
+type(
+  int
+)
+"Parser.ml" 160 5380 5439 "Parser.ml" 160 5380 5443
+type(
+  int
+)
+"Parser.ml" 160 5380 5405 "Parser.ml" 160 5380 5444
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 161 5446 5470 "Parser.ml" 161 5446 5483
+type(
+  (int -> unit, out_channel, unit) format -> int -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 161 5446 5484 "Parser.ml" 161 5446 5507
+type(
+  (int -> unit, out_channel, unit) format
+)
+"Parser.ml" 161 5446 5508 "Parser.ml" 161 5446 5512
+type(
+  int
+)
+ident(
+  int_ref orig "Parser.ml" 154 5191 5199 "Parser.ml" 154 5191 5203
+)
+"Parser.ml" 161 5446 5470 "Parser.ml" 161 5446 5512
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 162 5514 5538 "Parser.ml" 162 5514 5539
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 162 5514 5542 "Parser.ml" 162 5514 5543
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 162 5514 5541 "Parser.ml" 162 5514 5543
+type(
+  int
+)
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"Parser.ml" 162 5514 5543 "Parser.ml" 162 5514 5544
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"Parser.ml" 162 5514 5544 "Parser.ml" 162 5514 5545
+type(
+  int
+)
+"Parser.ml" 162 5514 5541 "Parser.ml" 162 5514 5545
+type(
+  int
+)
+"Parser.ml" 162 5514 5538 "Parser.ml" 162 5514 5545
+type(
+  unit
+)
+type(
+  int ref -> int -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"Parser.ml" 162 5514 5547 "Parser.ml" 162 5514 5553
+type(
+  pt -> int ref -> unit
+)
+ident(
+  int_ref dotter "Parser.ml" 153 5137 5149 "Parser.ml" 153 5137 5155
+)
+"Parser.ml" 162 5514 5554 "Parser.ml" 162 5514 5556
+type(
+  pt
+)
+ident(
+  int_ref t1 "Parser.ml" 159 5356 5366 "Parser.ml" 159 5356 5368
+)
+"Parser.ml" 162 5514 5557 "Parser.ml" 162 5514 5558
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 162 5514 5547 "Parser.ml" 162 5514 5558
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 163 5560 5584 "Parser.ml" 163 5560 5597
+type(
+  (int -> int -> unit, out_channel, unit) format -> int -> int -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 163 5560 5598 "Parser.ml" 163 5560 5611
+type(
+  (int -> int -> unit, out_channel, unit) format
+)
+"Parser.ml" 163 5560 5612 "Parser.ml" 163 5560 5616
+type(
+  int
+)
+ident(
+  int_ref orig "Parser.ml" 154 5191 5199 "Parser.ml" 154 5191 5203
+)
+"Parser.ml" 163 5560 5618 "Parser.ml" 163 5560 5619
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 163 5560 5617 "Parser.ml" 163 5560 5619
+type(
+  int
+)
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"Parser.ml" 163 5560 5584 "Parser.ml" 163 5560 5619
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 164 5621 5645 "Parser.ml" 164 5621 5651
+type(
+  pt -> int ref -> unit
+)
+ident(
+  int_ref dotter "Parser.ml" 153 5137 5149 "Parser.ml" 153 5137 5155
+)
+"Parser.ml" 164 5621 5652 "Parser.ml" 164 5621 5654
+type(
+  pt
+)
+ident(
+  int_ref t2 "Parser.ml" 159 5356 5370 "Parser.ml" 159 5356 5372
+)
+"Parser.ml" 164 5621 5655 "Parser.ml" 164 5621 5656
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 164 5621 5645 "Parser.ml" 164 5621 5656
+call(
+  tail
+)
+type(
+  unit
+)
+"Parser.ml" 163 5560 5584 "Parser.ml" 164 5621 5656
+type(
+  unit
+)
+"Parser.ml" 162 5514 5547 "Parser.ml" 164 5621 5656
+type(
+  unit
+)
+"Parser.ml" 162 5514 5538 "Parser.ml" 164 5621 5656
+type(
+  unit
+)
+"Parser.ml" 161 5446 5470 "Parser.ml" 164 5621 5656
+type(
+  unit
+)
+"Parser.ml" 160 5380 5405 "Parser.ml" 164 5621 5656
+type(
+  unit
+)
+"Parser.ml" 165 5658 5667 "Parser.ml" 165 5658 5669
+type(
+  pt
+)
+ident(
+  def t1 "Parser.ml" 166 5681 5706 "Parser.ml" 170 5921 5956
+)
+"Parser.ml" 165 5658 5671 "Parser.ml" 165 5658 5673
+type(
+  pt
+)
+ident(
+  def t2 "Parser.ml" 166 5681 5706 "Parser.ml" 170 5921 5956
+)
+"Parser.ml" 165 5658 5663 "Parser.ml" 165 5658 5674
+type(
+  pt
+)
+"Parser.ml" 166 5681 5706 "Parser.ml" 166 5681 5719
+type(
+  (int -> int -> unit, out_channel, unit) format -> int -> int -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 166 5681 5720 "Parser.ml" 166 5681 5733
+type(
+  (int -> int -> unit, out_channel, unit) format
+)
+"Parser.ml" 166 5681 5734 "Parser.ml" 166 5681 5738
+type(
+  int
+)
+ident(
+  int_ref orig "Parser.ml" 154 5191 5199 "Parser.ml" 154 5191 5203
+)
+"Parser.ml" 166 5681 5741 "Parser.ml" 166 5681 5742
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 166 5681 5740 "Parser.ml" 166 5681 5742
+type(
+  int
+)
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"Parser.ml" 166 5681 5742 "Parser.ml" 166 5681 5743
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"Parser.ml" 166 5681 5743 "Parser.ml" 166 5681 5744
+type(
+  int
+)
+"Parser.ml" 166 5681 5740 "Parser.ml" 166 5681 5744
+type(
+  int
+)
+"Parser.ml" 166 5681 5706 "Parser.ml" 166 5681 5745
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 167 5747 5771 "Parser.ml" 167 5747 5784
+type(
+  (int -> unit, out_channel, unit) format -> int -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 167 5747 5785 "Parser.ml" 167 5747 5807
+type(
+  (int -> unit, out_channel, unit) format
+)
+"Parser.ml" 167 5747 5808 "Parser.ml" 167 5747 5812
+type(
+  int
+)
+ident(
+  int_ref orig "Parser.ml" 154 5191 5199 "Parser.ml" 154 5191 5203
+)
+"Parser.ml" 167 5747 5771 "Parser.ml" 167 5747 5812
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 168 5814 5838 "Parser.ml" 168 5814 5839
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 168 5814 5842 "Parser.ml" 168 5814 5843
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 168 5814 5841 "Parser.ml" 168 5814 5843
+type(
+  int
+)
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"Parser.ml" 168 5814 5843 "Parser.ml" 168 5814 5844
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"Parser.ml" 168 5814 5844 "Parser.ml" 168 5814 5845
+type(
+  int
+)
+"Parser.ml" 168 5814 5841 "Parser.ml" 168 5814 5845
+type(
+  int
+)
+"Parser.ml" 168 5814 5838 "Parser.ml" 168 5814 5845
+type(
+  unit
+)
+type(
+  int ref -> int -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"Parser.ml" 168 5814 5847 "Parser.ml" 168 5814 5853
+type(
+  pt -> int ref -> unit
+)
+ident(
+  int_ref dotter "Parser.ml" 153 5137 5149 "Parser.ml" 153 5137 5155
+)
+"Parser.ml" 168 5814 5854 "Parser.ml" 168 5814 5856
+type(
+  pt
+)
+ident(
+  int_ref t1 "Parser.ml" 165 5658 5667 "Parser.ml" 165 5658 5669
+)
+"Parser.ml" 168 5814 5857 "Parser.ml" 168 5814 5858
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 168 5814 5847 "Parser.ml" 168 5814 5858
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 169 5860 5884 "Parser.ml" 169 5860 5897
+type(
+  (int -> int -> unit, out_channel, unit) format -> int -> int -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 169 5860 5898 "Parser.ml" 169 5860 5911
+type(
+  (int -> int -> unit, out_channel, unit) format
+)
+"Parser.ml" 169 5860 5912 "Parser.ml" 169 5860 5916
+type(
+  int
+)
+ident(
+  int_ref orig "Parser.ml" 154 5191 5199 "Parser.ml" 154 5191 5203
+)
+"Parser.ml" 169 5860 5918 "Parser.ml" 169 5860 5919
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 169 5860 5917 "Parser.ml" 169 5860 5919
+type(
+  int
+)
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"Parser.ml" 169 5860 5884 "Parser.ml" 169 5860 5919
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 170 5921 5945 "Parser.ml" 170 5921 5951
+type(
+  pt -> int ref -> unit
+)
+ident(
+  int_ref dotter "Parser.ml" 153 5137 5149 "Parser.ml" 153 5137 5155
+)
+"Parser.ml" 170 5921 5952 "Parser.ml" 170 5921 5954
+type(
+  pt
+)
+ident(
+  int_ref t2 "Parser.ml" 165 5658 5671 "Parser.ml" 165 5658 5673
+)
+"Parser.ml" 170 5921 5955 "Parser.ml" 170 5921 5956
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 170 5921 5945 "Parser.ml" 170 5921 5956
+call(
+  tail
+)
+type(
+  unit
+)
+"Parser.ml" 169 5860 5884 "Parser.ml" 170 5921 5956
+type(
+  unit
+)
+"Parser.ml" 168 5814 5847 "Parser.ml" 170 5921 5956
+type(
+  unit
+)
+"Parser.ml" 168 5814 5838 "Parser.ml" 170 5921 5956
+type(
+  unit
+)
+"Parser.ml" 167 5747 5771 "Parser.ml" 170 5921 5956
+type(
+  unit
+)
+"Parser.ml" 166 5681 5706 "Parser.ml" 170 5921 5956
+type(
+  unit
+)
+"Parser.ml" 171 5964 5975 "Parser.ml" 171 5964 5977
+type(
+  pt
+)
+ident(
+  def t1 "Parser.ml" 172 5986 6011 "Parser.ml" 174 6118 6162
+)
+"Parser.ml" 171 5964 5969 "Parser.ml" 171 5964 5978
+type(
+  pt
+)
+"Parser.ml" 172 5986 6011 "Parser.ml" 172 5986 6024
+type(
+  (int -> int -> unit, out_channel, unit) format -> int -> int -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 172 5986 6025 "Parser.ml" 172 5986 6038
+type(
+  (int -> int -> unit, out_channel, unit) format
+)
+"Parser.ml" 172 5986 6039 "Parser.ml" 172 5986 6043
+type(
+  int
+)
+ident(
+  int_ref orig "Parser.ml" 154 5191 5199 "Parser.ml" 154 5191 5203
+)
+"Parser.ml" 172 5986 6046 "Parser.ml" 172 5986 6047
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 172 5986 6045 "Parser.ml" 172 5986 6047
+type(
+  int
+)
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"Parser.ml" 172 5986 6047 "Parser.ml" 172 5986 6048
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"Parser.ml" 172 5986 6048 "Parser.ml" 172 5986 6049
+type(
+  int
+)
+"Parser.ml" 172 5986 6045 "Parser.ml" 172 5986 6049
+type(
+  int
+)
+"Parser.ml" 172 5986 6011 "Parser.ml" 172 5986 6050
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 173 6052 6076 "Parser.ml" 173 6052 6089
+type(
+  (int -> unit, out_channel, unit) format -> int -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 173 6052 6090 "Parser.ml" 173 6052 6111
+type(
+  (int -> unit, out_channel, unit) format
+)
+"Parser.ml" 173 6052 6112 "Parser.ml" 173 6052 6116
+type(
+  int
+)
+ident(
+  int_ref orig "Parser.ml" 154 5191 5199 "Parser.ml" 154 5191 5203
+)
+"Parser.ml" 173 6052 6076 "Parser.ml" 173 6052 6116
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 174 6118 6142 "Parser.ml" 174 6118 6143
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 174 6118 6146 "Parser.ml" 174 6118 6147
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 174 6118 6145 "Parser.ml" 174 6118 6147
+type(
+  int
+)
+type(
+  int ref -> int
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"Parser.ml" 174 6118 6147 "Parser.ml" 174 6118 6148
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"Parser.ml" 174 6118 6148 "Parser.ml" 174 6118 6149
+type(
+  int
+)
+"Parser.ml" 174 6118 6145 "Parser.ml" 174 6118 6149
+type(
+  int
+)
+"Parser.ml" 174 6118 6142 "Parser.ml" 174 6118 6149
+type(
+  unit
+)
+type(
+  int ref -> int -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"Parser.ml" 174 6118 6151 "Parser.ml" 174 6118 6157
+type(
+  pt -> int ref -> unit
+)
+ident(
+  int_ref dotter "Parser.ml" 153 5137 5149 "Parser.ml" 153 5137 5155
+)
+"Parser.ml" 174 6118 6158 "Parser.ml" 174 6118 6160
+type(
+  pt
+)
+ident(
+  int_ref t1 "Parser.ml" 171 5964 5975 "Parser.ml" 171 5964 5977
+)
+"Parser.ml" 174 6118 6161 "Parser.ml" 174 6118 6162
+type(
+  int ref
+)
+ident(
+  int_ref x "Parser.ml" 153 5137 5169 "Parser.ml" 153 5137 5170
+)
+"Parser.ml" 174 6118 6151 "Parser.ml" 174 6118 6162
+call(
+  tail
+)
+type(
+  unit
+)
+"Parser.ml" 174 6118 6142 "Parser.ml" 174 6118 6162
+type(
+  unit
+)
+"Parser.ml" 173 6052 6076 "Parser.ml" 174 6118 6162
+type(
+  unit
+)
+"Parser.ml" 172 5986 6011 "Parser.ml" 174 6118 6162
+type(
+  unit
+)
+"Parser.ml" 155 5212 5216 "Parser.ml" 174 6118 6163
+type(
+  unit
+)
+"Parser.ml" 154 5191 5195 "Parser.ml" 174 6118 6163
+type(
+  unit
+)
+type(
+  unit
+)
+"Parser.ml" 153 5137 5168 "Parser.ml" 174 6118 6163
+type(
+  int ref -> unit
+)
+"Parser.ml" 153 5137 5156 "Parser.ml" 174 6118 6163
+type(
+  pt -> int ref -> unit
+)
+"Parser.ml" 177 6214 6222 "Parser.ml" 177 6214 6229
+type(
+  string -> unit
+)
+ident(
+  def makedot "Parser.ml" 183 6551 6615 "Parser.ml" 184 6622 6625
+)
+"Parser.ml" 177 6214 6231 "Parser.ml" 177 6214 6234
+type(
+  string
+)
+ident(
+  def str "Parser.ml" 177 6214 6245 "Parser.ml" 183 6551 6615
+)
+"Parser.ml" 178 6255 6267 "Parser.ml" 178 6255 6272
+type(
+  token list
+)
+ident(
+  def input "Parser.ml" 179 6302 6309 "Parser.ml" 183 6551 6615
+)
+"Parser.ml" 178 6255 6275 "Parser.ml" 178 6255 6284
+type(
+  char list -> token list
+)
+ident(
+  int_ref tokenizer "Parser.ml" 48 960 972 "Parser.ml" 48 960 981
+)
+"Parser.ml" 178 6255 6286 "Parser.ml" 178 6255 6293
+type(
+  string -> char list
+)
+ident(
+  int_ref explode "Parser.ml" 43 812 820 "Parser.ml" 43 812 827
+)
+"Parser.ml" 178 6255 6294 "Parser.ml" 178 6255 6297
+type(
+  string
+)
+ident(
+  int_ref str "Parser.ml" 177 6214 6231 "Parser.ml" 177 6214 6234
+)
+"Parser.ml" 178 6255 6286 "Parser.ml" 178 6255 6297
+call(
+  stack
+)
+type(
+  char list
+)
+"Parser.ml" 178 6255 6275 "Parser.ml" 178 6255 6298
+call(
+  stack
+)
+type(
+  token list
+)
+"Parser.ml" 179 6302 6312 "Parser.ml" 179 6302 6322
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkfirst "Parser.ml" 101 3029 3037 "Parser.ml" 101 3029 3047
+)
+"Parser.ml" 179 6302 6323 "Parser.ml" 179 6302 6328
+type(
+  token list
+)
+ident(
+  int_ref input "Parser.ml" 178 6255 6267 "Parser.ml" 178 6255 6272
+)
+"Parser.ml" 179 6302 6312 "Parser.ml" 179 6302 6328
+call(
+  stack
+)
+type(
+  bool
+)
+"Parser.ml" 179 6302 6329 "Parser.ml" 179 6302 6331
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"Parser.ml" 179 6302 6332 "Parser.ml" 179 6302 6341
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkchar "Parser.ml" 60 1403 1415 "Parser.ml" 60 1403 1424
+)
+"Parser.ml" 179 6302 6342 "Parser.ml" 179 6302 6347
+type(
+  token list
+)
+ident(
+  int_ref input "Parser.ml" 178 6255 6267 "Parser.ml" 178 6255 6272
+)
+"Parser.ml" 179 6302 6332 "Parser.ml" 179 6302 6347
+call(
+  stack
+)
+type(
+  bool
+)
+"Parser.ml" 179 6302 6348 "Parser.ml" 179 6302 6350
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"Parser.ml" 179 6302 6351 "Parser.ml" 179 6302 6359
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkdbl "Parser.ml" 79 2224 2236 "Parser.ml" 79 2224 2244
+)
+"Parser.ml" 179 6302 6360 "Parser.ml" 179 6302 6365
+type(
+  token list
+)
+ident(
+  int_ref input "Parser.ml" 178 6255 6267 "Parser.ml" 178 6255 6272
+)
+"Parser.ml" 179 6302 6351 "Parser.ml" 179 6302 6365
+call(
+  stack
+)
+type(
+  bool
+)
+"Parser.ml" 179 6302 6366 "Parser.ml" 179 6302 6368
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"Parser.ml" 179 6302 6369 "Parser.ml" 179 6302 6379
+type(
+  token list -> bool
+)
+ident(
+  int_ref checkparen "Parser.ml" 67 1651 1659 "Parser.ml" 67 1651 1669
+)
+"Parser.ml" 179 6302 6380 "Parser.ml" 179 6302 6385
+type(
+  token list
+)
+ident(
+  int_ref input "Parser.ml" 178 6255 6267 "Parser.ml" 178 6255 6272
+)
+"Parser.ml" 179 6302 6369 "Parser.ml" 179 6302 6385
+call(
+  stack
+)
+type(
+  bool
+)
+"Parser.ml" 179 6302 6351 "Parser.ml" 179 6302 6385
+type(
+  bool
+)
+"Parser.ml" 179 6302 6332 "Parser.ml" 179 6302 6385
+type(
+  bool
+)
+"Parser.ml" 179 6302 6312 "Parser.ml" 179 6302 6385
+type(
+  bool
+)
+"Parser.ml" 180 6386 6403 "Parser.ml" 180 6386 6404
+type(
+  token list
+)
+"Parser.ml" 180 6386 6406 "Parser.ml" 180 6386 6411
+type(
+  pt
+)
+ident(
+  def itree "Parser.ml" 181 6431 6441 "Parser.ml" 182 6492 6548
+)
+"Parser.ml" 180 6386 6403 "Parser.ml" 180 6386 6411
+type(
+  token list * pt
+)
+"Parser.ml" 180 6386 6415 "Parser.ml" 180 6386 6420
+type(
+  token list -> token list * pt
+)
+ident(
+  int_ref orfun "Parser.ml" 109 3328 3340 "Parser.ml" 109 3328 3345
+)
+"Parser.ml" 180 6386 6421 "Parser.ml" 180 6386 6426
+type(
+  token list
+)
+ident(
+  int_ref input "Parser.ml" 178 6255 6267 "Parser.ml" 178 6255 6272
+)
+"Parser.ml" 180 6386 6415 "Parser.ml" 180 6386 6426
+call(
+  stack
+)
+type(
+  token list * pt
+)
+"Parser.ml" 181 6431 6441 "Parser.ml" 181 6431 6454
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 181 6431 6455 "Parser.ml" 181 6431 6490
+type(
+  (unit, out_channel, unit) format
+)
+"Parser.ml" 181 6431 6441 "Parser.ml" 181 6431 6490
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 182 6492 6507 "Parser.ml" 182 6492 6513
+type(
+  pt -> int ref -> unit
+)
+ident(
+  int_ref dotter "Parser.ml" 153 5137 5149 "Parser.ml" 153 5137 5155
+)
+"Parser.ml" 182 6492 6514 "Parser.ml" 182 6492 6519
+type(
+  pt
+)
+ident(
+  int_ref itree "Parser.ml" 180 6386 6406 "Parser.ml" 180 6386 6411
+)
+"Parser.ml" 182 6492 6521 "Parser.ml" 182 6492 6524
+type(
+  int -> int ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"Parser.ml" 182 6492 6525 "Parser.ml" 182 6492 6526
+type(
+  int
+)
+"Parser.ml" 182 6492 6521 "Parser.ml" 182 6492 6526
+type(
+  int ref
+)
+"Parser.ml" 182 6492 6507 "Parser.ml" 182 6492 6527
+call(
+  stack
+)
+type(
+  unit
+)
+"Parser.ml" 182 6492 6529 "Parser.ml" 182 6492 6542
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 182 6492 6543 "Parser.ml" 182 6492 6548
+type(
+  (unit, out_channel, unit) format
+)
+"Parser.ml" 182 6492 6529 "Parser.ml" 182 6492 6548
+call(
+  tail
+)
+type(
+  unit
+)
+"Parser.ml" 182 6492 6507 "Parser.ml" 182 6492 6548
+type(
+  unit
+)
+"Parser.ml" 181 6431 6441 "Parser.ml" 182 6492 6548
+type(
+  unit
+)
+"Parser.ml" 180 6386 6398 "Parser.ml" 182 6492 6549
+type(
+  unit
+)
+"Parser.ml" 183 6551 6563 "Parser.ml" 183 6551 6576
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Core.Std.Printf.printf
+)
+"Parser.ml" 183 6551 6577 "Parser.ml" 183 6551 6615
+type(
+  (unit, out_channel, unit) format
+)
+"Parser.ml" 183 6551 6563 "Parser.ml" 183 6551 6615
+call(
+  tail
+)
+type(
+  unit
+)
+"Parser.ml" 179 6302 6309 "Parser.ml" 183 6551 6615
+type(
+  unit
+)
+"Parser.ml" 178 6255 6263 "Parser.ml" 183 6551 6615
+type(
+  unit
+)
+type(
+  unit
+)
+"Parser.ml" 177 6214 6230 "Parser.ml" 183 6551 6615
+type(
+  string -> unit
+)
