@@ -7,8 +7,12 @@ open Core.Std
 
 module Tree =
 struct
+
+    type schar = Char of char | Wild
+    
+    
     type tree = (*parse tree*)
-          Single of char
+          Single of schar
         | Cat    of tree * tree (*Concatenation*)
         | Or     of tree * tree 
         | Star   of tree (*Kleene Star/Closure*)
@@ -36,11 +40,11 @@ struct
 
     type pt = Tree.tree
     
-    type token = Oper of char | Char of char
+    type token = Oper of char | Char of Tree.schar
     
     (* taken from caml.inria.fr/mantis/view.php?id=5367 
        to convert strings to list of characters *)
-    let explode s =
+    let explode (s : string) : char list =
         let rec exp i l = 
             if i< 0 then l else exp (i-1) (s.[i] :: l) in
         exp (String.length s - 1)[];;
@@ -54,8 +58,9 @@ struct
             | ')' -> Oper(')')::(tokenizer tl)
             | '|' -> Oper('|')::(tokenizer tl)
             | '*' -> Oper('*')::(tokenizer tl)
+            | '.' -> Char(Wild)::(tokenizer tl)
             (*IN THE FUTURE ESCAPE SEQUENCES*)
-            | _   -> Char(hd)::(tokenizer tl)
+            | _   -> Char(Char(hd))::(tokenizer tl)
          
     let rec checkchar (tlist: token list) : bool =
         match tlist with
@@ -153,9 +158,12 @@ struct
     let rec dotter (tree : pt) (x : int ref) : unit =
     let orig = !x in
     match tree with
-    |Single (a) -> 
-                        (Printf.printf "%d [label=\"%c\"];\n" orig a; 
+    |Single (a) ->      (match a with
+                        | Wild -> (Printf.printf "%d [label=\"WILD\"];\n" orig; 
                         x:=!x+1)
+                        | Char(c) -> (Printf.printf "%d [label=\"%c\"];\n" orig c; 
+                        x:=!x+1))
+                        
     |Cat (t1, t2) ->   
                         (Printf.printf "%d -> %d;\n" orig (!x+1);
                         Printf.printf "%d [label=\"CAT\"];\n" orig;
