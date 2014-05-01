@@ -61,7 +61,6 @@ struct
             | '*' -> Oper('*')::(tokenizer tl)
             | '?' -> Oper('?')::(tokenizer tl)
             | '.' -> Char(Wild)::(tokenizer tl)
-            | '?' -> Oper('?')::(tokenizer tl)
             (*IN THE FUTURE ESCAPE SEQUENCES*)
             | '~' -> (match tl with
                      | '('::tl2 -> Char(Char('('))::(tokenizer tl2)
@@ -96,7 +95,10 @@ struct
 
     let rec checkdbl (tlist : token list) : bool = 
       match tlist with
-      | []|[_] -> true
+      | [] -> true
+      |[hd] -> (match hd with
+               |Oper('|') -> Printf.printf "Error:  Regex Ends with Invalid Operator\n"; false
+               | _ -> true)
       | hd1::hd2::tl -> 
 	    match hd1 with
       | Oper('(') ->
@@ -200,11 +202,11 @@ struct
                         dotter t2 x)      
     |Star (t1)   ->  
                         (Printf.printf "%d -> %d;\n" orig (!x+1);
-                        Printf.printf "%d [label=\"*\"];\n" orig;
+                        Printf.printf "%d [label=\"STAR\"];\n" orig;
                         x:=!x+1; dotter t1 x)
     |Opt  (t1)   ->  
                         (Printf.printf "%d -> %d;\n" orig (!x+1);
-                        Printf.printf "%d [label=\"?\"];\n" orig;
+                        Printf.printf "%d [label=\"OPT\"];\n" orig;
                         x:=!x+1; dotter t1 x)                        
                         
     let makedot (str : string) : unit = 

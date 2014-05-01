@@ -97,12 +97,12 @@ struct
                          (match nrchecker nfaor ptr2 with
                         |Some num ->
                          (Printf.printf "%d -> %d;\n" orig num;
-                         Printf.printf "%d [label=\"*\"];\n" orig;
+                         Printf.printf "%d [label=\"STAR\"];\n" orig;
                          Printf.printf "%d -> %d;\n" orig (!x+1);
                          x:=!x+1; ignore(dotter !ptr1 x [{num=orig; auto=graph}]); [] )
                         |None ->
                          (Printf.printf "%d -> %d;\n" orig (!x+1);
-                         Printf.printf "%d [label=\"*\"];\n" orig;
+                         Printf.printf "%d [label=\"STAR\"];\n" orig;
                          x:=!x+1; ignore(dotter !ptr1 x [{num=orig; auto=graph}]);
                          Printf.printf "%d -> %d;\n" orig (!x);
                          {num=orig; auto=graph}::(dotter !ptr2 x nfaor)))   
@@ -111,19 +111,19 @@ struct
                          |Some num ->
                          (Printf.printf "%d -> %d;\n" orig num;
                          Printf.printf "%d -> %d;\n" orig (!x+1);
-                         Printf.printf "%d [label=\"?\"];\n" orig;
+                         Printf.printf "%d [label=\"OPT\"];\n" orig;
                          x:=!x+1; 
                          dotter !ptr1 x nfaor)
                          |None ->                       
                          (Printf.printf "%d -> %d;\n" orig (!x+1);
-                         Printf.printf "%d [label=\"?\"];\n" orig;
+                         Printf.printf "%d [label=\"OPT\"];\n" orig;
                          x:=!x+1; 
                          let ret = dotter !ptr2 x nfaor in
                          (Printf.printf "%d -> %d;\n" orig (!x);
                          ignore(dotter !ptr1 x (nfaor@ret)); {num=orig; auto=graph}::ret)))                             
     | Or (ptr1, ptr2) ->               
                          (Printf.printf "%d -> %d;\n" orig (!x+1);
-                         Printf.printf "%d [label=\"|\"];\n" orig;
+                         Printf.printf "%d [label=\"OR\"];\n" orig;
                          x:=!x+1; 
                          let ret = dotter !ptr1 x nfaor in
                          (Printf.printf "%d -> %d;\n" orig (!x);
