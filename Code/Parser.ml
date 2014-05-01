@@ -16,6 +16,7 @@ struct
         | Cat    of tree * tree (*Concatenation*)
         | Or     of tree * tree 
         | Star   of tree (*Kleene Star/Closure*)
+        | Ques   of tree (*Question*)
         
 end
 
@@ -59,8 +60,18 @@ struct
             | '|' -> Oper('|')::(tokenizer tl)
             | '*' -> Oper('*')::(tokenizer tl)
             | '.' -> Char(Wild)::(tokenizer tl)
+            | '?' -> Oper('?')::(tokenizer tl)
             (*IN THE FUTURE ESCAPE SEQUENCES*)
-            | _   -> Char(Char(hd))::(tokenizer tl)
+            | '~' -> (match tl with
+                     | '('::tl2 -> Char('(')::(tokenizer tl)
+                     | ')'::tl2 -> Char(')')::(tokenizer tl)
+                     | '|'::tl2 -> Char('|')::(tokenizer tl)
+                     | '*'::tl2 -> Char('*')::(tokenizer tl)
+                     | '.'::tl2 -> Char('.')::(tokenizer tl)
+                     | '?'::tl2 -> Char('?')::(tokenizer tl)
+                     | '~'::tl2 -> Char('~')::(tokenizer tl)
+                     | _ -> Printf.printf "Error: Escape Character ~ Is Unused.\n"; []
+            |  _  -> Char(Char(hd))::(tokenizer tl)
          
     let rec checkchar (tlist: token list) : bool =
         match tlist with
