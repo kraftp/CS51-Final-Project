@@ -27,8 +27,10 @@ open Parser
         Auto.makedot parse;
       if not (if_dot_nfa || if_dot_pt) then
         let nfa = Auto.to_nfa parse in
-        if (Emulate.eval input nfa) then Printf.printf "Matched! \n"
-        else Printf.printf "No match : sry bbz \n"  )
+        match Emulate.eval input nfa with
+        |None -> Printf.printf "INVALID REGULAR EXPRESSION MATCHING IMPOSSIBLE\n\n"
+        |Some true -> Printf.printf "Matched! \n\n"
+        |Some false -> Printf.printf "No match : sry bbz \n\n")
     
     
     let () = Command.run command

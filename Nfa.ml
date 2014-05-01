@@ -21,9 +21,9 @@ sig
     
     type nfa = Graph.graph
     
-    val to_nfa : Parse.pt -> nfa
+    val to_nfa : Parse.pt option -> nfa option
     
-    val makedot : Parse.pt -> unit
+    val makedot : Parse.pt option -> unit
 end
 
 
@@ -39,25 +39,28 @@ struct
     (* lptr constructs a list of all pointers to Empty in the input nfa *)
     let rec lptr (input : nfa) : nfa ref list =
         match input with
-        | Empty -> failwith "should have been caught earlier"
+        | Empty -> failwith "ERROR IN lptr:  should have been caught earlier"
         | Single(_, ptr) -> if !ptr = Empty then [ptr] else lptr !ptr 
         | Or(ptr1, ptr2) -> (lptr !ptr1)@(lptr !ptr2)
         | Star (_, ptr2) -> if !ptr2 = Empty then [ptr2] else lptr !ptr2 
 
     
-    let rec to_nfa (parse : Parse.pt) : nfa = 
+    let rec to_nfa_aux (parse : Parse.pt) : nfa = 
         let (empty : nfa) = Empty in
         match parse with
-        | Empty       -> Empty
         | Single(c)   -> Single(c, ref empty)
-        | Cat(re1, re2) -> let ret = (to_nfa re1) in 
-                           let second = (to_nfa re2) in List.iter
+        | Cat(re1, re2) -> let ret = (to_nfa_aux re1) in 
+                           let second = (to_nfa_aux re2) in List.iter
                  ~f:(fun x -> x := second) (lptr ret); ret 
-        | Or(re1, re2)  -> Or(ref (to_nfa re1), ref (to_nfa re2))
-        | Star(re)      -> let preret = (to_nfa re) in 
+        | Or(re1, re2)  -> Or(ref (to_nfa_aux re1), ref (to_nfa_aux re2))
+        | Star(re)      -> let preret = (to_nfa_aux re) in 
                            let (ret : nfa) = Star(ref preret, ref empty) in List.iter
                  ~f:(fun x -> x := ret) (lptr preret); ret 
     
+    let to_nfa (parse : Parse.pt option) : nfa option =
+        match parse with
+        |None -> None
+        |Some tn -> Some (to_nfa_aux tn)
     
     (*Visualization.  Outputs DOT code which can be compiled to pictures later*)
     
@@ -103,11 +106,11 @@ struct
                          ignore(dotter !ptr2 x (nfaor@ret)); {num=orig; auto=graph}::ret))                      
                         
                         
-    let makedot (parse : Parse.pt) : unit =
-        let thenfa = to_nfa parse in
-        match thenfa with
-        | Empty -> Printf.printf "INVALID NFA DOT PRINTING IMPOSSIBLE\n"
-        | _ -> (Printf.printf "digraph G\n {\n size=\"20,20\";\n";
+    let makedot (parse : Parse.pt option) : unit =
+        match parse with
+        | None -> Printf.printf "INVALID NFA DOT PRINTING IMPOSSIBLE\n\n"
+        | Some tn -> let thenfa = to_nfa_aux tn in
+               (Printf.printf "digraph G\n {\n size=\"20,20\";\n";
                ignore(dotter thenfa (ref 0) []); Printf.printf "}\n")
     
 

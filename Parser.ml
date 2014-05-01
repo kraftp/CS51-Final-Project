@@ -8,8 +8,7 @@ open Core.Std
 module Tree =
 struct
     type tree = (*parse tree*)
-          Empty 
-        | Single of char
+          Single of char
         | Cat    of tree * tree (*Concatenation*)
         | Or     of tree * tree 
         | Star   of tree (*Kleene Star/Closure*)
@@ -23,7 +22,7 @@ sig
     
     type pt = Tree.tree
     
-    val parse : string -> pt  
+    val parse : string -> pt option
     
     val makedot : string -> unit 
     
@@ -144,23 +143,16 @@ struct
              | Oper('(') -> orfun tl
              | _ -> failwith "Invalid Regular Expression (pfun 2)"
             
-    let parse (str : string) : pt = 
+    let parse (str : string) : pt option = 
         let input = tokenizer (explode str) in
 	      if checkfirst input && checkchar input && checkdbl input && checkparen input
-	      then let (_, answer) = orfun input in answer else Empty
-	
-	
-	(*          Empty 
-        | Single of char
-        | Cat    of tree * tree (*Concatenation*)
-        | Or     of tree * tree 
-        | Star   of tree (*Kleene Star/Closure*)*)
-	
+	      then let (_, answer) = orfun input in Some answer else None
+	      
+    (*Visualization.  Outputs DOT code which can be compiled to pictures later*)	      
 	      
     let rec dotter (tree : pt) (x : int ref) : unit =
     let orig = !x in
     match tree with
-    |Empty -> Printf.printf "ERROR INVALID REGULAR EXPRESSION"
     |Single (a) -> 
                         (Printf.printf "%d [label=\"%c\"];\n" orig a; 
                         x:=!x+1)
@@ -188,7 +180,7 @@ struct
 	      then let (_, itree) = orfun input in 
 	        (Printf.printf "digraph G\n {\n size=\"20,20\";\n";
                dotter itree (ref 0); Printf.printf "}\n") 
-	      else Printf.printf "ERROR INVALID REGULAR EXPRESSION"      
+	      else Printf.printf "ERROR INVALID REGULAR EXPRESSION\n\n"      
 end
 
 

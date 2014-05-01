@@ -11,7 +11,7 @@ sig
     exception NotRecognized
     exception TODO
     
-    val eval : string -> Auto.nfa -> bool
+    val eval : string -> Auto.nfa option -> bool option
     
     
 end
@@ -45,10 +45,10 @@ struct
               | Or (next1, next2) -> eval_lst str !next1 || eval_lst str !next2
               | Star (clos, next) -> eval_lst str !next || eval_lst str !clos
             
-    let eval (str : string) (auto : Auto.nfa) : bool = 
+    let eval (str : string) (auto : Auto.nfa option) : bool option = 
         match auto with
-        |Empty -> Printf.printf "INVALID REGULAR EXPRESSION MATCHING IMPOSSIBLE\n"; false
-        | _ -> eval_lst (explode str) (auto)
+        |None -> None
+        |Some tn -> Some (eval_lst (explode str) tn)
 
 end
  
