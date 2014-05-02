@@ -11,7 +11,7 @@ REGEX is the input regular expression.  INPUT is the input string.  INPUT will b
 matched against REGEX.  Whether INPUT matches REGEX will be ouputed to stdout. 
 The [-dp] and [-dn] flags enable visualization of the parse tree and non-deterministic
 finite automaton (NFA) that the regular expression is parsed and compiled into,
-respectively (see below).  
+respectively (see below).
 
 GRAMMAR (BNF):
 
@@ -20,8 +20,9 @@ GRAMMAR (BNF):
 	<re2> ::= <re3> | <re3> “?”
 	<re3> ::= <atom> | <atom> <re3>
 	<atom> ::= “(“<re>”)” | <schar>
-	<schar> ::= char | Wild
+	<schar> ::= char | Wild | Charclass(char, char)
 
+*Note that Wild, the wildcard, is denoted by a period in regexes.
 
 VISUALIZATION CODE:
 
