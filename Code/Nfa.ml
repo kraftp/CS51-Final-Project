@@ -30,7 +30,6 @@ end
 
 module Auto : AUTOMATON =
 struct
-
     exception NotRecognized
     exception TODO
         
@@ -57,59 +56,58 @@ struct
         | Or(re1, re2)  -> Or(ref (to_nfa_aux re1), ref (to_nfa_aux re2))
         | Star(re)      -> let preret = (to_nfa_aux re) in 
                            let (ret : nfa) = Star(ref preret, ref empty) in List.iter
-                 ~f:(fun x -> x := ret) (lptr preret); ret 
+                           ~f:(fun x -> x := ret) (lptr preret); ret 
         | Opt(re)       -> Opt(ref (to_nfa_aux re), ref empty) 
     
     let to_nfa (parse : Parse.pt option) : nfa option =
         match parse with
-        |None -> None
-        |Some tn -> Some (to_nfa_aux tn)
+        | None -> None
+        | Some tn -> Some (to_nfa_aux tn)
     
     (*Visualization.  Outputs DOT code which can be compiled to pictures later*)
     
     type nfarec = {num: int; auto : nfa; }
     
     let rec nrchecker (inlist : nfarec list) (input: nfa ref) : int option =
-    match inlist with
-    |[]-> None
-    |hd::tl -> if phys_equal hd.auto !input then Some hd.num else nrchecker tl input                        
+        match inlist with
+        | []-> None
+        | hd::tl -> if phys_equal hd.auto !input then Some hd.num else nrchecker tl input                        
                         
     let rec dotter (graph : nfa) (x : int ref) (nfaor : nfarec list) : nfarec list =
     let orig = !x in
-    match graph with
-    | Empty -> Printf.printf "%d [label=\"ACCEPT\"];\n" !x; x:=!x+1; []
-    | Single (a, ptr, _) -> (match nrchecker nfaor ptr with
-                        |Some num ->
-                         (Printf.printf "%d -> %d;\n" !x num;
-                         (match a with 
-                         | Wild -> Printf.printf "%d [label=\"WILD\"];\n" orig
-                         | Char(c) ->
-                         Printf.printf "%d [label=\"%c\"];\n" orig c
-                         | Charclass(a, b) -> 
-                         Printf.printf "%d [label=\"[%c, %c]\"];\n" orig a b);
-                         x:=!x+1; [])
-                        |None ->
-                         (Printf.printf "%d -> %d;\n" orig (!x+1);
-                         (match a with 
-                         | Wild -> Printf.printf "%d [label=\"WILD\"];\n" orig
-                         | Char(c) ->
-                         Printf.printf "%d [label=\"%c\"];\n" orig c
-                         | Charclass(a, b) -> 
-                         Printf.printf "%d [label=\"[%c, %c]\"];\n" orig a b);                         
-                         x:=!x+1; {num=orig; auto=graph}::(dotter !ptr x nfaor)))
-    | Star (ptr1, ptr2) -> 
-                         (match nrchecker nfaor ptr2 with
-                        |Some num ->
-                         (Printf.printf "%d -> %d;\n" orig num;
-                         Printf.printf "%d [label=\"STAR\"];\n" orig;
-                         Printf.printf "%d -> %d;\n" orig (!x+1);
-                         x:=!x+1; ignore(dotter !ptr1 x [{num=orig; auto=graph}]); [] )
-                        |None ->
-                         (Printf.printf "%d -> %d;\n" orig (!x+1);
-                         Printf.printf "%d [label=\"STAR\"];\n" orig;
-                         x:=!x+1; ignore(dotter !ptr1 x [{num=orig; auto=graph}]);
-                         Printf.printf "%d -> %d;\n" orig (!x);
-                         {num=orig; auto=graph}::(dotter !ptr2 x nfaor)))   
+        match graph with
+        | Empty -> Printf.printf "%d [label=\"ACCEPT\"];\n" !x; x:=!x+1; []
+        | Single (a, ptr, _) -> 
+                           (match nrchecker nfaor ptr with
+                            | Some num ->
+                                (Printf.printf "%d -> %d;\n" !x num;
+                                (match a with 
+                            | Wild -> Printf.printf "%d [label=\"WILD\"];\n" orig
+                            | Char(c)-> Printf.printf "%d [label=\"%c\"];\n" orig c
+                            | Charclass(a, b) -> 
+                                Printf.printf "%d [label=\"[%c, %c]\"];\n" orig a b);
+                                x:=!x+1; [])
+                            | None ->
+                                (Printf.printf "%d -> %d;\n" orig (!x+1);
+                                (match a with 
+                                 | Wild -> Printf.printf "%d [label=\"WILD\"];\n" orig
+                                 | Char(c) -> Printf.printf "%d [label=\"%c\"];\n" orig c
+                             | Charclass(a, b) -> 
+                             Printf.printf "%d [label=\"[%c, %c]\"];\n" orig a b);                         
+                             x:=!x+1; {num=orig; auto=graph}::(dotter !ptr x nfaor)))
+        | Star (ptr1, ptr2) -> 
+                             (match nrchecker nfaor ptr2 with
+                            |Some num ->
+                             (Printf.printf "%d -> %d;\n" orig num;
+                             Printf.printf "%d [label=\"STAR\"];\n" orig;
+                             Printf.printf "%d -> %d;\n" orig (!x+1);
+                             x:=!x+1; ignore(dotter !ptr1 x [{num=orig; auto=graph}]); [] )
+                            |None ->
+                             (Printf.printf "%d -> %d;\n" orig (!x+1);
+                             Printf.printf "%d [label=\"STAR\"];\n" orig;
+                             x:=!x+1; ignore(dotter !ptr1 x [{num=orig; auto=graph}]);
+                             Printf.printf "%d -> %d;\n" orig (!x);
+                             {num=orig; auto=graph}::(dotter !ptr2 x nfaor)))   
     | Opt (ptr1, ptr2) -> 
                          (match nrchecker nfaor ptr2 with
                          |Some num ->
