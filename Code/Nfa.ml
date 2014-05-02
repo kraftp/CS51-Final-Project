@@ -9,10 +9,15 @@ module Graph =
   struct 
     type graph = 
         Empty
-      | Single of Tree.schar * graph ref * int ref (* char and forward pointer to next node *)
-      | Or of graph ref * graph ref  (* forward pointers to 2 or options *)
-      | Star of graph ref * graph ref (* forward pointers into and out of closure *)
-      | Opt of graph ref * graph ref (* forward pointers into and out of option  *)
+      | Single of Tree.schar * graph ref * int ref 
+       (* char and forward pointer to next node *)
+       (* The int ref is used as a flag in the emulator*)
+      | Or of graph ref * graph ref  
+       (* forward pointers to 2 or options *)
+      | Star of graph ref * graph ref 
+       (* forward pointers into and out of closure *)
+      | Opt of graph ref * graph ref
+       (* forward pointers into and out of option  *)
   end
     
 module type AUTOMATON =
@@ -33,10 +38,10 @@ module Auto : AUTOMATON =
     exception NotRecognized
     exception TODO
 		
-    (* Cat and Paren don't need their own nfa types because they're just combinations of nfas or groupings of nfas below *)
     type nfa = Graph.graph
 		 
-    (* lptr constructs a list of all pointers to Empty in the input nfa *)
+    (* lptr constructs a list of all pointers to Empty in the input NFA 
+       This allows smaller NFA's to be combined into bigger ones*)
     let rec lptr (input: nfa) : nfa ref list =
       match input with
       | Empty -> failwith "ERROR IN lptr:  should have been caught earlier"
@@ -45,6 +50,10 @@ module Auto : AUTOMATON =
       | Star (_, ptr2)     -> if !ptr2 = Empty then [ptr2] else lptr !ptr2 
       | Opt  (ptr1 , ptr2) -> if !ptr2 = Empty then ptr2::(lptr !ptr1)
                               else (lptr !ptr1)@(lptr !ptr2)
+                              
+	(*This function recursively builds an NFA from the input parse tree
+	  from the bottom up, using Thompson's algorithm to build small
+	  NFA's and recursively combine them into one big NFA*)
 						  
     let rec to_nfa_aux (parse : Parse.pt) : nfa = 
       let (empty : nfa) = Empty in
@@ -58,6 +67,9 @@ module Auto : AUTOMATON =
                          let (ret : nfa) = Star(ref preret, ref empty) in 
 			 List.iter ~f:(fun x -> x := ret) (lptr preret); ret 
       | Opt(re)       -> Opt(ref (to_nfa_aux re), ref empty) 
+			 
+	(*This is the function that is exposed and is actually called 
+	  from the command line.  It calls the other functions*)		 
 			    
     let to_nfa (parse : Parse.pt option) : nfa option =
       match parse with

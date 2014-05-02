@@ -29,7 +29,7 @@ let command =
 	  | None -> Printf.printf 
 		    "INVALID REGULAR EXPRESSION MATCHING IMPOSSIBLE\n\n"
 	  | Some true -> Printf.printf "Matched! \n\n"
-	  | Some false -> Printf.printf "No match :( \n\n")
+	  | Some false -> Printf.printf "No match :( \n\n"))
 		   
 let () = Command.run command
 		     
