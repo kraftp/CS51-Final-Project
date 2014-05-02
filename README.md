@@ -22,7 +22,9 @@ GRAMMAR (BNF):
 	<atom> ::= “(“<re>”)” | <schar>
 	<schar> ::= char | Wild | Charclass(char, char)
 
-*Note that Wild, the wildcard, is denoted by a period in regexes.
+*Note that Wild, the wildcard, is denoted by a period in regexes
+ and that Charclass, character classes, have syntax [a-b] for
+ all characters (ASCII) between 'a' and 'b'.
 
 VISUALIZATION CODE:
 
