@@ -9,8 +9,8 @@ module Graph =
 struct 
     type graph = 
         Empty
-      | Single of Tree.schar * graph ref (* char and forward pointer to next node *)
-      | Or of graph ref * graph ref (* forward pointers to 2 or options *)
+      | Single of Tree.schar * graph ref * int ref (* char and forward pointer to next node *)
+      | Or of graph ref * graph ref  (* forward pointers to 2 or options *)
       | Star of graph ref * graph ref (* forward pointers into and out of closure *)
       | Opt  of graph ref * graph ref (* forward pointers into and out of option  *)
 end
@@ -41,7 +41,7 @@ struct
     let rec lptr (input : nfa) : nfa ref list =
         match input with
         | Empty -> failwith "ERROR IN lptr:  should have been caught earlier"
-        | Single(_, ptr) -> if !ptr = Empty then [ptr] else lptr !ptr 
+        | Single(_, ptr, _) -> if !ptr = Empty then [ptr] else lptr !ptr 
         | Or(ptr1, ptr2) -> (lptr !ptr1)@(lptr !ptr2)
         | Star (_, ptr2) -> if !ptr2 = Empty then [ptr2] else lptr !ptr2 
         | Opt  (ptr1 , ptr2) -> if !ptr2 = Empty then ptr2::(lptr !ptr1)
@@ -50,7 +50,7 @@ struct
     let rec to_nfa_aux (parse : Parse.pt) : nfa = 
         let (empty : nfa) = Empty in
         match parse with
-        | Single(c)   -> Single(c, ref empty)
+        | Single(c)   -> Single(c, ref empty, ref 0)
         | Cat(re1, re2) -> let ret = (to_nfa_aux re1) in 
                            let second = (to_nfa_aux re2) in List.iter
                  ~f:(fun x -> x := second) (lptr ret); ret 
@@ -78,7 +78,7 @@ struct
     let orig = !x in
     match graph with
     | Empty -> Printf.printf "%d [label=\"ACCEPT\"];\n" !x; x:=!x+1; []
-    | Single (a, ptr) -> (match nrchecker nfaor ptr with
+    | Single (a, ptr, _) -> (match nrchecker nfaor ptr with
                         |Some num ->
                          (Printf.printf "%d -> %d;\n" !x num;
                          (match a with 
