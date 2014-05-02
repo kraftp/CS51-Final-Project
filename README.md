@@ -4,7 +4,8 @@ CS51-Final-Project
 CS51 Final Project Regular Expressions
 
 USAGE INSTRUCTIONS:
-./Regex.native [-dn] [-dp] REGEX INPUT
+
+	
 
 REGEX is the input regular expression.  INPUT is the input string.  INPUT will be
 matched against REGEX.  Whether INPUT matches REGEX will be ouputed to stdout. 
@@ -14,12 +15,12 @@ respectively (see below).
 
 GRAMMAR (BNF):
 
-<re> ::= <re1> | <re1> “|” <re>
-<re1> ::= <re2> | <re2> “*”
-<re2> ::= <re3> | <re3> “?”
-<re3> ::= <atom> | <atom> <re3>
-<atom> ::= “(“<re>”)” | <schar>
-<schar> ::= char | Wild
+	<re> ::= <re1> | <re1> “|” <re>
+	<re1> ::= <re2> | <re2> “*”
+	<re2> ::= <re3> | <re3> “?”
+	<re3> ::= <atom> | <atom> <re3>
+	<atom> ::= “(“<re>”)” | <schar>
+	<schar> ::= char | Wild
 
 
 VISUALIZATION CODE:
