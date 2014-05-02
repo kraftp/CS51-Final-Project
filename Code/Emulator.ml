@@ -30,18 +30,23 @@ struct
             if i< 0 then l else exp (i-1) (s.[i] :: l) in
         exp (String.length s - 1)[];;
     
+    
+     (*Recursive helper function for next_states *)
     let rec nsaux (auto : Auto.nfa) (n : int): (Auto.nfa list) =
         match auto with
         | Empty -> [Empty]
         | Single (_, _, x) -> if !x=n then [] else (x:=n; [auto])
         | Or (next1, next2) | Star (next1, next2) | Opt (next1, next2) 
             -> (nsaux !next1 n)@(nsaux !next2 n)
-        
+       
+       
+    (*Finds all nodes one epsilon-transition away from the input node*) 
     let next_states (auto : Auto.nfa) (n : int) : Auto.nfa list =
         match auto with
         | Single(_, ptr, _) -> nsaux !ptr n
         | _ -> nsaux auto n
         
+     (*Checks if an input character matches an input NFA*) 
     let checkmatch (c : char) (auto : Auto.nfa)  : bool =
         match auto with
         | Single (a, _, _) -> (match a with 
@@ -51,11 +56,16 @@ struct
         | Empty -> false
         | _ -> failwith "FAILURE IN checkmatch: ONLY SINGLES/EMPTIES HERE"
     
+    
+     (*Checks if any NFA's in an input NFA list is in an accept state*)
     let rec checkaccept (auto : Auto.nfa list) : bool =
         match auto with
         | [] -> false
         | hd::tl -> (hd=Empty)||(checkaccept tl)       
-        
+     (*Recursively finds all states one epsilon-transition away from every state
+      in the input list of states, ensures no duplication, filters for states
+      that match the input string, and continues until the input string is empty,
+      then checks if any state is in an accept state.*)   
     let rec eval_lst (str : char list) (auto : Auto.nfa list) (count : int): bool =   
         match str with
         | [] -> checkaccept auto
