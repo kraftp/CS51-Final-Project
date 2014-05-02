@@ -5,7 +5,7 @@ CS51 Final Project Regular Expressions
 
 USAGE INSTRUCTIONS:
 
-	
+	./Regex.native [-dp] [-dn] REGEX INPUT
 
 REGEX is the input regular expression.  INPUT is the input string.  INPUT will be
 matched against REGEX.  Whether INPUT matches REGEX will be ouputed to stdout. 
