@@ -50,7 +50,9 @@ struct
             if (i < 0) then l else exp (i-1) (s.[i] :: l) in
         exp (String.length s - 1)[];;
     
-    
+    (*Converts character list to tokens, which are the smallest
+      combinations of characters that have meaning.  Implements
+      escape sequences*)
     let rec tokenizer (clist : char list) : token list =
         match clist with
         | [] -> []    
@@ -78,7 +80,8 @@ struct
                             tokenizer tl)
             |  _  -> Char(Char(hd))::(tokenizer tl)
             
-             
+    (*Post-processor for the tokenizer that converts tokens related
+      to character classes into a special character class token. *)         
     let rec charclasser (tlist : token list) : token list =
         match tlist with
         |[] -> []
@@ -95,7 +98,13 @@ struct
                 | _ -> [Error])
             | Oper(']') -> [Error]
             | _ -> hd1::(charclasser tl)
-            
+    
+    
+    (*The following seven functions check regular expressions to make sure
+      they are valid, meaning that they have balanced and matched parenthesis
+      only have gramatically meaningful combinations of operators, begin and 
+      end with valid operators, and actually contains some characters to match
+      against. *)
     let rec checkchar (tlist: token list) : bool =
         match tlist with
 	      | [] -> Printf.printf "Error: Regex Contains No Characters\n"; false
@@ -160,6 +169,10 @@ struct
 	let checker (tlist : token list) : bool =
 	checkfirst tlist && checkchar tlist && checkdbl tlist && checkparen tlist && checkerror tlist
 
+
+    (*These five mutually recursive functions actually implement a recursive-
+      descent parser.  There is one function per type of operator in the 
+      grammar. *)
     let rec orfun (tlist : token list) : token list * pt =
         let (ntlist, nptree) = catfun tlist in
         match ntlist with
@@ -206,6 +219,10 @@ struct
              | Oper('(') -> orfun tl
              | _ -> failwith "Invalid Regular Expression (pfun 2)"
             
+            
+     (*This is the exposed function that is actually called from the 
+       command line and itself calls every other function*)
+               
     let parse (str : string) : pt option = 
         let input = charclasser (tokenizer (explode str)) in
 	      if checker input
