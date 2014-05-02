@@ -61,11 +61,13 @@ struct
     let rec checkaccept (auto : Auto.nfa list) : bool =
         match auto with
         | [] -> false
-        | hd::tl -> (hd=Empty)||(checkaccept tl)       
+        | hd::tl -> (hd=Empty)||(checkaccept tl)      
+         
      (*Recursively finds all states one epsilon-transition away from every state
       in the input list of states, ensures no duplication, filters for states
       that match the input string, and continues until the input string is empty,
       then checks if any state is in an accept state.*)   
+      
     let rec eval_lst (str : char list) (auto : Auto.nfa list) (count : int): bool =   
         match str with
         | [] -> checkaccept auto
@@ -74,10 +76,13 @@ struct
             match checked with
             | [] -> false
             | _ -> let next = 
-          (List.fold_left ~f:(fun (x : Graph.graph list) (a : Graph.graph) -> (next_states a count)@x) ~init:[] checked) in
+          (List.fold_left ~f:(fun (x : Graph.graph list) (a : Graph.graph) -> 
+          (next_states a count)@x) ~init:[] checked) in
                 eval_lst tl next (count+1)
     
-
+     (*The actually exposed function that is called from the command line
+       and calls all other functions.*)
+       
     let eval (str : string) (auto : Auto.nfa option) : bool option = 
         match auto with
         |None -> None
