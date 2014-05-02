@@ -14,7 +14,6 @@ module type EMULATOR =
     val eval : string -> Auto.nfa option -> bool option
   end
 
-
 module Emulate : EMULATOR =
   struct
     exception NotRecognized
@@ -34,8 +33,8 @@ module Emulate : EMULATOR =
       | Single (_, _, x) -> if !x=n then [] else (x:=n; [auto])
       | Or (next1, next2) 
       | Star (next1, next2) 
-      | Opt (next1, next2) -> (nsaux !next1 n) @ (nsaux !next2 n)								
-									
+      | Opt (next1, next2) -> (nsaux !next1 n) @ (nsaux !next2 n)
+							
     (*Finds all nodes one epsilon-transition away from the input node*) 
     let next_states (auto : Auto.nfa) (n : int) : Auto.nfa list =
       match auto with
