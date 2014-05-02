@@ -5,13 +5,15 @@ CS51 Final Project Regular Expressions
 
 USAGE INSTRUCTIONS:
 
-	./Regex.native [-dp] [-dn] REGEX INPUT
+	./Regex.native [-dp] [-dn] "REGEX" "INPUT"
 
-REGEX is the input regular expression.  INPUT is the input string.  INPUT will be
-matched against REGEX.  Whether INPUT matches REGEX will be ouputed to stdout. 
-The [-dp] and [-dn] flags enable visualization of the parse tree and non-deterministic
-finite automaton (NFA) that the regular expression is parsed and compiled into,
-respectively (see below).
+REGEX is the input regular expression.  INPUT is the input string.  INPUT will 
+be matched against REGEX.  Whether INPUT matches REGEX will be ouputed to
+stdout. The [-dp] and [-dn] flags enable visualization of the parse tree and 
+non-deterministic finite automaton (NFA) that the regular expression is parsed
+and compiled into, respectively (see below).  Be sure to escape characters
+normally escaped in your shell
+with backslashes
 
 GRAMMAR (BNF):
 
@@ -36,5 +38,5 @@ of the inputted NFA. To download a DOT compiler, run:
 	yum list available 'graphviz*'
 	sudo yum install 'graphviz*'
 
-One installed, use the commands "neato  -Tpng -O *.dot or "dot  -Tpng -O *.dot"
+Once installed, use the commands "neato  -Tpng -O *.dot or "dot  -Tpng -O *.dot"
 to compile the DOT code into a PNG for easy viewing.
