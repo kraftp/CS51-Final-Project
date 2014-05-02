@@ -111,14 +111,14 @@ module Parse : PARSER =
 	 (match hd with
 	  | Char(_) -> true
 	  | Oper(_) -> checkchar tl
-	  | Error -> Printf.printf "Error:  Improper Character Classes\n"; false)
-										     
+	  | Error -> Printf.printf "Error: Improper Character Classes\n"; false)
+
     let rec checkerror (tlist : token list) : bool =
       match tlist with
       | [] -> true
       | hd::tl -> 
 	 (match hd with
-          | Error -> Printf.printf "Error:  Improper Character Classes\n"; false
+          | Error -> Printf.printf "Error: Improper Character Classes\n"; false
           | _ -> checkerror tl)
 				    
 				    
@@ -127,13 +127,13 @@ module Parse : PARSER =
         | [] -> 
 	   (match plist with
 	    | [] -> true
-	    | _  -> Printf.printf "Error:  Mismatched Parentheses\n"; false)
+	    | _  -> Printf.printf "Error: Mismatched Parentheses\n"; false)
         | hd::tl -> 
 	    match hd with
             | Oper('(') -> cpaux (0::plist) tl
             | Oper(')') -> 
 	       (match plist with
-		| [] -> Printf.printf "Error:  Unbalanced Parentheses\n"; false
+		| [] -> Printf.printf "Error: Unbalanced Parentheses\n"; false
 		| _::tlp -> cpaux tlp tl)
 	    | _  -> cpaux plist tl in cpaux [] tlist
 
@@ -143,34 +143,37 @@ module Parse : PARSER =
       | [hd] -> 
 	  (match hd with
 	   | Oper('|') -> 
-	       Printf.printf "Error:  Regex Ends with Invalid Operator\n"; false
+	       Printf.printf "Error: Regex Ends with Invalid Operator\n"; false
 	   | _ -> true)
       | hd1::hd2::tl -> 
 	 (match hd1 with
 	  | Oper('(') ->
             (match hd2 with
 	     | Oper(')')| Oper('|')| Oper('*')| Oper('?')  ->
-	         Printf.printf "Error:  Regex Contains Invalid Operator after '('\n"; false
+	         Printf.printf "Error: Regex Contains Invalid Operator 
+				after '('\n"; false
 	     | _ -> checkdbl (hd2::tl))
 	  | Oper('*')| Oper('?')  ->
 	    (match hd2 with
 	     | Oper('*')| Oper('?')  -> 
-	         Printf.printf "Error:  Regex Contains Invalid Operator after '?' or '*'\n"; false
+	         Printf.printf "Error: Regex Contains Invalid Operator 
+				after '?' or '*'\n"; false
 	     | _ -> checkdbl (hd2::tl))
 	  | Oper('|') ->
 	    (match hd2 with
 	     | Oper(')')| Oper('|')| Oper('*')| Oper('?') ->
-	         Printf.printf "Error:  Regex Contains Invalid Operator after '|'\n"; false
+	         Printf.printf "Error: Regex Contains Invalid Operator 
+				after '|'\n"; false
 	     | _ -> checkdbl (hd2::tl))
 	  | _ -> checkdbl (hd2::tl))
 
     let checkfirst (tlist : token list) : bool =
       match tlist with 
-      | [] -> Printf.printf "Error:  Empty Regex\n"; false
+      | [] -> Printf.printf "Error: Empty Regex\n"; false
       | hd::_ -> 
 	 (match hd with
 	  | Oper('*')|Oper(')')|Oper('|')|Oper('?')  ->
-              Printf.printf "Error:  Regex Begins with Invalid Operator\n"; false
+              Printf.printf "Error: Regex Begins with Invalid Operator\n"; false
 	  | _ -> true)
 			  
     let checker (tlist : token list) : bool =
@@ -238,7 +241,7 @@ module Parse : PARSER =
       if checker input
       then let (_, answer) = orfun input in Some answer else None
 							       
-    (*Visualization.  Outputs DOT code which can be compiled to pictures later*)	      
+    (*Visualization.  Outputs DOT code which can be compiled to pictures later*)
 							       
     let rec dotter (tree : pt) (x : int ref) : unit =
       let orig = !x in
@@ -246,8 +249,9 @@ module Parse : PARSER =
       | Single (a) ->      
 	((match a with
           | Wild -> Printf.printf "%d [label=\"WILD\"];\n" orig
-          | Charclass(a, b) -> Printf.printf "%d [label=\"[%c, %c]\"];\n" orig a b
-          | Char(c) -> Printf.printf "%d [label=\"%c\"];\n" orig c); x:=!x+1)                       
+          | Charclass(a, b) -> 
+	     Printf.printf "%d [label=\"[%c, %c]\"];\n" orig a b
+          | Char(c) -> Printf.printf "%d [label=\"%c\"];\n" orig c); x:=!x+1)
       | Cat (t1, t2) ->   
           (Printf.printf "%d -> %d;\n" orig (!x+1);
            Printf.printf "%d [label=\"CAT\"];\n" orig;
