@@ -82,16 +82,20 @@ struct
                         |Some num ->
                          (Printf.printf "%d -> %d;\n" !x num;
                          (match a with 
-                         |Wild -> Printf.printf "%d [label=\"WILD\"];\n" orig
-                         |Char(c) ->
-                         Printf.printf "%d [label=\"%c\"];\n" orig c);
+                         | Wild -> Printf.printf "%d [label=\"WILD\"];\n" orig
+                         | Char(c) ->
+                         Printf.printf "%d [label=\"%c\"];\n" orig c
+                         | Charclass(a, b) -> 
+                         Printf.printf "%d [label=\"[%c, %c]\"];\n" orig a b);
                          x:=!x+1; [])
                         |None ->
                          (Printf.printf "%d -> %d;\n" orig (!x+1);
                          (match a with 
-                         |Wild -> Printf.printf "%d [label=\"WILD\"];\n" orig
-                         |Char(c) ->
-                         Printf.printf "%d [label=\"%c\"];\n" orig c);
+                         | Wild -> Printf.printf "%d [label=\"WILD\"];\n" orig
+                         | Char(c) ->
+                         Printf.printf "%d [label=\"%c\"];\n" orig c
+                         | Charclass(a, b) -> 
+                         Printf.printf "%d [label=\"[%c, %c]\"];\n" orig a b);                         
                          x:=!x+1; {num=orig; auto=graph}::(dotter !ptr x nfaor)))
     | Star (ptr1, ptr2) -> 
                          (match nrchecker nfaor ptr2 with

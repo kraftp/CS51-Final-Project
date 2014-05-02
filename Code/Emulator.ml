@@ -34,9 +34,8 @@ struct
         match auto with
         | Empty -> [Empty]
         | Single (_, _, x) -> if !x=n then [] else (x:=n; [auto])
-        | Or (next1, next2) -> (nsaux !next1 n)@(nsaux !next2 n)
-        | Star (next1, next2) -> (nsaux !next1 n)@(nsaux !next2 n)
-        | Opt (next1, next2) -> (nsaux !next1 n)@(nsaux !next2 n)
+        | Or (next1, next2) | Star (next1, next2) | Opt (next1, next2) 
+            -> (nsaux !next1 n)@(nsaux !next2 n)
         
     let next_states (auto : Auto.nfa) (n : int) : Auto.nfa list =
         match auto with
@@ -47,7 +46,8 @@ struct
         match auto with
         | Single (a, _, _) -> (match a with 
                            |Wild -> true
-                           |Char(chr) -> chr=c)
+                           |Char(chr) -> chr=c
+                           |Charclass(a, b) -> a<=c && c<=b)
         | Empty -> false
         | _ -> failwith "FAILURE IN checkmatch: ONLY SINGLES/EMPTIES HERE"
     
@@ -74,5 +74,6 @@ struct
         |Some tn -> match tn with
                     |Single (_, _, _) -> Some (eval_lst (explode str) [tn] 2)
                     | _ -> Some (eval_lst (explode str) (next_states tn 1) 2)
+                    
 end
  
