@@ -11,9 +11,11 @@ REGEX is the input regular expression.  INPUT is the input string.  INPUT will
 be matched against REGEX.  Whether INPUT matches REGEX will be ouputed to
 stdout. The [-dp] and [-dn] flags enable visualization of the parse tree and 
 non-deterministic finite automaton (NFA) that the regular expression is parsed
-and compiled into, respectively (see below).  Be sure to escape characters
-normally escaped in your shell
-with backslashes
+and compiled into, respectively (see below).
+
+Be sure to escape characters normally escaped in your shell with backslashes.
+The characters '(', ')', '|', '*', '.', '?', '[', ']', and '~' need to be
+escaped with the tilde, '~'.
 
 GRAMMAR (BNF):
 
@@ -22,11 +24,9 @@ GRAMMAR (BNF):
 	<re2> ::= <re3> | <re3> “?”
 	<re3> ::= <atom> | <atom> <re3>
 	<atom> ::= “(“<re>”)” | <schar>
-	<schar> ::= char | Wild | Charclass(char, char)
+	<schar> ::= char | Wild | [char, char]
 
 *Note that Wild, the wildcard, is denoted by a period in regexes
- and that Charclass, character classes, have syntax [a-b] for
- all characters (ASCII) between 'a' and 'b'.
 
 VISUALIZATION CODE:
 
