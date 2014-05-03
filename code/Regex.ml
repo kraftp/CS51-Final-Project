@@ -13,6 +13,8 @@ let command =
   Command.basic 
     ~summary: "Matches strings based on inputted regular expression!"
 
+
+
   Command.Spec.(empty
     +> flag "-dn" no_arg ~doc:" Generate DOT code for the NFA"
     +> flag "-dp" no_arg ~doc:" Generate DOT code for the parser"
@@ -31,7 +33,8 @@ let command =
 	  | Some true -> Printf.printf "Matched! \n\n"
 	  | Some false -> Printf.printf "No match :( \n\n"))
 		   
-let () = Command.run command
+let () = Command.run ~build_info: "Typically compiled with given Makefile" 
+                     ~version: "First submitted version" command
 		     
 
 		     
